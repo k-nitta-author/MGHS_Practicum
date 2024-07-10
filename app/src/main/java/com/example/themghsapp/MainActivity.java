@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -34,14 +35,40 @@ public class MainActivity extends AppCompatActivity {
         });
 
         FragmentManager fragmentManager = getSupportFragmentManager();
+
+
         fragmentManager.beginTransaction()
-                .replace(R.id.fragmentContainerView, ContactFragment.class, null)
+                .replace(R.id.fragmentContainerView, HomeFragment.class, null)
                 .setReorderingAllowed(true)
                 .addToBackStack("name") // Name can be null
                 .commit();
 
+
+
         bottom_navigation = findViewById(R.id.bottomNavigationView);
 
+        bottom_navigation.setOnItemReselectedListener(new OnItemReselectedListener() {
+            @Override
+            public void onNavigationItemReselected(@NonNull MenuItem item) {
+
+                Fragment fragment = null;
+
+                if (item.getItemId() == R.id.home) {
+                    fragment = new HomeFragment();
+                } else if (item.getItemId() == R.id.about) {
+                    fragment = new AboutFragment();
+                } else if (item.getItemId() == R.id.services) {
+                    fragment = new ServicesFragment();
+                }
+
+
+                fragmentManager.beginTransaction()
+                        .replace(R.id.fragmentContainerView, fragment, null)
+                        .setReorderingAllowed(true)
+                        .addToBackStack("name") // Name can be null
+                        .commit();
+            }
+        });
 
 
     }
