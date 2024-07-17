@@ -16,6 +16,11 @@ public class ServicesAdapter extends RecyclerView.Adapter<servicesRecyclerView> 
 
     List<ServicesRecyclerItem> items;
 
+    public void setFilteredList(List<ServicesRecyclerItem> filteredList) {
+        this.items = filteredList;
+        notifyDataSetChanged();
+    }
+
     public ServicesAdapter(Context context, List<ServicesRecyclerItem> items) {
         this.context = context;
         this.items = items;

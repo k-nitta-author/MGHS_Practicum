@@ -25,6 +25,8 @@ public class ServicesFragment extends Fragment {
 
     private SearchView serviceSearchView;
     private RecyclerView servicesRecyclerView;
+    private ServicesAdapter adapter;
+    private List<ServicesRecyclerItem> items;
 
     public ServicesFragment() {
         // Required empty public constructor
@@ -37,8 +39,6 @@ public class ServicesFragment extends Fragment {
     public static ServicesFragment newInstance(String param1, String param2) {
         ServicesFragment fragment = new ServicesFragment();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
         return fragment;
     }
@@ -47,6 +47,15 @@ public class ServicesFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        // Create a new list of items
+        items = new ArrayList<ServicesRecyclerItem>();
+
+        // Add items to the list
+        items.add(new ServicesRecyclerItem("TEST", "description", R.drawable.ic_launcher_background));
+        items.add(new ServicesRecyclerItem("Garamond", "description", R.drawable.ic_launcher_background));
+        items.add(new ServicesRecyclerItem("Atrinsic", "description", R.drawable.ic_launcher_background));
+
+        adapter = new ServicesAdapter(this.getContext(), items);
 
 
     }
@@ -61,17 +70,13 @@ public class ServicesFragment extends Fragment {
         // Access the RecyclerView
         RecyclerView recyclerView = view.findViewById(R.id.services_recylcer);
 
-        // Create a new list of items
-        List<ServicesRecyclerItem> items = new ArrayList<ServicesRecyclerItem>();
 
-        // Add items to the list
-        items.add(new ServicesRecyclerItem("name", "description", R.drawable.ic_launcher_background));
-        items.add(new ServicesRecyclerItem("name", "description", R.drawable.ic_launcher_background));
-        items.add(new ServicesRecyclerItem("name", "description", R.drawable.ic_launcher_background));
 
         // Set the adapter on the RecyclerView
         recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
-        recyclerView.setAdapter(new ServicesAdapter(this.getContext(), items));
+
+
+        recyclerView.setAdapter(adapter);
 
         // Access the SearchView
         serviceSearchView = view.findViewById(R.id.searchView);
@@ -103,20 +108,21 @@ public class ServicesFragment extends Fragment {
 
     private void filterList(String text) {
 
-        List<ServicesRecyclerItem> filterList = new ArrayList<>();
+        List<ServicesRecyclerItem> filteredList = new ArrayList<>();
 
-        for (ServicesRecyclerItem item : filterList) {
+        for (ServicesRecyclerItem item : items) {
             if (item.name.toLowerCase().contains(text.toLowerCase())) {
-                filterList.add(item);
+                filteredList.add(item);
             }
-}
-            if (filterList.isEmpty()) {
+        }
+
+            if (filteredList.isEmpty()) {
                 Toast.makeText(this.getContext(), "No Match found", Toast.LENGTH_SHORT).show();
             } else {
-
-                
+            adapter.setFilteredList(filteredList);
 
             }
+
     }
 
 }
