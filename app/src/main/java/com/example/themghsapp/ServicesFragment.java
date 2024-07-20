@@ -3,12 +3,14 @@ package com.example.themghsapp;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.SearchView;
 import android.widget.Toast;
 
@@ -27,6 +29,7 @@ public class ServicesFragment extends Fragment {
     private RecyclerView servicesRecyclerView;
     private ServicesAdapter adapter;
     private List<ServicesRecyclerItem> items;
+    private Button more_services;
 
     public ServicesFragment() {
         // Required empty public constructor
@@ -98,6 +101,23 @@ public class ServicesFragment extends Fragment {
             }
         });
 
+
+        more_services = view.findViewById(R.id.button);
+
+        more_services.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                //FragmentManager fragmentManager = v.getContext().getSupportFragmentManager();
+
+                //fragmentManager.beginTransaction()
+                  //      .replace(R.id.fragmentContainerView, new ServicesDetailedFragment(), null)
+                     //   .setReorderingAllowed(true)
+                       // .addToBackStack("name") // Name can be null
+                        //.commit();
+
+            }
+        });
 
         // Inflate the layout for this fragment
         return view;
