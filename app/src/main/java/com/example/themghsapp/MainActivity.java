@@ -55,10 +55,14 @@ public class MainActivity extends AppCompatActivity {
 
                 if (item.getItemId() == R.id.home) {
                     fragment = new HomeFragment();
-                } else if (item.getItemId() == R.id.about) {
-                    fragment = new AboutFragment();
                 } else if (item.getItemId() == R.id.services) {
                     fragment = new ServicesFragment();
+                } else if (item.getItemId() == R.id.contact) {
+                    fragment = new ContactFragment();
+                }else if (item.getItemId() == R.id.quiz) {
+                    fragment = new QuizFragment();
+                }else if (item.getItemId() == R.id.careers) {
+                    fragment = new CareersFragment();
                 }
 
 

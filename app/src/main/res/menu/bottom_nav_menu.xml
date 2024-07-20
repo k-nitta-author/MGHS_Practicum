@@ -1,17 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
         android:id="@+id/home"
         android:enabled="true"
         android:icon="@android:drawable/btn_star_big_on"
         android:title="Home"
-        android:visible="true" />
-    <item
-        android:id="@+id/about"
-        android:enabled="true"
-        android:icon="@android:drawable/btn_star_big_on"
-        android:title="About"
         android:visible="true" />
     <item
         android:id="@+id/services"
@@ -25,5 +20,17 @@
         android:enabled="true"
         android:icon="@android:drawable/btn_star_big_on"
         android:title="Contact"
+        android:visible="true" />
+    <item
+        android:id="@+id/quiz"
+        android:enabled="true"
+        android:icon="@android:drawable/btn_star_big_on"
+        android:title="Quiz"
+        android:visible="true" />
+    <item
+        android:id="@+id/careers"
+        android:enabled="true"
+        android:icon="@android:drawable/btn_star_big_on"
+        android:title="Careers"
         android:visible="true" />
 </menu>
