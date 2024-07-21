@@ -6,11 +6,481 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/frameLayout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:background="@color/bg_mghs_light_green"
     tools:context=".HomeFragment">
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Home"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
+    <androidx.gridlayout.widget.GridLayout
+        android:id="@+id/gridLayoutMenu"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        app:alignmentMode="alignMargins"
+        app:columnCount="3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textView">
 
+        <RadioButton
+            android:id="@+id/radioButton1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:padding="4dp"
+            android:background="@drawable/btn_outline"
+            android:button="@color/white"
+            android:drawableTop="@drawable/handshake_icon"
+            android:text="Services"
+            android:textAlignment="center"
+            app:layout_columnWeight="1"
+            app:layout_gravity="fill_horizontal" />
+
+        <RadioButton
+            android:id="@+id/radioButton2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:padding="4dp"
+            android:background="@drawable/btn_outline"
+            android:button="@color/white"
+            android:drawableTop="@drawable/handshake_icon"
+            android:text="Careers"
+            android:textAlignment="center"
+            app:layout_columnWeight="1"
+            app:layout_gravity="fill_horizontal" />
+
+        <RadioButton
+            android:id="@+id/radioButton3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:padding="4dp"
+            android:background="@drawable/btn_outline"
+            android:button="@color/white"
+            android:drawableTop="@drawable/handshake_icon"
+            android:text="Blog"
+            android:textAlignment="center"
+            app:layout_columnWeight="1"
+            app:layout_gravity="fill_horizontal" />
+
+        <RadioButton
+            android:id="@+id/radioButton4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:padding="4dp"
+            android:background="@drawable/btn_outline"
+            android:button="@color/white"
+            android:drawableTop="@drawable/handshake_icon"
+            android:text="Contact"
+            android:textAlignment="center"
+            app:layout_columnWeight="1"
+            app:layout_gravity="fill_horizontal" />
+
+        <RadioButton
+            android:id="@+id/radioButton5"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:padding="4dp"
+            android:background="@drawable/btn_outline"
+            android:button="@color/white"
+            android:drawableTop="@drawable/handshake_icon"
+            android:text="Quiz"
+            android:textAlignment="center"
+            app:layout_columnWeight="1"
+            app:layout_gravity="fill_horizontal" />
+
+        <RadioButton
+            android:id="@+id/radioButton6"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+android:background="@drawable/btn_outline"
+            android:button="@color/white"
+            android:drawableTop="@drawable/handshake_icon"
+            android:text="Settings"
+            android:textAlignment="center"
+            app:layout_columnWeight="1"
+            app:layout_gravity="fill_horizontal" />
+    </androidx.gridlayout.widget.GridLayout>
+
+    <androidx.gridlayout.widget.GridLayout
+        android:id="@+id/gridLayoutInquiries"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:padding="16dp"
+        app:alignmentMode="alignMargins"
+        app:columnCount="2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/gridLayoutMenu">
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:backgroundTint="@android:color/transparent"
+            android:text="Job Inquiries"
+            android:textColor="#418043"
+            app:layout_columnWeight="1"
+            app:layout_gravity="fill_horizontal"
+            app:strokeColor="#418043"
+            app:strokeWidth="2dp" />
+
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:backgroundTint="#418043"
+            android:text="Service Requests"
+            app:layout_columnWeight="1"
+            app:layout_gravity="fill_horizontal" />
+    </androidx.gridlayout.widget.GridLayout>
+
+    <TextView
+        style="@style/Heading"
+        android:id="@+id/featuredServicesHeading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Featured Services"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/gridLayoutInquiries" />
+
+    <HorizontalScrollView
+        android:id="@+id/featuredServicesInfoCards"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/featuredServicesHeading">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:padding="16dp">
+
+            <!-- InfoCard 1 -->
+            <androidx.cardview.widget.CardView style="@style/InfoCardStyle">
+
+                <LinearLayout
+                    android:layout_width="200dp"
+                    android:layout_height="350dp"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        style="@style/InfoCardHeading"
+                        android:text="Negotiation Brand Franchise" />
+
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_marginTop="8dp"
+                        android:src="@drawable/handshake_icon" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="MGHS Services Negotiates on your behalf to acquire your franchise, location, products and prices that is suitable for your needs." />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- InfoCard 2 -->
+            <androidx.cardview.widget.CardView style="@style/InfoCardStyle">
+
+                <LinearLayout
+                    android:layout_width="200dp"
+                    android:layout_height="350dp"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        style="@style/InfoCardHeading"
+                        android:text="Website or Application Design & Development" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="75dp"
+                        android:layout_marginTop="8dp"
+                        android:src="@drawable/desktop_mobile_icon" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="We provide Web & App Design & Development Services for your small and medium business. We'll design your website with the latest develp & mobile applications, providing with content management as well." />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- InfoCard 3 -->
+            <androidx.cardview.widget.CardView style="@style/InfoCardStyle">
+
+                <LinearLayout
+                    android:layout_width="200dp"
+                    android:layout_height="350dp"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        style="@style/InfoCardHeading"
+                        android:text="Accounting" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="75dp"
+                        android:layout_marginTop="8dp"
+                        android:src="@drawable/calculator_money_icon" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="MGHS Services provides financial accounting services for your small and medium sized business. A full service accounting and professional services that offers the simplest way to handle accounts." />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- InfoCard 4 -->
+            <androidx.cardview.widget.CardView style="@style/InfoCardStyle">
+
+                <LinearLayout
+                    android:layout_width="200dp"
+                    android:layout_height="350dp"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        style="@style/InfoCardHeading"
+                        android:text="Location Search" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="75dp"
+                        android:layout_marginTop="8dp"
+                        android:src="@drawable/maps_pin_black_icon" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="MGHS Services will search for a location for your franchise to provide the most comprehensive demographics data for your market. We handle everything from A-Z when it comes to Location and Site selection." />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- InfoCard 5 -->
+            <androidx.cardview.widget.CardView style="@style/InfoCardStyle">
+
+                <LinearLayout
+                    android:layout_width="200dp"
+                    android:layout_height="350dp"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        style="@style/InfoCardHeading"
+                        android:text="Business Contruction" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="75dp"
+                        android:layout_marginTop="8dp"
+                        android:src="@drawable/construction_engineer_icon" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="MGHS Services provides construction services for your busienss like electrical & mechanical works, etc." />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- InfoCard 6 -->
+            <androidx.cardview.widget.CardView style="@style/InfoCardStyle">
+
+                <LinearLayout
+                    android:layout_width="200dp"
+                    android:layout_height="350dp"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        style="@style/InfoCardHeading"
+                        android:text="Financial Resource" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="75dp"
+                        android:layout_marginTop="8dp"
+                        android:src="@drawable/credit_card_icon" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="Finding the best types of investor for your business is crucial step in realizing its overall vision. MGHS Services will help you connect to right investors." />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <!-- Place customer reviews here -->
+
+    <!-- Quick Links -->
+    <TextView
+        style="@style/Heading"
+        android:id="@+id/quickLinksHeading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Quick Links"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/featuredServicesInfoCards" />
+
+    <androidx.gridlayout.widget.GridLayout
+        android:id="@+id/gridLayoutQuickLinks"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:padding="16dp"
+        app:alignmentMode="alignMargins"
+        app:rowCount="3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/quickLinksHeading">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="16dp">
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/credit_card_icon" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/Heading"
+                            android:text="About" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Read how MGHS came to be." />
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="16dp">
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/credit_card_icon" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/Heading"
+                            android:text="Privacy Policy" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Read how MGHS collects, uses, discloses, and safeguards your information" />
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="16dp">
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/credit_card_icon" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/Heading"
+                            android:text="Contact Us" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Get in touch with the MGHS team" />
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+    </androidx.gridlayout.widget.GridLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
