@@ -217,7 +217,7 @@ android:background="@drawable/btn_outline"
 
                     <TextView
                         style="@style/InfoCardHeading"
-                        android:text="Website or Application Design & Development" />
+                        android:text="Website or Application Design &amp; Development" />
 
                     <ImageView
                         android:layout_width="wrap_content"
@@ -229,7 +229,7 @@ android:background="@drawable/btn_outline"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
-                        android:text="We provide Web & App Design & Development Services for your small and medium business. We'll design your website with the latest develp & mobile applications, providing with content management as well." />
+                        android:text="We provide Web &amp; App Design &amp; Development Services for your small and medium business. We'll design your website with the latest develp &amp; mobile applications, providing with content management as well." />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
@@ -310,7 +310,7 @@ android:background="@drawable/btn_outline"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
-                        android:text="MGHS Services provides construction services for your busienss like electrical & mechanical works, etc." />
+                        android:text="MGHS Services provides construction services for your busienss like electrical &amp; mechanical works, etc." />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 

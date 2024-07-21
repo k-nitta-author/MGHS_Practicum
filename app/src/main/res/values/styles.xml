@@ -26,8 +26,9 @@
         <item name="android:layout_margin">4dp</item>
         <item name="android:backgroundTint">@android:color/transparent</item>
         <item name="android:textColor">#418043</item>
-        <item name="app:strokeColor">#418043</item>
-        <item name="app:strokeWidth">2dp</item>
+
+        <item name="android:strokeColor">#418043</item>
+        <item name="android:strokeWidth">2</item>
     </style>
 
     <style name="GridButtonStyle">
@@ -35,8 +36,8 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_margin">4dp</item>
         <item name="android:backgroundTint">@android:color/transparent</item>
-        <item name="app:layout_columnWeight">1</item>
-        <item name="app:layout_gravity">fill_horizontal</item>
+        <item name="android:layout_columnWeight">1</item>
+        <item name="android:layout_gravity">fill_horizontal</item>
     </style>
 
     <style name="Heading">

@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
                 }else if (item.getItemId() == R.id.quiz) {
                     fragment = new QuizFragment();
                 }else if (item.getItemId() == R.id.careers) {
-                    fragment = new CareersFragment();
+                    //fragment = new CareersFragment();
                 }
 
 
