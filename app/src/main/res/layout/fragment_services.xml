@@ -18,32 +18,34 @@
 
         <TextView
             android:id="@+id/textView2"
+            style="@style/Heading"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-condensed"
-            android:text="Services"
-            android:textAlignment="center"
-            android:textSize="24sp" />
+            android:text="Services" />
 
         <SearchView
             android:id="@+id/searchView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:layout_margin="14dp"
+            android:background="@drawable/btn_outline" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/services_recylcer"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            >
 
         </androidx.recyclerview.widget.RecyclerView>
     </LinearLayout>
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/viewMoreBtn"
+        style="@style/btnFilled"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="36dp"
-        android:text="Button"
+        android:text="View More"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout" />

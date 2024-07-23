@@ -49,7 +49,7 @@
 
         <Button
             android:id="@+id/signup_button"
-            style="@style/SignUpButtonStyle"
+            style="@style/btnFilled"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -58,11 +58,11 @@
 
         <Button
             android:id="@+id/login_button"
-            style="@style/LoginButtonStyle"
+            style="@style/btnOutline"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:layout_marginStart="8dp"
+            android:layout_weight="1"
             android:text="Log in" />
     </LinearLayout>
 
@@ -70,12 +70,11 @@
         style="@style/Heading"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Forgot Password?"
-        android:gravity="center" />
+        android:text="Forgot Password?" />
 
     <Button
         android:id="@+id/reset_password_button"
-        style="@style/ResetButtonStyle"
+        style="@style/btnFilled"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
