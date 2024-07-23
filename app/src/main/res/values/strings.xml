@@ -4,4 +4,17 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="jobinquiriesbtn">jobInquiriesBtn</string>
     <string name="servicerequestsbtn">serviceRequestsBtn</string>
+
+    <!-- HOME -->
+    <string name="negotiation_brand_franchise_desc">MGHS Services Negotiates on your behalf to acquire your franchise, location, products and prices that is suitable for your needs.</string>
+    <string name="website_application_design_development_desc"><![CDATA[We provide Web & App Design & Development Services for your small and medium business. We\'ll design your website with the latest development & mobile applications, providing with content management as well.]]></string>
+    <string name="accounting_desc">MGHS Services provides financial accounting services for your small and medium sized business. A full service accounting and professional services that offers the simplest way to handle accounts.</string>
+    <string name="location_search_desc">Provides location search services for your small and meduim business. We offer search assistance for you to find the best location for your business startup.</string>
+    <string name="business_construction_desc">MGHS Services provides construction services for your business like electrical and mechinical works, etc.</string>
+    <string name="financial_resource_desc">Finding the best type of investor for your business is a crucial step in realizing its overall vision. MGHS Services will help you connect to right investors.</string>
+    <string name="about_desc">Read how MGHS came to be</string>
+    <string name="privacy_policy_desc">Read how MGHS collects, uses, discloses, ad safeguards your information.</string>
+    <string name="contact_us_desc">Get in touch with the MGHS team.</string>
+
+
 </resources>

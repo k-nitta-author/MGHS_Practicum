@@ -1,21 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/frameLayout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/bg_mghs_light_green"
-    tools:context=".HomeFragment">
+    tools:context=".HomeFragment" >
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Home"
+        android:text="HOME"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -25,92 +24,71 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:padding="16dp"
+        android:visibility="visible"
         app:alignmentMode="alignMargins"
         app:columnCount="3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textView">
+        app:layout_constraintTop_toBottomOf="@id/textView"
+        app:layout_constraintWidth_default="spread">
 
         <RadioButton
             android:id="@+id/radioButton1"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="4dp"
-            android:padding="4dp"
-            android:background="@drawable/btn_outline"
-            android:button="@color/white"
-            android:drawableTop="@drawable/handshake_icon"
+            style="@style/RadioButtonStyle"
+            android:drawableTop="@drawable/rocket"
             android:text="Services"
-            android:textAlignment="center"
+            android:contentDescription="Rocket Icon"
+            app:layout_column="0"
             app:layout_columnWeight="1"
             app:layout_gravity="fill_horizontal" />
 
         <RadioButton
             android:id="@+id/radioButton2"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="4dp"
-            android:padding="4dp"
-            android:background="@drawable/btn_outline"
-            android:button="@color/white"
-            android:drawableTop="@drawable/handshake_icon"
+            style="@style/RadioButtonStyle"
+            android:drawableTop="@drawable/careers"
             android:text="Careers"
-            android:textAlignment="center"
+            android:contentDescription="Careers Icon"
+            app:layout_column="1"
             app:layout_columnWeight="1"
             app:layout_gravity="fill_horizontal" />
 
         <RadioButton
             android:id="@+id/radioButton3"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="4dp"
-            android:padding="4dp"
-            android:background="@drawable/btn_outline"
-            android:button="@color/white"
-            android:drawableTop="@drawable/handshake_icon"
+            style="@style/RadioButtonStyle"
+            android:drawableTop="@drawable/light_bulb"
             android:text="Blog"
-            android:textAlignment="center"
+            android:contentDescription="Blogs Icon"
+            app:layout_column="2"
             app:layout_columnWeight="1"
             app:layout_gravity="fill_horizontal" />
 
         <RadioButton
             android:id="@+id/radioButton4"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="4dp"
-            android:padding="4dp"
-            android:background="@drawable/btn_outline"
-            android:button="@color/white"
-            android:drawableTop="@drawable/handshake_icon"
+            style="@style/RadioButtonStyle"
+            android:drawableTop="@drawable/contact"
             android:text="Contact"
-            android:textAlignment="center"
+            android:contentDescription="Contact Icon"
+            app:layout_column="0"
             app:layout_columnWeight="1"
             app:layout_gravity="fill_horizontal" />
 
         <RadioButton
             android:id="@+id/radioButton5"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="4dp"
-            android:padding="4dp"
-            android:background="@drawable/btn_outline"
-            android:button="@color/white"
-            android:drawableTop="@drawable/handshake_icon"
+            style="@style/RadioButtonStyle"
+            android:drawableTop="@drawable/quiz"
             android:text="Quiz"
-            android:textAlignment="center"
+            android:contentDescription="Quiz Icon"
+            app:layout_column="1"
             app:layout_columnWeight="1"
             app:layout_gravity="fill_horizontal" />
 
         <RadioButton
             android:id="@+id/radioButton6"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="4dp"
-android:background="@drawable/btn_outline"
-            android:button="@color/white"
-            android:drawableTop="@drawable/handshake_icon"
+            style="@style/RadioButtonStyle"
+            android:drawableTop="@drawable/settings"
             android:text="Settings"
-            android:textAlignment="center"
+            android:contentDescription="Settings Icon"
+            app:layout_column="2"
             app:layout_columnWeight="1"
             app:layout_gravity="fill_horizontal" />
     </androidx.gridlayout.widget.GridLayout>
@@ -196,13 +174,14 @@ android:background="@drawable/btn_outline"
                         android:layout_width="100dp"
                         android:layout_height="100dp"
                         android:layout_marginTop="8dp"
-                        android:src="@drawable/handshake_icon" />
+                        android:src="@drawable/handshake_icon"
+                        android:contentDescription="Handshake Icon" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
-                        android:text="MGHS Services Negotiates on your behalf to acquire your franchise, location, products and prices that is suitable for your needs." />
+                        android:text="@string/negotiation_brand_franchise_desc" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
@@ -223,13 +202,15 @@ android:background="@drawable/btn_outline"
                         android:layout_width="wrap_content"
                         android:layout_height="75dp"
                         android:layout_marginTop="8dp"
-                        android:src="@drawable/desktop_mobile_icon" />
+                        android:src="@drawable/desktop_mobile_icon"
+                        android:contentDescription="Desktop Mobile Icon" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
-                        android:text="We provide Web &amp; App Design &amp; Development Services for your small and medium business. We'll design your website with the latest develp &amp; mobile applications, providing with content management as well." />
+                        android:text="@string/website_application_design_development_desc"
+                        tools:ignore="HardcodedText" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
@@ -250,13 +231,14 @@ android:background="@drawable/btn_outline"
                         android:layout_width="wrap_content"
                         android:layout_height="75dp"
                         android:layout_marginTop="8dp"
-                        android:src="@drawable/calculator_money_icon" />
+                        android:src="@drawable/calculator_money_icon"
+                        android:contentDescription="Calculator Money Icon" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
-                        android:text="MGHS Services provides financial accounting services for your small and medium sized business. A full service accounting and professional services that offers the simplest way to handle accounts." />
+                        android:text="@string/accounting_desc" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
@@ -277,13 +259,14 @@ android:background="@drawable/btn_outline"
                         android:layout_width="wrap_content"
                         android:layout_height="75dp"
                         android:layout_marginTop="8dp"
-                        android:src="@drawable/maps_pin_black_icon" />
+                        android:src="@drawable/maps_pin_black_icon"
+                        android:contentDescription="Location Search Icon" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
-                        android:text="MGHS Services will search for a location for your franchise to provide the most comprehensive demographics data for your market. We handle everything from A-Z when it comes to Location and Site selection." />
+                        android:text="@string/location_search_desc" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
@@ -298,19 +281,20 @@ android:background="@drawable/btn_outline"
 
                     <TextView
                         style="@style/InfoCardHeading"
-                        android:text="Business Contruction" />
+                        android:text="Business Construction" />
 
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="75dp"
                         android:layout_marginTop="8dp"
-                        android:src="@drawable/construction_engineer_icon" />
+                        android:src="@drawable/construction_engineer_icon"
+                        android:contentDescription="Construction Engineer Icon" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
-                        android:text="MGHS Services provides construction services for your busienss like electrical &amp; mechanical works, etc." />
+                        android:text="@string/business_construction_desc"/>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
@@ -331,156 +315,123 @@ android:background="@drawable/btn_outline"
                         android:layout_width="wrap_content"
                         android:layout_height="75dp"
                         android:layout_marginTop="8dp"
-                        android:src="@drawable/credit_card_icon" />
+                        android:src="@drawable/credit_card_icon"
+                        android:contentDescription="Credit Card Icon" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
-                        android:text="Finding the best types of investor for your business is crucial step in realizing its overall vision. MGHS Services will help you connect to right investors." />
+                        android:text="@string/financial_resource_desc"/>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
         </LinearLayout>
     </HorizontalScrollView>
 
-    <!-- Place customer reviews here -->
-
-    <!-- Quick Links -->
     <TextView
-        style="@style/Heading"
         android:id="@+id/quickLinksHeading"
+        style="@style/Heading"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="24dp"
         android:text="Quick Links"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/featuredServicesInfoCards" />
 
-    <androidx.gridlayout.widget.GridLayout
-        android:id="@+id/gridLayoutQuickLinks"
+    <LinearLayout
+        android:id="@+id/quickLinksContainer"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:orientation="vertical"
         android:layout_marginTop="8dp"
-        android:padding="16dp"
-        app:alignmentMode="alignMargins"
-        app:rowCount="3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/quickLinksHeading">
+        app:layout_constraintTop_toBottomOf="@id/quickLinksHeading"
+        android:padding="16dp">
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:padding="16dp">
+        <!-- Quick Link Card 1 -->
+        <androidx.cardview.widget.CardView
+            style="@style/QuickLinkCardStyle">
 
-            <androidx.cardview.widget.CardView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+            <LinearLayout
+                style="@style/QuickLinkCardContent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    style="@style/QuickLinkCardIcon"
+                    android:contentDescription="Link Icon"
+                    android:src="@drawable/seedling" />
+
+                <LinearLayout style="@style/QuickLinkCardTextContainer">
+
+                    <TextView
+                        style="@style/QuickLinkCardHeading"
+                        android:text="About" />
+
+                    <TextView
+                        style="@style/QuickLinkCardBody"
+                        android:text="@string/about_desc" />
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Quick Link Card 2 -->
+        <androidx.cardview.widget.CardView
+            style="@style/QuickLinkCardStyle">
+
+            <LinearLayout
+                style="@style/QuickLinkCardContent">
+
+                <ImageView
+                    style="@style/QuickLinkCardIcon"
+                    android:src="@drawable/papers"
+                    android:contentDescription="Link Icon" />
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:padding="16dp">
+                    style="@style/QuickLinkCardTextContainer">
 
-                    <ImageView
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:layout_marginEnd="8dp"
-                        android:layout_gravity="center_vertical"
-                        android:src="@drawable/credit_card_icon" />
+                    <TextView
+                        style="@style/QuickLinkCardHeading"
+                        android:text="Privacy Policy" />
 
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-                        <TextView
-                            style="@style/Heading"
-                            android:text="About" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Read how MGHS came to be." />
-                    </LinearLayout>
+                    <TextView
+                        style="@style/QuickLinkCardBody"
+                        android:text="@string/privacy_policy_desc" />
                 </LinearLayout>
-            </androidx.cardview.widget.CardView>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
 
-            <androidx.cardview.widget.CardView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+        <!-- Quick Link Card 3 -->
+        <androidx.cardview.widget.CardView
+            style="@style/QuickLinkCardStyle">
+
+            <LinearLayout
+                style="@style/QuickLinkCardContent">
+
+                <ImageView
+                    style="@style/QuickLinkCardIcon"
+                    android:src="@drawable/contact"
+                    android:contentDescription="Link Icon" />
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:padding="16dp">
+                    style="@style/QuickLinkCardTextContainer">
 
-                    <ImageView
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:layout_marginEnd="8dp"
-                        android:layout_gravity="center_vertical"
-                        android:src="@drawable/credit_card_icon" />
+                    <TextView
+                        style="@style/QuickLinkCardHeading"
+                        android:text="Contact Us" />
 
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-                        <TextView
-                            style="@style/Heading"
-                            android:text="Privacy Policy" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Read how MGHS collects, uses, discloses, and safeguards your information" />
-                    </LinearLayout>
+                    <TextView
+                        style="@style/QuickLinkCardBody"
+                        android:text="@string/contact_us_desc" />
                 </LinearLayout>
-            </androidx.cardview.widget.CardView>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
 
-            <androidx.cardview.widget.CardView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
 
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:padding="16dp">
-
-                    <ImageView
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:layout_marginEnd="8dp"
-                        android:layout_gravity="center_vertical"
-                        android:src="@drawable/credit_card_icon" />
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-                        <TextView
-                            style="@style/Heading"
-                            android:text="Contact Us" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Get in touch with the MGHS team" />
-                    </LinearLayout>
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-        </LinearLayout>
-
-    </androidx.gridlayout.widget.GridLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
