@@ -1,69 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".LoginFragment"
-    android:layout_margin="20dp"
-    >
-
+    android:layout_margin="20dp">
 
     <TextView
+        android:id="@+id/email_label"
+        style="@style/Heading"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Email"
-        style="@style/Heading"/>
+        android:text="Email" />
 
     <EditText
+        android:id="@+id/email_input"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn_outline"
+        android:padding="8dp"
+        android:inputType="textEmailAddress"
+        android:hint="Enter your email" />
 
     <TextView
+        android:id="@+id/password_label"
+        style="@style/Heading"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Password"
-        style="@style/Heading"/>
-
+        android:text="Password" />
 
     <EditText
-        android:id="@+id/editTextTextPassword"
+        android:id="@+id/password_input"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPassword" />
+        android:background="@drawable/btn_outline"
+        android:padding="8dp"
+        android:inputType="textPassword"
+        android:hint="Enter your password" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center"
-        >
+        android:layout_marginTop="16dp">
 
         <Button
-            android:layout_width="wrap_content"
+            android:id="@+id/signup_button"
+            style="@style/SignUpButtonStyle"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Sign Up"/>
+            android:layout_weight="1"
+            android:layout_marginEnd="8dp"
+            android:text="Sign Up" />
 
         <Button
-            android:layout_width="wrap_content"
+            android:id="@+id/login_button"
+            style="@style/LoginButtonStyle"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Log in"/>
-
+            android:layout_weight="1"
+            android:layout_marginStart="8dp"
+            android:text="Log in" />
     </LinearLayout>
 
     <TextView
+        style="@style/Heading"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Forgot Password?"/>
+        android:text="Forgot Password?"
+        android:gravity="center" />
 
     <Button
+        android:id="@+id/reset_password_button"
+        style="@style/ResetButtonStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Reset Password"/>
+        android:layout_marginTop="8dp"
+        android:text="Reset Password" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Click to Reset Your Password"/>
-
+        android:layout_marginTop="8dp"
+        android:text="Click to Reset Your Password"
+        android:gravity="center_horizontal" />
 </LinearLayout>
