@@ -21,5 +21,18 @@
     <string name="about_desc">Read how MGHS came to be.</string>
     <string name="privacy_policy_desc">Read how MGHS collects, uses, discloses, and safeguards your information.</string>
     <string name="contact_us_desc">Get in touch with the MGHS team.</string>
+    <string name="learn_more">Learn More</string>
+    <string name="strategic_consultation_details">We help realize each business’ potential and work to learn and uncover that potential in each of our clients and partners. With our help, your strategic gains and the goals in your vision statement will be realized.</string>
+    <string name="business_performance_analysis_detail">We provide performance analysis and assessment for small- and medium-sized businesses to benefit your business strategy. Armed with this knowledge, you can proudly meet the challenges of our modern business landscape.</string>
+    <string name="feasibility_analysis_details">We aim to measure the success or failure probability of any business and, to that end, research the products/services of your company. We offer detailed reports to aid in developing your products and services.</string>
+    <string name="hr_management_details">We provide Human Resources Services for small and medium businesses and hire staff to establish your business locally and abroad. Our wealth of experience and rich network can meet your firm’s needs.</string>
+    <string name="social_media_marketing_and_management_details">MGHS Services integrates your business with social media sites such as Facebook, Twitter, Instagram, YouTube, and more. Our rich knowledge and experience can meet the needs of local and international businesses.</string>
+    <string name="website_app_development_details"><![CDATA[We provide Web & Mobile App Design, Development, and content management services for small and medium businesses. Expect only the latest and most stylish designs for our clients. We offer design and maintenance of your site according to its unique needs.]]></string>
+    <string name="financial_resource_details">We find ideal investors for your business, which is crucial in realizing its overall vision. With our well-connected network of investors, we can help you meet those quotas and charges head-on and guide your firm to become both presentable and ideal.</string>
+    <string name="accounting_details">We provide full-featured and simple financial accounting for small and medium-sized businesses. We offer no-hassle, straightforward ways to understand, interface with, and handle your accounts. With technology, we modernize accounting into the new age.</string>
+    <string name="location_search_details">We provide location search services for the best locations for small and medium businesses. Our experts in this field will guide your firm to find an ideal place that meets your firm’s needs.</string>
+    <string name="business_construction_details">MGHS Services provides extensive construction services for your onsite business. We offer electrical and mechanical installation and design services for our clients. Our experts lend their years of experience to ensure the process goes smoothly.</string>
+    <string name="negotiation_brand_franchise_details">We negotiate on your behalf to get your franchise or location only the finest prices. Our experts can find ideas and creative solutions to meet your firm’s unique needs and match the best area according to said needs.</string>
+    <string name="branding_strategy_details">We offer cutting-edge strategic branding solutions through consultation and advising your marketing strategy. Our services encompass diverse fields such as Logo and Design, print design, and others.</string>
 
-    </resources>
+</resources>

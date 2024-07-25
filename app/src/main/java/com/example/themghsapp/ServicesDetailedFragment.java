@@ -59,6 +59,6 @@ public class ServicesDetailedFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_services_detailed, container, false);
+        return inflater.inflate(R.layout.fragment_services_business_planning, container, false);
     }
 }
