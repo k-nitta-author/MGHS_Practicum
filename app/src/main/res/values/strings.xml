@@ -1,20 +1,25 @@
 <resources>
     <string name="app_name">THE MGHS APP</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="jobinquiriesbtn">jobInquiriesBtn</string>
     <string name="servicerequestsbtn">serviceRequestsBtn</string>
 
     <!-- HOME -->
-    <string name="negotiation_brand_franchise_desc">MGHS Services Negotiates on your behalf to acquire your franchise, location, products and prices that is suitable for your needs.</string>
-    <string name="website_application_design_development_desc"><![CDATA[We provide Web & App Design & Development Services for your small and medium business. We\'ll design your website with the latest development & mobile applications, providing with content management as well.]]></string>
-    <string name="accounting_desc">MGHS Services provides financial accounting services for your small and medium sized business. A full service accounting and professional services that offers the simplest way to handle accounts.</string>
-    <string name="location_search_desc">Provides location search services for your small and meduim business. We offer search assistance for you to find the best location for your business startup.</string>
-    <string name="business_construction_desc">MGHS Services provides construction services for your business like electrical and mechinical works, etc.</string>
-    <string name="financial_resource_desc">Finding the best type of investor for your business is a crucial step in realizing its overall vision. MGHS Services will help you connect to right investors.</string>
-    <string name="about_desc">Read how MGHS came to be</string>
-    <string name="privacy_policy_desc">Read how MGHS collects, uses, discloses, ad safeguards your information.</string>
+    <string name="strategic_consultation_desc">We offer expert strategic consultation services to help you develop and implement effective business strategies tailored to your needs.</string>
+    <string name="branding_strategy_desc">Our branding strategy services are designed to enhance your brand's identity and presence in the market, ensuring consistency and impact.</string>
+    <string name="feasibility_analysis_desc">We conduct comprehensive feasibility analysis to assess the viability of your business ideas, helping you make informed decisions.</string>
+    <string name="social_media_marketing_desc">Our social media marketing and management services will help you effectively reach and engage with your target audience on various platforms.</string>
+    <string name="hr_management_desc">MGHS offers human resource management services to streamline your HR processes, from recruitment to employee development and retention.</string>
+    <string name="performance_analysis_desc">Our business performance analysis services provide you with detailed insights into your business operations, helping you optimize and improve overall performance.</string>
+    <string name="negotiation_brand_franchise_desc">MGHS Services negotiates on your behalf to acquire your franchise, location, products, and prices that are suitable for your needs.</string>
+    <string name="website_application_design_development_desc"><![CDATA[We provide Web & App Design & Development Services for your small and medium business. We'll design your website with the latest development & mobile applications, providing content management as well.]]></string>
+    <string name="accounting_desc">MGHS Services provides financial accounting services for your small and medium-sized business. A full-service accounting and professional services that offers the simplest way to handle accounts.</string>
+    <string name="location_search_desc">Provides location search services for your small and medium business. We offer search assistance for you to find the best location for your business startup.</string>
+    <string name="business_construction_desc">MGHS Services provides construction services for your business like electrical and mechanical works, etc.</string>
+    <string name="financial_resource_desc">Finding the best type of investor for your business is a crucial step in realizing its overall vision. MGHS Services will help you connect to the right investors.</string>
+
+    <string name="about_desc">Read how MGHS came to be.</string>
+    <string name="privacy_policy_desc">Read how MGHS collects, uses, discloses, and safeguards your information.</string>
     <string name="contact_us_desc">Get in touch with the MGHS team.</string>
 
-
-</resources>
+    </resources>

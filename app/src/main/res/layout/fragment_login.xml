@@ -19,7 +19,7 @@
         android:id="@+id/email_input"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/btn_outline"
+        android:background="@drawable/outline"
         android:padding="8dp"
         android:inputType="textEmailAddress"
         android:hint="Enter your email" />
@@ -35,7 +35,7 @@
         android:id="@+id/password_input"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/btn_outline"
+        android:background="@drawable/outline"
         android:padding="8dp"
         android:inputType="textPassword"
         android:hint="Enter your password" />

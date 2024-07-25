@@ -3,7 +3,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <color name="bg_mghs_light_green">#BFCABA</color>
+    <color name="MGHSLightGreen">#BFCABA</color>
     <color name="bg_gray_1">#D7D0C8</color>
     <color name="bg_gray_2">#3F4045</color>
 
