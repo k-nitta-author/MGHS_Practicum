@@ -4,9 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_margin="20dp"
     android:orientation="vertical"
-    tools:context=".LoginFragment"
-    android:layout_margin="20dp">
+    tools:context=".LoginFragment">
+
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:src="@drawable/logo" />
 
     <TextView
         android:id="@+id/email_label"
@@ -20,9 +27,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/outline"
-        android:padding="8dp"
+        android:hint="Enter your email"
         android:inputType="textEmailAddress"
-        android:hint="Enter your email" />
+        android:minHeight="48dp"
+        android:padding="8dp" />
 
     <TextView
         android:id="@+id/password_label"
@@ -36,24 +44,25 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/outline"
-        android:padding="8dp"
+        android:hint="Enter your password"
         android:inputType="textPassword"
-        android:hint="Enter your password" />
+        android:minHeight="48dp"
+        android:padding="8dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:layout_marginTop="16dp"
         android:gravity="center"
-        android:layout_marginTop="16dp">
+        android:orientation="horizontal">
 
         <Button
             android:id="@+id/signup_button"
             style="@style/btnFilled"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:layout_marginEnd="8dp"
+            android:layout_weight="1"
             android:text="Sign Up" />
 
         <Button
@@ -84,6 +93,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="Click to Reset Your Password"
-        android:gravity="center_horizontal" />
+        android:gravity="center_horizontal"
+        android:text="Click to Reset Your Password" />
 </LinearLayout>

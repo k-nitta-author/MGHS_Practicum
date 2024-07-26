@@ -22,6 +22,8 @@
     <string name="privacy_policy_desc">Read how MGHS collects, uses, discloses, and safeguards your information.</string>
     <string name="contact_us_desc">Get in touch with the MGHS team.</string>
     <string name="learn_more">Learn More</string>
+
+    <!-- SERVICES -->
     <string name="strategic_consultation_details">We help realize each business’ potential and work to learn and uncover that potential in each of our clients and partners. With our help, your strategic gains and the goals in your vision statement will be realized.</string>
     <string name="business_performance_analysis_detail">We provide performance analysis and assessment for small- and medium-sized businesses to benefit your business strategy. Armed with this knowledge, you can proudly meet the challenges of our modern business landscape.</string>
     <string name="feasibility_analysis_details">We aim to measure the success or failure probability of any business and, to that end, research the products/services of your company. We offer detailed reports to aid in developing your products and services.</string>
