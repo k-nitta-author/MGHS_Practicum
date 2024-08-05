@@ -16,38 +16,34 @@
         android:src="@drawable/logo" />
 
     <TextView
-        android:id="@+id/email_label"
-        style="@style/Heading"
+        android:id="@+id/emailLabel"
+        style="@style/labelHeading"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Email" />
 
     <EditText
-        android:id="@+id/email_input"
+        style="@style/input"
+        android:id="@+id/emailInput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/outline"
         android:hint="Enter your email"
-        android:inputType="textEmailAddress"
-        android:minHeight="48dp"
-        android:padding="8dp" />
+        android:inputType="textEmailAddress" />
 
     <TextView
-        android:id="@+id/password_label"
-        style="@style/Heading"
+        android:id="@+id/passwordLabel"
+        style="@style/labelHeading"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Password" />
 
     <EditText
-        android:id="@+id/password_input"
+        style="@style/input"
+        android:id="@+id/passwordInput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/outline"
         android:hint="Enter your password"
-        android:inputType="textPassword"
-        android:minHeight="48dp"
-        android:padding="8dp" />
+        android:inputType="textPassword" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -57,8 +53,8 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/signup_button"
             style="@style/btnFilled"
+            android:id="@+id/signup_button"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
@@ -66,8 +62,8 @@
             android:text="Sign Up" />
 
         <Button
-            android:id="@+id/login_button"
             style="@style/btnOutline"
+            android:id="@+id/login_button"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
