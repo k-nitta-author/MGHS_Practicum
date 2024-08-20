@@ -28,6 +28,7 @@
             android:id="@+id/gridLayoutMenu"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
             android:padding="16dp"
             android:visibility="visible"
             app:alignmentMode="alignMargins"
@@ -250,4 +251,351 @@
 
                         <TextView
                             style="@style/InfoCardHeading"
-                            android:text="Social Media Marketing &amp; Management"
+                            android:text="Social Media Marketing &amp; Management" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="75dp"
+                            android:layout_marginTop="8dp"
+                            android:src="@drawable/user_network_icon"
+                            android:contentDescription="Social Media Icon" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:text="@string/social_media_marketing_desc" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- InfoCard 5: Human Resource Management -->
+                <androidx.cardview.widget.CardView style="@style/InfoCardStyle">
+
+                    <LinearLayout
+                        android:layout_width="200dp"
+                        android:layout_height="350dp"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <TextView
+                            style="@style/InfoCardHeading"
+                            android:text="Human Resource Management" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="75dp"
+                            android:layout_marginTop="8dp"
+                            android:src="@drawable/young_business_woman_icon"
+                            android:contentDescription="HR Icon" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:text="@string/hr_management_desc" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- InfoCard 6: Business Performance Analysis -->
+                <androidx.cardview.widget.CardView style="@style/InfoCardStyle">
+
+                    <LinearLayout
+                        android:layout_width="200dp"
+                        android:layout_height="350dp"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <TextView
+                            style="@style/InfoCardHeading"
+                            android:text="Business Performance Analysis" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="75dp"
+                            android:layout_marginTop="8dp"
+                            android:src="@drawable/solution_thinking_icon"
+                            android:contentDescription="Performance Icon" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:text="@string/performance_analysis_desc" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- InfoCard 7 -->
+                <androidx.cardview.widget.CardView style="@style/InfoCardStyle">
+
+                    <LinearLayout
+                        android:layout_width="200dp"
+                        android:layout_height="350dp"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <TextView
+                            style="@style/InfoCardHeading"
+                            android:text="Negotiation Brand Franchise" />
+
+                        <ImageView
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_marginTop="8dp"
+                            android:src="@drawable/handshake_icon"
+                            android:contentDescription="Handshake Icon" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:text="@string/negotiation_brand_franchise_desc" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- InfoCard 8 -->
+                <androidx.cardview.widget.CardView style="@style/InfoCardStyle">
+
+                    <LinearLayout
+                        android:layout_width="200dp"
+                        android:layout_height="350dp"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <TextView
+                            style="@style/InfoCardHeading"
+                            android:text="Website or Application Design &amp; Development" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="75dp"
+                            android:layout_marginTop="8dp"
+                            android:src="@drawable/desktop_mobile_icon"
+                            android:contentDescription="Desktop Mobile Icon" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:text="@string/website_application_design_development_desc"
+                            tools:ignore="HardcodedText" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- InfoCard 9 -->
+                <androidx.cardview.widget.CardView style="@style/InfoCardStyle">
+
+                    <LinearLayout
+                        android:layout_width="200dp"
+                        android:layout_height="350dp"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <TextView
+                            style="@style/InfoCardHeading"
+                            android:text="Accounting" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="75dp"
+                            android:layout_marginTop="8dp"
+                            android:src="@drawable/calculator_money_icon"
+                            android:contentDescription="Calculator Money Icon" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:text="@string/accounting_desc" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- InfoCard 10 -->
+                <androidx.cardview.widget.CardView style="@style/InfoCardStyle">
+
+                    <LinearLayout
+                        android:layout_width="200dp"
+                        android:layout_height="350dp"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <TextView
+                            style="@style/InfoCardHeading"
+                            android:text="Location Search" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="75dp"
+                            android:layout_marginTop="8dp"
+                            android:src="@drawable/maps_pin_black_icon"
+                            android:contentDescription="Location Search Icon" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:text="@string/location_search_desc" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- InfoCard 11 -->
+                <androidx.cardview.widget.CardView style="@style/InfoCardStyle">
+
+                    <LinearLayout
+                        android:layout_width="200dp"
+                        android:layout_height="350dp"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <TextView
+                            style="@style/InfoCardHeading"
+                            android:text="Business Construction" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="75dp"
+                            android:layout_marginTop="8dp"
+                            android:src="@drawable/construction_engineer_icon"
+                            android:contentDescription="Construction Engineer Icon" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:text="@string/business_construction_desc"/>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- InfoCard 12 -->
+                <androidx.cardview.widget.CardView style="@style/InfoCardStyle">
+
+                    <LinearLayout
+                        android:layout_width="200dp"
+                        android:layout_height="350dp"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <TextView
+                            style="@style/InfoCardHeading"
+                            android:text="Financial Resource" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="75dp"
+                            android:layout_marginTop="8dp"
+                            android:src="@drawable/credit_card_icon"
+                            android:contentDescription="Credit Card Icon" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:text="@string/financial_resource_desc"/>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+        </HorizontalScrollView>
+
+        <TextView
+            android:id="@+id/quickLinksHeading"
+            style="@style/Heading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Quick Links"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/featuredServicesInfoCards" />
+
+        <LinearLayout
+            android:id="@+id/quickLinksContainer"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/quickLinksHeading"
+            android:padding="16dp">
+
+            <!-- Quick Link Card 1 -->
+            <androidx.cardview.widget.CardView
+                style="@style/QuickLinkCardStyle">
+
+                <LinearLayout
+                    style="@style/QuickLinkCardContent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        style="@style/QuickLinkCardIcon"
+                        android:contentDescription="Link Icon"
+                        android:src="@drawable/seedling" />
+
+                    <LinearLayout style="@style/QuickLinkCardTextContainer">
+
+                        <TextView
+                            style="@style/QuickLinkCardHeading"
+                            android:text="About" />
+
+                        <TextView
+                            style="@style/QuickLinkCardBody"
+                            android:text="@string/about_desc" />
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Quick Link Card 2 -->
+            <androidx.cardview.widget.CardView
+                style="@style/QuickLinkCardStyle">
+
+                <LinearLayout
+                    style="@style/QuickLinkCardContent">
+
+                    <ImageView
+                        style="@style/QuickLinkCardIcon"
+                        android:src="@drawable/papers"
+                        android:contentDescription="Link Icon" />
+
+                    <LinearLayout
+                        style="@style/QuickLinkCardTextContainer">
+
+                        <TextView
+                            style="@style/QuickLinkCardHeading"
+                            android:text="Privacy Policy" />
+
+                        <TextView
+                            style="@style/QuickLinkCardBody"
+                            android:text="@string/privacy_policy_desc" />
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Quick Link Card 3 -->
+            <androidx.cardview.widget.CardView
+                style="@style/QuickLinkCardStyle">
+
+                <LinearLayout
+                    style="@style/QuickLinkCardContent">
+
+                    <ImageView
+                        style="@style/QuickLinkCardIcon"
+                        android:src="@drawable/contact"
+                        android:contentDescription="Link Icon" />
+
+                    <LinearLayout
+                        style="@style/QuickLinkCardTextContainer">
+
+                        <TextView
+                            style="@style/QuickLinkCardHeading"
+                            android:text="Contact Us" />
+
+                        <TextView
+                            style="@style/QuickLinkCardBody"
+                            android:text="@string/contact_us_desc" />
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
