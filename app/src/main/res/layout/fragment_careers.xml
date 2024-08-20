@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_margin="20dp"
     tools:context=".CareersFragment">
@@ -11,88 +12,52 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Careers"
-        style="@style/Heading"
-        />
+        style="@style/Heading" />
 
-
-    <LinearLayout
+    <androidx.gridlayout.widget.GridLayout
+        android:id="@+id/gridLayoutMenu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center"
-        >
+        android:layout_marginTop="16dp"
+        android:padding="16dp"
+        android:visibility="visible">
 
-        <androidx.cardview.widget.CardView
-            android:layout_width="110dp"
-            android:layout_height="110dp">
+        <RadioButton
+            style="@style/RadioButtonStyle"
+            android:contentDescription="Careers Icon"
+            android:drawableTop="@drawable/careers"
+            android:text="Careers"
+            app:layout_column="1"
+            app:layout_columnWeight="1"
+            app:layout_gravity="fill_horizontal" />
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/handshake_icon"
-                    />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Featured Jobs" />
-            </LinearLayout>
-
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="110dp"
-            android:layout_height="110dp">
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/handshake_icon"
-                    />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Featured Jobs" />
-            </LinearLayout>
-
-        </androidx.cardview.widget.CardView>
-
-    </LinearLayout>
+        <RadioButton
+            style="@style/RadioButtonStyle"
+            android:contentDescription="Careers Icon"
+            android:drawableTop="@drawable/internship"
+            android:text="Internships"
+            app:layout_column="2"
+            app:layout_columnWeight="1"
+            app:layout_gravity="fill_horizontal" />
+    </androidx.gridlayout.widget.GridLayout>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Featured Jobs"
-        style="@style/Heading"/>
-
+        style="@style/Heading" />
 
     <ScrollView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        >
-    <GridLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        >
+        android:layout_height="wrap_content">
 
-    </GridLayout>
+        <!-- Add your content here, e.g., a RecyclerView for job listings -->
+
     </ScrollView>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="48dp"
-        android:text="View All Jobs"
-        />
+        android:text="View All Jobs" />
 
 </LinearLayout>
