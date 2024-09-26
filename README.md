@@ -1,1 +1,0 @@
-# MGHS_Practicum
