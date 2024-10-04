@@ -1,0 +1,231 @@
+/* Text Styles */
+label {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+a {
+    color: #418043;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Button Styles */
+button {
+    width: 100%;
+    margin: 10px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.button-outline {
+    color: #418043;
+    background-color: transparent;
+    border: 2px solid #418043;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.button-outline:hover {
+    background-color: #418043;
+    color: white;
+}
+
+.button-filled {
+    color: white;
+    background-color: #418043;
+    border: 2px solid #418043;
+    transition: background-color 0.3s, color 0.3s;
+}  
+
+.button-filled:hover {
+    background-color: #356a36;
+    color: black;
+}
+
+.button-faded {
+    color: grey;
+    background-color: #E3ECE5;
+    border: 2px solid #E3ECE5;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.button-faded:hover {
+    background-color: #d1dbd4;
+    color: darkgrey;
+}
+
+
+/* Form Styles */
+.form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: center;
+    padding-inline: 20%;
+    margin: 20px;
+}
+
+.form-input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+    border: 1px solid #418043;
+    font-size: 16px;
+}
+
+/* Navbar Styles */
+.navbar {
+    background: #ffffff;
+    padding: 1em;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15); /* Slightly stronger shadow */
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    z-index: 1;
+}
+  
+.nav-list {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-around;
+}
+
+.nav-item {
+    color: #418043;
+    text-decoration: none;
+}  
+
+.navbar-header {
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+    white-space: nowrap;
+}
+
+.navbar-header h3 {
+    color: #62412A;
+    margin-inline: 1em;
+    white-space: nowrap;
+}
+
+.nav-list li {
+    margin: 0 1em;
+}
+
+/* Toggle Button (hamburger menu) */
+.nav-toggle {
+    display: none; /* Hide toggle button by default */
+    background: none;
+    border: none;
+    font-size: 1.5em;
+    color: #418043;
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+}
+
+/* Sidebar styles and responsive adjustments */
+@media (max-width: 768px) {
+    .navbar-header {
+        justify-content: flex-start; /* Align everything to the left */
+        align-items: center; /* Vertically center h2 and toggle button */
+    }
+
+    .nav-list {
+        display: none; /* Hide the nav list on small screens */
+        flex-direction: column;
+        align-items: flex-start; /* Align the sidebar items to the left */
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 250px;
+        background-color: rgba(65, 128, 67, 0.9);
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
+        padding-top: 3em;
+        transition: transform 0.3s ease; /* Smooth transition */
+        transform: translateX(-100%); /* Sidebar hidden by default */
+    }
+
+    .nav-list.open {
+        display: flex;
+        transform: translateX(0); /* Smoothly show the sidebar when open */
+    }
+
+    .nav-list li {
+        margin: 1em 0;
+    }
+
+    .nav-list li a {
+        color: white;
+    }
+
+    .nav-list li a:hover {
+        text-decoration: none;
+        color: black;
+    }   
+
+    /* Adjusted: Toggle Button Visible in Sidebar */
+    .nav-toggle {
+        display: block; /* Show the toggle button on small screens */
+        position: relative;
+        z-index: 2; /* Ensure it's above the sidebar */
+        margin: 0;
+        padding: 0;
+    }
+}
+
+/* Footer Styles */
+.footer {
+    display: flex;
+    justify-content:space-evenly;
+    padding: 1em;
+    background-color: #356a36;
+    box-shadow: 0px -2px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    bottom: 0;
+    width: auto;
+  }
+  
+  .footer-column {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+    color: #ffffff;
+  }
+  
+  .footer-column h4 {
+    margin: 0;
+    color: #ffffff;;
+  }
+  
+  .footer-column ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .footer-column ul li {
+    color: #ffffff;
+    margin: 0.5em 0;
+  }
+  
+  .footer-column a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: lighter;
+  }
+  
+  .footer-column a:hover {
+    text-decoration: underline;
+  }
+  
+
