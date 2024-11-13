@@ -15,8 +15,11 @@ import RatingPage from './pages/RatingPage';
 import ProfilePage from './pages/ProfilePage';
 import SubmissionOfResultsPage from './pages/SubmissionOfResultsPage';
 import Footer from './components/Footer';
+import ForgotPassword from './pages/ForgotPassword';
+import TaskDetailPage from './pages/TaskDetailPage';
 
 import './styles/mghs-style.css';
+import RegisterPage from './pages/UserRegisterPage';
 
 function App() {
   return (
@@ -29,7 +32,10 @@ function App() {
           <Route path="/intern-dashboard" element={<InternDashboard />} />
           <Route path="/admin-dashboard" element={<AdminDashboard />} />
           <Route path="/tasks" element={<TaskPage />} />
+          <Route path='/task-detail' element={<TaskDetailPage/>} />
           <Route path="/reflections" element={<ReflectionPage />} />
+          <Route path='/register-user' element={<RegisterPage/>} />
+          <Route path='/forgot-password' element={<ForgotPassword/>} />
 
           {/* Progress, Subscriptions, and Support Pages */}
           <Route path="/progress-tracking" element={<ProgressTrackingPage />} />
