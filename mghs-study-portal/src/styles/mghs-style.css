@@ -323,18 +323,44 @@ button {
 
     & > label{
         @apply
-            font-sans
+            font-sans;
     }
-
-    
-
   }
-
-
   .registration-form input{
     @apply
 
     w-full
     bg-slate-300
-    rounded-md
+    rounded-md;
   }
+
+.user-table{
+
+    @apply
+
+    border-solid border-2 border-red-400
+
+    text-center
+    ;
+    
+    
+    & > thead{
+
+        @apply
+
+        bg-red-700;
+
+
+    }
+
+    & > td{
+
+        
+
+        @apply
+
+        border-solid border-2 border-black;
+
+
+    }
+}

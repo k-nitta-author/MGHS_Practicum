@@ -1,6 +1,8 @@
 import React from 'react';
 import TeamView from '../components/teamView';
 
+import UserTable from '../components/UserTable';
+
 const AdminDashboard = () => {
   
   
@@ -31,6 +33,8 @@ const AdminDashboard = () => {
       </header>
 
     <main>
+
+      <UserTable></UserTable>
 
       <h2>TEAMS</h2>
 

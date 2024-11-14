@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import { Link } from 'react-router-dom';
 import { getTeams } from '../utils/apiCalls';
 
+
 const UserDataForm = () => {
     const [inputs, setInputs] = useState({is_admin: false, is_intern: true})
     const [teams, setTeams] = useState([])

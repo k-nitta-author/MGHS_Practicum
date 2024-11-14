@@ -1,5 +1,19 @@
 import React, { useState } from 'react';
 
+
+async function post_reflection(){
+
+  const URL = "";
+
+  const request = await fetch(
+    URL,
+    {
+      method: "POST"
+    }
+  )
+
+}
+
 const ReflectionPage = () => {
   const [reflection, setReflection] = useState('');
 
@@ -10,7 +24,7 @@ const ReflectionPage = () => {
   };
 
   return (
-    <div>
+    <section class="reflection-section">
       <h1>Submit Reflection</h1>
       <form onSubmit={handleSubmit}>
         <textarea
@@ -20,7 +34,7 @@ const ReflectionPage = () => {
         />
         <button type="submit">Submit</button>
       </form>
-    </div>
+    </section>
   );
 };
 
