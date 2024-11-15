@@ -1,3 +1,5 @@
+import { json } from "react-router-dom";
+
 export async function getTeams(){
 
     const URL =  "https://mghs-backend.onrender.com/team"
@@ -51,23 +53,16 @@ export async function getUsers() {
 
   const URL = "https://mghs-backend.onrender.com/user"
 
-          let response = fetch(URL, {
+          let response = await fetch(URL, {
             method: 'GET',
             credentials: "omit", 
             headers: {
               'Content-Type': 'application/json'
             }
           })
-          .then((response) => {
-            if (!response.ok) {
-              throw new Error(`HTTP error! Status: ${response.status}`);
-            }
-            return response.json();
-          })
-          .then((user) => {
-        
-            return user;
-          });
+
+          const data = await response.json()
+          return data.user
         
         }
 
@@ -91,5 +86,26 @@ export async function getUserById(bearer) {
   
       return user;
     });
+  
+  }
+
+
+  export async function PostNewTeam(team) {
+
+
+    const URL = "https://mghs-backend.onrender.com/team"
+
+    let response = fetch(URL, {
+      method: 'POST',
+      credentials: "omit", 
+      headers: {
+        'Content-Type': 'application/json'
+      }
+      ,
+      body: JSON.stringify(team)
+    })
+    
+    return (await response).json()
+
   
   }

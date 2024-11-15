@@ -16,8 +16,11 @@ const UserTable = () => {
 
             let users = await getUsers()
 
-            setUsers([{}, {}, {}])
+            console.log(users)
+
+            setUsers(users)
         } 
+        fetchUsers()
     }, [])
 
     return(
@@ -42,14 +45,16 @@ const UserTable = () => {
 
                 {users.map((user, idx) => {
                     return(
-                        <tr>
-                            <td>idx</td>
-                            <td>idx</td>
-                            <td>idx</td>
-                            <td>idx</td>
-                            <td>idx</td>
-                            <td>idx</td>
-                            <td>idx</td>
+                        <tr key={idx}>
+                            <td>{user.givenname + user.surname}</td>
+                            <td>{user.dob}</td>
+                            <td>{user.is_admin ?  "intern" : "admin"}</td>
+                            <td>{user.username}</td>
+                            <td>{user.batch}</td>
+                            <td>{user.team}</td>
+                            <td>{user.phone_number}</td>​​
+
+
                         </tr>
                     )
                 })}

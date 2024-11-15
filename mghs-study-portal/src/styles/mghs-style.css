@@ -364,3 +364,33 @@ button {
 
     }
 }
+
+
+.team-view{
+    @apply
+
+    flex-row
+    flex
+    gap-8
+    ;
+
+    & > .team-data-cards{
+
+        @apply
+
+        bg-green-400
+
+        rounded-lg
+
+        w-80
+        p-8
+        ;
+    }
+}
+
+.team-form{
+    @apply
+
+    flex
+    flex-col
+}
