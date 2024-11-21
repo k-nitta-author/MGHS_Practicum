@@ -170,6 +170,10 @@ button {
         transform: translateX(0); /* Smoothly show the sidebar when open */
     }
 
+    .nav-list.closed {
+        display: none;
+    }
+
     .nav-list li {
         margin: 1em 0;
     }
@@ -371,19 +375,34 @@ button {
 
     flex-row
     flex
+    flex-wrap
+    justify-center
     gap-8
+
     ;
 
-    & > .team-data-cards{
 
+}
+
+.team-data-card{
+
+    @apply
+
+    bg-green-400
+
+    rounded-lg
+
+    w-80
+    py-4
+    px-8
+    ;
+
+    & > h3{
         @apply
 
-        bg-green-400
+        text-2xl
+        font-bold
 
-        rounded-lg
-
-        w-80
-        p-8
         ;
     }
 }

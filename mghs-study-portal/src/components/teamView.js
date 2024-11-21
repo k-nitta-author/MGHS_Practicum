@@ -24,7 +24,7 @@ const TeamView = () => {
 
                 return(
 
-                <section class="team-data-cards">
+                <section class="team-data-card">
                     <h3>
                         {team.name}        
                     </h3>
@@ -33,6 +33,10 @@ const TeamView = () => {
                         {team.description}
                     </p>
                     {/*insert something which lists the team members below later*/}
+
+                    <button>
+                        Details
+                    </button>
 
                 </section>
                 )
