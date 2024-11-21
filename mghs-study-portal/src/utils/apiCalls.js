@@ -109,3 +109,23 @@ export async function getUserById(bearer) {
 
   
   }
+
+
+
+  // TODO: TEST FUNCTIONALITY, SHOULD BE SIMPLE
+  export async function getActivities() {
+
+    const URL = "https://mghs-backend.onrender.com/activity"
+  
+            let response = await fetch(URL, {
+              method: 'GET',
+              credentials: "omit", 
+              headers: {
+                'Content-Type': 'application/json'
+              }
+            })
+  
+            const data = await response.json()
+            return data.activities
+          
+          }

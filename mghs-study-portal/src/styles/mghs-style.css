@@ -315,11 +315,30 @@ button {
 
 
   .task-card{
-    @apply
 
-    bg-red-600;
+    @apply
+    bg-gray-200
+    m-3
+    p-3
+    rounded-md
+    ;
+    
   }
   
+  .task-edit-form{
+    @apply
+
+    flex
+    flex-col
+
+    bg-gray-200
+    m-3
+    p-3
+    rounded-md
+
+    ;
+  }
+
   .registration-form{
 
     display: flex;
@@ -412,4 +431,36 @@ button {
 
     flex
     flex-col
+}
+
+
+.activities-view{
+    @apply
+
+    flex
+    flex-col
+    ;
+
+    & > table{
+
+        background-color: #d1dbd4;
+
+        & > thead{
+
+            background-color: #d1dbd4;
+
+        }
+
+        & > tbody{
+
+            background-color: #d1dbd4;
+
+        }
+
+        & > tfoot{
+
+            background-color: #d1dbd4;
+
+        }
+    }
 }
