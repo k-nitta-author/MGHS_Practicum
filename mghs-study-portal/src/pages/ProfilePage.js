@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { json } from 'react-router-dom';
+import { json, useParams } from 'react-router-dom';
 import UserDataForm from '../components/userDataForm';
 
 
@@ -12,9 +12,11 @@ const ProfilePage = () => {
   const [user, setUser] = useState(null); 
   const [editMode, setEditMode] = useState(false);
 
+  const params = useParams();
+
   var bearer = 'Bearer ' + localStorage.getItem("OPTIFLOW_TOKEN");
 
-  let response = fetch(`${URL}/user/${localStorage.getItem("OPTIFLOW_PUBLIC_ID")}`, {
+  let response = fetch(`${URL}/user/${params===undefined ? localStorage.getItem("OPTIFLOW_PUBLIC_ID"): params.id}`, {
     method: 'GET',
     credentials: "omit", 
     headers: {
@@ -32,10 +34,14 @@ const ProfilePage = () => {
 
     setUser(data)
   });
+
+
   // Add a check to render only when `user` is not null
   if (!user) {
     return <p>Loading...</p>; // Show a loading message while data is being fetched
   }
+
+
 
   return (
     <div>
@@ -46,9 +52,9 @@ const ProfilePage = () => {
 
         <button id='edit_button' onClick={ () => setEditMode(!editMode)}>Edit Profile</button>
         
-        { editMode ? (
-        <section>
-          <p><strong>Name:</strong> {user.givenname} {user.surname}</p>
+        { !editMode ? (
+        <section class="data-list">
+          <p><strong>Name: </strong> {user.givenname} {user.surname}</p>
           <p><strong>Batch:</strong> {user.batch}</p>
           <p><strong>Email:</strong> {user.email}</p>
           <p><strong>Date of Birth:</strong> {user.dob}</p>

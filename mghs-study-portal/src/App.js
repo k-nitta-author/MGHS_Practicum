@@ -52,6 +52,7 @@ function App() {
           <Route path="/link-directory" element={<LinkDirectoryPage />} />
           <Route path="/rate-task" element={<RatingPage />} />
           <Route path="/profile" element={<ProfilePage />} />
+          <Route path="/profile/:id" element={<ProfilePage />} />
           <Route path="/submit-results" element={<SubmissionOfResultsPage />} />
         </Routes>
         <Footer />

@@ -14,8 +14,8 @@ const InternDashboard = () => {
 
 
   return (
-    <div>
-      <header>
+    <div class="intern-dash">
+      <header class="intern-dash-header">
         
         <section>
           
@@ -37,7 +37,7 @@ const InternDashboard = () => {
             Progress Tracking
       </h2>
       
-      <section>
+      <section class="intern-dash-tasks">
 
 
 
@@ -83,7 +83,7 @@ const InternDashboard = () => {
 
     <h2>Relevant Links</h2>
 
-    <section>
+    <section class="intern-dash-links">
     <ul>
         <li><Link to="/tasks">View Tasks</Link></li>
         <li><Link to="/progress-tracking">Progress Tracking</Link></li>
