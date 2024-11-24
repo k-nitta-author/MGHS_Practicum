@@ -348,6 +348,12 @@ button {
         @apply
             font-sans;
     }
+
+    & > select{
+        @apply
+            font-sans;
+    }
+    
   }
   .registration-form input{
     @apply
@@ -463,4 +469,98 @@ button {
 
         }
     }
+}
+
+TaskDetailPage{
+    background-color: #62412A;
+}
+
+.profile-section{
+
+    background-color: white;
+
+    & > data-list{
+
+        background-color: white;
+
+    }
+}
+
+
+.intern-dash{
+    background-color: white;
+
+    & > .intern-dash-header{
+        background-color: white;
+    }
+
+    & > .intern-dash-tasks{
+        background-color: white;
+    }
+
+    & > .intern-dash-links{
+        background-color: white;
+    }
+
+}
+
+AdminDashboard{
+    background-color: white;
+
+    & > .pending_tasks_view{
+        background-color: white;
+    }
+
+    & > .progress_metrics_view{
+        background-color: white;
+    }
+
+    & > .intern_reflection_view{
+        background-color: white;
+    }
+
+    & > .task_creation_form{
+        background-color: white;
+    }
+}
+
+LinkDirectoryPage{
+
+    & > ul{
+
+        background-color: white;
+    }
+
+    & > li{
+
+        background-color: white;
+    }
+
+
+}
+
+.team-form-container{
+
+    background-color: white;
+
+    & > .team-form{
+        background-color: white;
+
+        & > label{
+            background-color: white;
+        }
+
+        & > textarea{
+            background-color: white;
+        }
+
+        & > input{
+            background-color: white;
+        }
+    }
+
+
+
+
+
 }

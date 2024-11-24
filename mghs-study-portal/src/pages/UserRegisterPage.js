@@ -8,8 +8,6 @@ import UserDataForm from '../components/userDataForm';
 
 const RegisterPage = () => {
 
-
-
   return (
     <main>
 

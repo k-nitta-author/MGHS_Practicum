@@ -9,7 +9,7 @@ const LinkDirectoryPage = () => {
   ];
 
   return (
-    <div>
+    <section>
       <h1>Link Directory</h1>
       <ul>
         {links.map((link, index) => (
@@ -18,7 +18,7 @@ const LinkDirectoryPage = () => {
           </li>
         ))}
       </ul>
-    </div>
+    </section>
   );
 };
 

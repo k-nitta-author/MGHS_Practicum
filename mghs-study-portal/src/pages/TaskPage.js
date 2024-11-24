@@ -84,11 +84,6 @@ const TaskPage = () => {
               </main>
 
               <aside>
-
-                <button>
-                  Subscribe to Task
-                </button>
-
                 <button onClick={HandleEditTask}>
                   Edit Task
                 </button>
