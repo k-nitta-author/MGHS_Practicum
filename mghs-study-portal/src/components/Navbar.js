@@ -9,20 +9,6 @@ const Navbar = () => {
 
     const [isLoggedIn, setIsLoggedIn] = useState(true); // Toggle navbar visibility
 
-    useEffect(() => {
-        // Update `isLoggedIn` when `localStorage` changes
-        const handleStorageChange = () => {
-            setIsLoggedIn(!!localStorage.getItem("token")); // Check if token exists
-        };
-
-        window.addEventListener('storage', handleStorageChange);
-
-        // Cleanup the event listener
-        return () => {
-            window.removeEventListener('storage', handleStorageChange);
-        };
-    }, []);
-
     const toggleSidebar = () => {
         setIsOpen(!isOpen);
     };
@@ -34,7 +20,10 @@ const Navbar = () => {
 
     const handleLogoutClick = () => {
         localStorage.clear();
-        setIsLoggedIn(false)
+        
+        // return the below code to functionality when you
+        // find a method to accesss the local storae
+        //setIsLoggedIn(false)
 
     } // logout from the system; delete localSession Variables; keep it simple; nothing fancy
 
@@ -63,7 +52,7 @@ return (
             } onClick={handleLinkClick}>Dashboard</Link></li> 
             <li><Link to="/tasks" onClick={handleLinkClick}>Tasks</Link></li>
             <li><Link to="/reflections" onClick={handleLinkClick}>Reflections</Link></li>
-            <li><Link to="/profile" onClick={handleLinkClick}>Profile</Link></li>
+            <li><Link to={"/profile/" + localStorage.getItem("OPTIFLOW_PUBLIC_ID")} onClick={handleLinkClick}>Profile</Link></li>
             {/* add logout logic */}
             <li><Link to="/" onClick={handleLogoutClick}>Logout</Link></li>
             <li>

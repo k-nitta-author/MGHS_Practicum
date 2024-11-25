@@ -17,10 +17,9 @@ const LoginPage = () => {
   // differentiates between admin and intern users
   // reads HTTP headers to find password and username
   let item = (username, password);
-  
-  async function handleLogin(){
 
-    
+  // TODO: CONSIDER ADDING A LOGIN SCREEN AS SOMETIMES IT TAKES TIME TO LOAD
+  async function handleLogin(){
 
     // construct headers to add to request
     let H = new Headers();

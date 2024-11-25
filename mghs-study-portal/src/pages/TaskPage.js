@@ -93,9 +93,6 @@ const TaskPage = () => {
 
           })
         }
-        <section class="task-card">
-
-        </section>
 
       </aside>
     </main>

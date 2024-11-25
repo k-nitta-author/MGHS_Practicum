@@ -2,12 +2,13 @@ import React, { useEffect } from 'react';
 import { useState } from 'react';
 import { getTeamById } from '../utils/apiCalls';
 import { useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
  
 const TeamDetailsPage = () => {
 
     // the team data currenly being accessed
     const [team, setTeam] = useState({}); // the team itself
-    const [members, setMembers] = useState([{name:"Jun Fudo", rank: "Team Leader"}, {name:"Kei Amemue", rank: "Intern"}, {name:"Will Wright", rank: "Intern"}]) // the team's members
+    const [members, setMembers] = useState([]) // the team's members
     const [tasks, setTasks] = useState([]) // the team's tasks, pending or otherwise
 
     let params = useParams();
@@ -15,15 +16,36 @@ const TeamDetailsPage = () => {
 
     useEffect(() => {
       // simply call the api and get a specific team by the params used to access this page
-      async function FetchTeam() {
+      async function FetchTeamandMembers() {
 
         const team = await getTeamById(params["id"])
 
+        async function FetchallMemebers(){
+          const URL = "https://mghs-backend.onrender.com/team/members/" + params["id"]
+
+          let response = await fetch(URL, {
+            method: 'GET',
+            credentials: "omit", 
+            headers: {
+              'Content-Type': 'application/json'
+            }
+          })
+
+          const data = await response.json()
+          return data.members
+        
+        }
+
+        setMembers(await FetchallMemebers())
+
         setTeam(team)
+        
+
+
         
       }
 
-    FetchTeam()
+    FetchTeamandMembers()
 
     }, [])
 
@@ -64,7 +86,7 @@ const TeamDetailsPage = () => {
             <tr key={idx}>
               <td>{idx}</td>
 
-              <td>{member.name}</td>
+              <td><Link to={"/profile/" + member.public_id}>{member.name}</Link></td>
 
               <td>{member.rank}</td>
 

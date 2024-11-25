@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { json, useParams } from 'react-router-dom';
 import UserDataForm from '../components/userDataForm';
+import { Link } from 'react-router-dom';
 
 
 
@@ -59,7 +60,7 @@ const ProfilePage = () => {
           <p><strong>Email:</strong> {user.email}</p>
           <p><strong>Date of Birth:</strong> {user.dob}</p>
           <p><strong>Phone:</strong> {user.phone_number}</p>
-          <p><strong>Team:</strong> {user.team_id}</p>
+          <p><strong>Team:</strong> <Link to={'/team-details/' + user.team_id}>{user.team_id}</Link></p>
         </section>
         ):
 
