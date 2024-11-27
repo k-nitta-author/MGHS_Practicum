@@ -19,6 +19,7 @@ import ForgotPassword from './pages/ForgotPassword';
 import TaskDetailPage from './pages/TaskDetailPage';
 import AddTeamPage from './pages/AddTeam';
 import TeamDetailsPage from './pages/TeamDetails';
+import AddActivityPage from './pages/AddActivity';
 
 import './styles/mghs-style.css';
 import RegisterPage from './pages/UserRegisterPage';
@@ -38,8 +39,14 @@ function App() {
           <Route path="/reflections" element={<ReflectionPage />} />
           <Route path='/register-user' element={<RegisterPage/>} />
           <Route path='/forgot-password' element={<ForgotPassword/>} />
+
+          {/*TEAM PAGES*/}
           <Route path='/register-team' element={<AddTeamPage/>}/>
           <Route path='/team-details/:id' element={<TeamDetailsPage/>}/>
+
+
+          {/*ACTIVITY PAGES*/}
+          <Route path='/activities/:id' element={<AddActivityPage/>}/>
 
           {/* Progress, Subscriptions, and Support Pages */}
           <Route path="/progress-tracking" element={<ProgressTrackingPage />} />
