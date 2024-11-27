@@ -441,11 +441,16 @@ button {
 
 
 .activities-view{
+
+    
+
     @apply
 
     flex
     flex-col
     ;
+
+    
 
     & > table{
 
@@ -563,4 +568,85 @@ LinkDirectoryPage{
 
 
 
+}
+
+.danger-zone{
+
+    @apply
+    
+    border-dashed
+    border-2
+    border-red-500
+
+    p-4
+    ;
+
+    & > section > button{
+        @apply
+        bg-red-700
+        w-auto
+        ;
+    }
+
+    & > .danger-zone-desc{
+        @apply
+
+        bg-red-50
+        
+        ;
+    }
+
+}
+
+
+.danger-zone-entry{
+
+    @apply
+    flex
+    flex-row
+    ;
+
+    & > section{
+
+        @apply flex-grow;
+
+    }
+}
+
+
+/*TODO: COMPLETE*/
+.modal-hidden{
+    /*    
+    @apply
+
+    hidden
+    
+    w-screen
+    h-screen
+
+    z-10
+
+    left-0
+    top-0
+
+    fixed
+
+    overflow-auto
+    bg-black
+    bg-opacity-80
+
+    ;
+    */
+
+}
+
+.details{
+    @apply
+    
+    p-4
+    flex
+    flex-col
+    gap-2
+    
+    ;
 }

@@ -1,10 +1,22 @@
 import React from 'react';
 import TeamView from '../components/teamView';
-
 import UserTable from '../components/UserTable';
+import { useNavigate } from 'react-router-dom';
 
 const AdminDashboard = () => {
   
+  const nav = useNavigate()
+
+
+  // navigate to '/register-team' to create a new team
+  function HandleAddNewTeamClicked(){
+    
+
+    nav('/register-team')
+
+
+
+  }
   
   const testProgress = {
 
@@ -38,7 +50,13 @@ const AdminDashboard = () => {
 
       <h2>TEAMS</h2>
 
-      <TeamView></TeamView>
+      <section>
+        
+        <button onClick={HandleAddNewTeamClicked}>Add New Team</button>
+
+        <TeamView></TeamView>
+
+      </section>
 
       <h2>Pending Tasks</h2>
       

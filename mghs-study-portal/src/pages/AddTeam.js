@@ -6,6 +6,7 @@ import { Navigate, useNavigate } from 'react-router-dom';
 // navigate to this page to create a new team
 const AddTeamPage = () => {
   
+    const nav = useNavigate()
 
     // set up the team state variable
     const [newTeam, setNewTeam] = useState({
@@ -15,14 +16,15 @@ const AddTeamPage = () => {
 
     // call the api and submit the team data
     // TODO: validate the data if possible
-    function HandleSubmit(e){
-
-        const nav = useNavigate()
+    async function HandleSubmit(e){
 
         e.preventDefault()
 
+
+        console.log(newTeam)
+
         // send to the api
-        const response = PostNewTeam(newTeam)
+        const response = await PostNewTeam(newTeam)
 
         // if successful, navigate back to admin_page
         //Navigate('/admin-dashboard')
