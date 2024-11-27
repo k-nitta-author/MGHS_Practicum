@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 
 import { getUsers } from '../utils/apiCalls';
+import { Link } from 'react-router-dom';
 
 
 // this table is for displaying user data for an admin user
@@ -46,7 +47,7 @@ const UserTable = () => {
                 {users.map((user, idx) => {
                     return(
                         <tr key={idx}>
-                            <td>{user.givenname + user.surname}</td>
+                            <td><Link to={'/profile/' + user.public_id}>{user.givenname + " " + user.surname}</Link></td>
                             <td>{user.dob}</td>
                             <td>{user.is_admin ?  "intern" : "admin"}</td>
                             <td>{user.username}</td>

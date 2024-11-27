@@ -3,7 +3,7 @@ import { json, useParams } from 'react-router-dom';
 import UserDataForm from '../components/userDataForm';
 import { Link } from 'react-router-dom';
 
-
+import DeleteUser from '../components/modals/DeleteUser';
 
 const ProfilePage = () => {
   // Sample user data
@@ -17,24 +17,34 @@ const ProfilePage = () => {
 
   var bearer = 'Bearer ' + localStorage.getItem("OPTIFLOW_TOKEN");
 
-  let response = fetch(`${URL}/user/${params===undefined ? localStorage.getItem("OPTIFLOW_PUBLIC_ID"): params.id}`, {
-    method: 'GET',
-    credentials: "omit", 
-    headers: {
-      'Authorization': bearer,
-      'Content-Type': 'application/json'
-    }
-  })
-  .then((response) => {
-    if (!response.ok) {
-      throw new Error(`HTTP error! Status: ${response.status}`);
-    }
-    return response.json();
-  })
-  .then((data) => {
+  useEffect(() => {
 
-    setUser(data)
-  });
+    async function fetchUser(){
+      let response = await fetch(`${URL}/user/${params===undefined ? localStorage.getItem("OPTIFLOW_PUBLIC_ID"): params.id}`, {
+        method: 'GET',
+        credentials: "omit", 
+        headers: {
+          'Authorization': bearer,
+          'Content-Type': 'application/json'
+        }
+      })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then((data) => {
+    
+        setUser(data)
+      });
+    }
+
+    fetchUser()
+
+  }, [])
+
+
 
 
   // Add a check to render only when `user` is not null
@@ -45,7 +55,7 @@ const ProfilePage = () => {
 
 
   return (
-    <div>
+    <div class="details">
       
       <main class="profile-section">
         
@@ -70,6 +80,13 @@ const ProfilePage = () => {
         }
 
       </main>
+      
+      <footer>
+        <section class="danger-zone">
+          <DeleteUser public_id={params.id}></DeleteUser>
+        </section>
+      </footer>
+
     </div>
   );
 };
