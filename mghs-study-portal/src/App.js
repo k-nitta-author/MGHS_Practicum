@@ -16,8 +16,7 @@ import ProfilePage from './pages/ProfilePage';
 import SubmissionOfResultsPage from './pages/SubmissionOfResultsPage';
 import Footer from './components/Footer';
 import ForgotPassword from './pages/ForgotPassword';
-import TaskDetailPage from './pages/TaskDetailPage';
-import AddTeamPage from './pages/AddTeam';
+import TaskDetails from './pages/TaskDetails';
 import TeamDetailsPage from './pages/TeamDetails';
 import AddActivityPage from './pages/AddActivity';
 
@@ -34,8 +33,7 @@ function App() {
           <Route path="/" element={<LoginPage />} />
           <Route path="/intern-dashboard" element={<InternDashboard />} />
           <Route path="/admin-dashboard" element={<AdminDashboard />} />
-          <Route path="/tasks" element={<TaskPage />} />
-          <Route path='/task-detail' element={<TaskDetailPage/>} />
+
           <Route path="/reflections" element={<ReflectionPage />} />
           <Route path='/register-user' element={<RegisterPage/>} />
           <Route path='/forgot-password' element={<ForgotPassword/>} />
@@ -47,6 +45,9 @@ function App() {
 
           {/*ACTIVITY PAGES*/}
           <Route path='/activities/:id' element={<AddActivityPage/>}/>
+          {/*TASK PAGES*/}
+          <Route path="/tasks" element={<TaskPage />} />
+          <Route path='/task-detail' element={<TaskDetails/>} />
 
           {/* Progress, Subscriptions, and Support Pages */}
           <Route path="/progress-tracking" element={<ProgressTrackingPage />} />

@@ -110,9 +110,6 @@ export async function getUserById(bearer) {
   
   }
 
-
-
-  // TODO: TEST FUNCTIONALITY, SHOULD BE SIMPLE
   export async function getActivities() {
 
     const URL = "https://mghs-backend.onrender.com/activity"
@@ -126,6 +123,34 @@ export async function getUserById(bearer) {
             })
   
             const data = await response.json()
-            return data.activities
+            return data.activity
           
           }
+
+export async function getOneActivity(activity_id) {
+
+  const URL = "https://mghs-backend.onrender.com/activity/" + activity_id
+
+          let response = await fetch(URL, {
+            method: 'GET',
+            credentials: "omit", 
+            headers: {
+              'Content-Type': 'application/json'
+            }
+          })
+
+          const data = await response.json()
+          return data.activity
+        
+}
+
+export async function fetchTasks(){
+
+  const URL = "https://mghs-backend.onrender.com/task"
+
+  let response = await fetch(URL, {method: "GET",credentials: "omit"})
+  const payload = response.json()
+
+  return payload
+
+}

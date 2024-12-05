@@ -4,8 +4,10 @@ import { Navigate, useNavigate } from 'react-router-dom';
 
 
 // navigate to this page to create a new task
-const AddTaskPage = () => {
+// takes in the parameter 'Teams' which should be array of Team objects
+const AddTaskPage = (params) => {
   
+    const teams = params.teams
 
     // set up the task state variable
     const [newTask, setNewTask] = useState({
@@ -16,17 +18,33 @@ const AddTaskPage = () => {
 
     // call the api and submit the task data
     // TODO: validate the data if possible
-    function HandleSubmit(e){
+    async function HandleSubmit(e){
 
         const nav = useNavigate()
 
         e.preventDefault()
 
-        // TODO: send to the api
+        const URL = ""
 
-        
+        // TODO: send to the api
+        // still not finished
+        var response = await fetch(
+            URL,
+            {
+                headers: {'Content-Type': 'application/json'},
+                method: "POST",
+                body: JSON.stringify(newTask)
+            }
+        )
+
         // if successful, navigate back to admin_page
-        //Navigate('/admin-dashboard')
+
+        if (response.ok === true){
+
+            nav('/admin-dashboard')
+            
+        }
+        
 
     }
 
@@ -51,8 +69,19 @@ const AddTaskPage = () => {
             </textarea>
 
 
+            <label>Choose Team</label>
             {/*WHEN FINISHED; CONSIDER MAKING THIS INTO SEPRATE COMPONENT, TEAM_SELECTION*/}
             <select>
+                <option>None</option>
+                {
+                teams.map((team, idx) => {
+                    return(
+                        <option key={idx}>
+                            {team.name}
+                        </option>
+                    )
+                })
+                }
                 
             </select>
 
