@@ -27,7 +27,12 @@ const AddTeamPage = () => {
         const response = await PostNewTeam(newTeam)
 
         // if successful, navigate back to admin_page
-        //Navigate('/admin-dashboard')
+        if (response.ok){
+
+            nav('/admin-dashboard')
+
+        }
+        
 
     }
 

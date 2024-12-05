@@ -9,13 +9,31 @@ import { Link } from 'react-router-dom';
 // <ActivitiesView task={task}></ActivitiesView>
 const ActivitiesView = (props) => {
 
-    
+    // initial states variables
     const [activities, SetActivities] = useState([{}, {}, {}, {}])
     const [task, setTask] = useState({})
 
 
     // initialize the component
-    useEffect(() => {}
+    useEffect(() => {
+        async function FetchActivitiesList(){
+
+            const URL = ""
+
+            const response = await fetch(
+                URL,
+                {
+                    headers: {},
+                    method: "GET"
+                }
+            )
+            
+            //SetActivities([])
+        }
+    
+        FetchActivitiesList()
+
+    }
     
     , [])
 
@@ -48,10 +66,10 @@ return (
 
             <tbody>
 
-                {activities.usemap((activity, idx) => {
+                {activities.map((activity, idx) => {
                     return(
                         <tr>
-                            <td></td>
+                            <td>{idx}</td>
 
                             <td></td>
 
@@ -61,7 +79,10 @@ return (
 
                             <td></td>
 
-                            <td></td>
+                            <td>
+                                <button>Edit</button>
+                                <button>Delete</button>
+                            </td>
                         </tr>
                     )
                 })}

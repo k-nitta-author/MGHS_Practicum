@@ -52,7 +52,11 @@ const UserTable = () => {
                             <td>{user.is_admin ?  "intern" : "admin"}</td>
                             <td>{user.username}</td>
                             <td>{user.batch}</td>
-                            <td>{user.team}</td>
+                            <td>{user.team}
+                                <select>
+                                    <option>test</option>
+                                </select>
+                            </td>
                             <td>{user.phone_number}</td>​​
 
 

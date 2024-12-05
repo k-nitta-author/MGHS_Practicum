@@ -23,6 +23,8 @@ import ActivityPage from './pages/ActivitiesPage';
 import ActivityDetails from './pages/ActivityDetails';
 import AddActivityPage from './pages/AddActivity';
 
+import AddTeamPage from './pages/AddTeam';
+
 import './styles/mghs-style.css';
 import RegisterPage from './pages/UserRegisterPage';
 

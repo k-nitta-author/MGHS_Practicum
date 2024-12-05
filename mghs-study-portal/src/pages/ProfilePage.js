@@ -67,7 +67,7 @@ const ProfilePage = () => {
         <section class="data-list">
           <p><strong>Name: </strong> {user.givenname} {user.surname}</p>
           <p><strong>Batch:</strong> {user.batch}</p>
-          <p><strong>Email:</strong> {user.email}</p>
+          <p><strong>Email:</strong> <a href={`mailto:${user.email}`}>{user.email}</a></p>
           <p><strong>Date of Birth:</strong> {user.dob}</p>
           <p><strong>Phone:</strong> {user.phone_number}</p>
           <p><strong>Team:</strong> <Link to={'/team-details/' + user.team_id}>{user.team_id}</Link></p>

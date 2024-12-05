@@ -9,12 +9,23 @@ import UserDataForm from '../components/userDataForm';
 const RegisterPage = () => {
 
   return (
-    <main>
 
-      <UserDataForm></UserDataForm>
+    <section>
 
-    </main>
+      <header>
+        <h1>
+          User Registration
+        </h1>
+      </header>
 
+      <main>
+      
+
+        <UserDataForm></UserDataForm>
+
+      </main>
+
+    </section>
 
   )}
 
