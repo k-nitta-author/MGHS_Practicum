@@ -650,3 +650,14 @@ LinkDirectoryPage{
     
     ;
 }
+
+.activity-details{
+    @apply
+
+    flex
+    flex-col
+
+    p-3
+
+    ;
+}

@@ -3,15 +3,16 @@ import { json, Link } from 'react-router-dom';
 import { getTeams } from '../utils/apiCalls';
 
 const TaskEditForm = () => {
-
+    
+    // state variables for teams
     const [teams, setTeams] = useState([])
     const [currentTask, setCurrentTask] = useState({
-        name: "QuazMier",
-        team_id: 1,
-        description: "asd asdoja aslkdj  aoids"
+        name: "",
+        team_id: "",
+        description: ""
     })
 
-
+    
     useEffect(() => {
         async function fetchTeams(){
             
@@ -49,25 +50,46 @@ const TaskEditForm = () => {
 
         console.log(result.json())
 
-        
+    }
+
+    // edit the values of the current task 
+    function HandleChange(event){
+
+        const {name, value} = event.target;
+
+
+    // code to handle the team select
+    if (name === "team") {
+      const selectedTeam = teams.find(team => team.name === value);
+
+      const teamId = selectedTeam ? selectedTeam.team_id : null;
+
+      setCurrentTask(values => ({ ...values, team_id: teamId }));
+    } 
+    
+    else {
+
+        setCurrentTask(values => ({ ...values, [name]: value }));
+
+    }
 
     }
 
     return (
 
-        <form class="task-edit-form" onSubmit={HandleSubmit}>
+        <form class="task-edit-form" onSubmit={HandleSubmit} >
 
             <label>
                 Name
             </label>
 
-            <input type='text' name='name'/>
+            <input type='text' name='name' onChange={HandleChange} value={currentTask.name || ""}/>
 
             <label>
                 Description
             </label>
 
-            <textarea name='description'>
+            <textarea name='description' onChange={HandleChange} value={currentTask.description || ""}>
 
             </textarea>
 
@@ -75,7 +97,7 @@ const TaskEditForm = () => {
                 Team
             </label>
 
-            <select>
+            <select onChange={HandleChange} name = "team">
                 {teams.map((team, idx) => {
 
 

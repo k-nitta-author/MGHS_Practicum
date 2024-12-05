@@ -18,6 +18,9 @@ import Footer from './components/Footer';
 import ForgotPassword from './pages/ForgotPassword';
 import TaskDetails from './pages/TaskDetails';
 import TeamDetailsPage from './pages/TeamDetails';
+
+import ActivityPage from './pages/ActivitiesPage';
+import ActivityDetails from './pages/ActivityDetails';
 import AddActivityPage from './pages/AddActivity';
 
 import './styles/mghs-style.css';
@@ -44,7 +47,10 @@ function App() {
 
 
           {/*ACTIVITY PAGES*/}
-          <Route path='/activities/:id' element={<AddActivityPage/>}/>
+          <Route path='/activities' element={<ActivityPage/>}/>
+          <Route path='/activity/register' element={<AddActivityPage/>}/>
+          <Route path='/activity/:id' element={<ActivityDetails/>}/>
+
           {/*TASK PAGES*/}
           <Route path="/tasks" element={<TaskPage />} />
           <Route path='/task-detail' element={<TaskDetails/>} />

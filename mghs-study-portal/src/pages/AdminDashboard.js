@@ -21,9 +21,7 @@ const AdminDashboard = () => {
   const testProgress = {
 
     pendingTasks: [
-      {},
-      {},
-      {}
+
     ],
 
     metrics: {
@@ -73,19 +71,10 @@ const AdminDashboard = () => {
 
       <p>Feedback and Reflections Submitted by interns</p>
 
-      <section class="intern_reflection_view"></section>
+      <section class="intern_reflection_view">
 
-      <h2>Create New Task</h2>
-
-      <section class="task_creation_form">
-        <form>
-
-          <label>Task Name</label>
-          <input type='text'></input>
-
-          <button>Add Task</button>
-        </form>
       </section>
+
     </main>
 
     </section>
