@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { PostNewTeam } from '../utils/apiCalls';
 import { Navigate, useNavigate, useParams } from 'react-router-dom';
 import { getOneActivity } from '../utils/apiCalls';
+import { Link } from 'react-router-dom';
 
 // navigate to this page to create a new activity
 const ActivityDetails = (params) => {
@@ -28,7 +29,13 @@ const ActivityDetails = (params) => {
     FetchActivity()
   }, [])
 
-  
+  // this is called when admin user clicks the complete activity button
+  async function HandleCompleteActivity(){
+
+  }
+
+  // if the user decides to delete the activity
+  // sends a call to the api to delete the record in the database
   async function HandleDelete(){
 
     const URL = 'https://mghs-backend.onrender.com/activity/' + parameters["id"]
@@ -60,13 +67,20 @@ const ActivityDetails = (params) => {
 
             <strong>Status:</strong><span>{CurrentActivity.status}</span>
 
-            <strong>Task:</strong><span>{CurrentActivity.task_id}</span>
+            <strong>Task:</strong><span>
+              <Link to={'/task-detail/' + CurrentActivity.task_id}>
+                {CurrentActivity.task_id}
+              </Link></span>
 
             <h2>Description</h2>
 
             <p>
               {CurrentActivity.description}
             </p>
+
+            <button onClick={HandleCompleteActivity}>
+              COMPLETE ACTIVITY
+            </button>
         
         </section>
 

@@ -33,17 +33,21 @@ const AddActivityPage = () => {
 
 
   // attempt to create an activity
-  async function HandleSubmit(){
+  async function HandleSubmit(e){
     
-    const URL = "https://mghs-backend.onrender.com/activity/" 
+    e.preventDefault()
+    
+    const URL = "https://mghs-backend.onrender.com/activity" 
+
+    const activityWithStatus = { ...NewActivity, status: "Incomplete" };
 
     // send the fetch request to the api
-    var response = await fetch(
+    let response = await fetch(
       URL,
       {
         method: "POST",
         headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify(NewActivity)}
+        body: JSON.stringify(activityWithStatus)}
     )
 
     // TODO: consider doing something if response did not turn out okay
@@ -63,9 +67,20 @@ const AddActivityPage = () => {
 
   // get all the changes; validate if needed
   //set the relevant details in the activity
-  function HandleChange(){
+  function HandleChange(event){
     
-    // TODO
+    const {name, value} = event.target;
+
+    if (name === "task_id") {
+      const selectedTask = tasks.find(task => task.name === value);
+      const taskId = selectedTask ? selectedTask.id : null;
+
+      SetNewActivity(values => ({ ...values, task_id: taskId }));
+    } else {
+      SetNewActivity(values => ({ ...values, [name]: value }));
+    }
+
+    console.log(NewActivity)
 
   }
 
@@ -76,13 +91,13 @@ const AddActivityPage = () => {
 
 
         <label>Name</label>
-        <input type='text' name="name"/>
+        <input type='text' name="name" onChange={HandleChange}/>
 
         <label>Description</label>
-        <textarea name='description'>
+        <textarea name='description' onChange={HandleChange}>
         </textarea>
 
-        <select>
+        <select name='task_id' onChange={HandleChange}>
 
           {tasks.map((task, idx) => {
             return(
@@ -93,6 +108,8 @@ const AddActivityPage = () => {
           })}
 
         </select>
+
+        <input type='submit'/>
 
       </form>
 

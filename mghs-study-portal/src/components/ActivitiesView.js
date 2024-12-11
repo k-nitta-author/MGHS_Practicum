@@ -10,25 +10,33 @@ import { Link } from 'react-router-dom';
 const ActivitiesView = (props) => {
 
     // initial states variables
-    const [activities, SetActivities] = useState([{}, {}, {}, {}])
+    const [activities, SetActivities] = useState([])
     const [task, setTask] = useState({})
+
+    let [hasTasks, setHasTasks] = useState(false)
 
 
     // initialize the component
     useEffect(() => {
         async function FetchActivitiesList(){
 
-            const URL = ""
+            const URL = "https://mghs-backend.onrender.com/activity"
 
             const response = await fetch(
                 URL,
                 {
-                    headers: {},
+                    headers: {'Content-Type': 'application/json'},
                     method: "GET"
                 }
             )
-            
-            //SetActivities([])
+
+            let activity_data = await response.json()
+
+            SetActivities(activity_data.activity)
+
+            if (activity_data.activity.length < 0){
+                setHasTasks(true)
+            }
         }
     
         FetchActivitiesList()
@@ -38,7 +46,8 @@ const ActivitiesView = (props) => {
     , [])
 
 
-return (
+    return (
+
     <section class="activities-view">
 
         <h3>Activities</h3>
@@ -69,15 +78,16 @@ return (
                 {activities.map((activity, idx) => {
                     return(
                         <tr>
-                            <td>{idx}</td>
 
-                            <td></td>
+                            <td>{activity.activity_id}</td>
 
-                            <td></td>
+                            <td><Link to={'/activity/' + activity.activity_id}>{activity.name}</Link></td>
 
-                            <td></td>
+                            <td>{activity.description}</td>
 
-                            <td></td>
+                            <td>{activity.status}</td>
+
+                            <td><Link to={'/task-detail/' + activity.task_id}>{activity.task_id}</Link></td>
 
                             <td>
                                 <button>Edit</button>
@@ -94,9 +104,17 @@ return (
 
             </tfoot>
         </table>
+        
 
     </section>
-);
-};
+    );
+
+
+
+    
+
+}
+
+
 
 export default ActivitiesView;
