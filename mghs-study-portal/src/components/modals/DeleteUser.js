@@ -37,7 +37,7 @@ return (
         <header>
 
             <h2>
-                DELETE TASK
+                DELETE USER
             </h2>
 
         </header>

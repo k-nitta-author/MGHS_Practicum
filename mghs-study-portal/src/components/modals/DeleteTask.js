@@ -1,19 +1,59 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate} from 'react-router-dom';
 
-const DeleteTask = () => {
+// The component for deleting Task Records
+//  Include this in task-detail page 
+const DeleteTask = (params) => {
 
-    const [task, setTask] = useState([{"name": test}])
+    // initialize stateful variables
+    const task_id = params.get('id')
+    const nav = useNavigate()
+    
+    var hidden = false
 
-
-
+    // cancel the deletion and hides the modal from view
     function HandleCancel(){
 
     }
 
-    function HandleDelete(){
+    // try to delete the record using api call
+    // navigate 
+    async function HandleDelete(){
+
+        let resp = await DeleteActivity(task_id)
+
+        // do something if response is okay
+        if (resp.ok){
+
+            nav('/activities')
+
+        }
+        else{
+
+        }
+
+
 
     }
+
+    // delete the activity using a fetch to the api
+    async function DeleteActivity(input) {
+
+        const URL = "https://mghs-backend.onrender.com/task/" + input
+      
+                let response = await fetch(URL, {
+                  method: 'DELETE',
+                  credentials: "omit", 
+                  headers: {
+                    'Content-Type': 'application/json'
+                  }
+                })
+      
+                const data = await response.json()
+                return response
+              
+      }
+      
     
 
 return (
