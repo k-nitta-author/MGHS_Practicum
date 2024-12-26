@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
 import DeleteTeam from '../components/modals/DeleteTeam';
+import TeamEditForm from '../components/EditForms/TeamEditForm';
 
 const TeamDetailsPage = () => {
 
@@ -12,6 +13,8 @@ const TeamDetailsPage = () => {
     const [team, setTeam] = useState({}); // the team itself
     const [members, setMembers] = useState([]) // the team's members
     const [tasks, setTasks] = useState([]) // the team's tasks, pending or otherwise
+    const [editMode, setEditMode] = useState(false);
+
 
     let params = useParams();
 
@@ -52,6 +55,10 @@ const TeamDetailsPage = () => {
 
     }, [])
 
+
+    function HandleEdit(){
+      setEditMode(!editMode)
+    }
     
   return (
     <main class="team-details details">
@@ -63,9 +70,10 @@ const TeamDetailsPage = () => {
       <p>
         {team.description}
       </p>
-      {/*insert something which lists the team members below later*/}
 
+      <button onClick={HandleEdit}>EDIT</button>
 
+      {editMode && <TeamEditForm team_id={params["id"]}/>}
 
       <table>
         <thead>

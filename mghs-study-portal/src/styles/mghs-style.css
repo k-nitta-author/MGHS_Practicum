@@ -661,3 +661,19 @@ LinkDirectoryPage{
 
     ;
 }
+
+.edit-form{
+
+    @apply
+
+    border 
+    border-solid 
+    border-green-400 
+    flex 
+    flex-col 
+    bg-gray-500 
+    p-2 
+    rounded-lg 
+    shadow-lg 
+
+}

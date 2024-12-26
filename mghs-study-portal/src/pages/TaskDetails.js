@@ -1,16 +1,21 @@
 import React, { useEffect } from 'react';
 import { useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import ActivitiesView from '../components/ActivitiesView';
+
+import TeamEditForm from '../components/EditForms/TeamEditForm';
 
 // to show details of various tasks and links to 
 // related resources
-const TaskDetails = (params) => {
+const TaskDetails = () => {
 
     // stateful variables
     const nav = useNavigate()
     const location = useLocation()
     const currentTaskData = location.state.CurrentTask || {}
+    const [editMode, setEditMode] = useState(false);
+    const params = useParams()
+
 
     // the default data to hold place before anything is loaded
     const task = useState(
@@ -37,6 +42,10 @@ const TaskDetails = (params) => {
         }
     }
 
+    function HandleEdit(){
+        setEditMode(!editMode)
+      }
+
   return (
     <section>
 
@@ -45,6 +54,12 @@ const TaskDetails = (params) => {
             <h1>
                 Task Details
             </h1>
+
+            {editMode && <TeamEditForm task_id={params["id"]}/>}
+
+
+            <button onClick={HandleEdit}>EDIT</button>
+
 
         </header>
 

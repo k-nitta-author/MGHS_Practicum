@@ -53,7 +53,7 @@ const TaskPage = () => {
   // instead of loading the currentTask data into it
   function HandleEditTask(CurrentTask){
 
-    navigate('/task-detail', {state: {CurrentTask}})
+    navigate('/task-detail/' + CurrentTask.id, {state: {CurrentTask}})
   
   }
 
@@ -83,7 +83,7 @@ const TaskPage = () => {
                   Name: {task.name}
                 </h3>
                 <h4>
-                  <strong>Team:</strong> <Link to={'/team-details/' + task.team_id}>{task.team_name}</Link>
+                  <strong>Team:</strong> <Link to={`/team-details/` + task.team_id}>{task.team_name}</Link>
                 </h4>
               </header>
 

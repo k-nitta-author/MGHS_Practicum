@@ -12,8 +12,8 @@ const UserTable = () => {
 
     useEffect(() => {
         
-        // get the users and load into the array
-        async function fetchUsers(){
+        // get useful data and load into the array
+        async function fetchData(){
 
             let users = await getUsers()
 
@@ -21,7 +21,7 @@ const UserTable = () => {
 
             setUsers(users)
         } 
-        fetchUsers()
+        fetchData()
     }, [])
 
     return(
@@ -52,11 +52,7 @@ const UserTable = () => {
                             <td>{user.is_admin ?  "intern" : "admin"}</td>
                             <td>{user.username}</td>
                             <td>{user.batch}</td>
-                            <td>{user.team}
-                                <select>
-                                    <option>test</option>
-                                </select>
-                            </td>
+                            <td><Link to={'/team-details/' + user.team_id} params={{ team_id: user.team_id }}>{user.team_id}</Link></td>
                             <td>{user.phone_number}</td>​​
 
 

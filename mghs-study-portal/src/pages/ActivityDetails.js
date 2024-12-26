@@ -4,12 +4,14 @@ import { Navigate, useNavigate, useParams } from 'react-router-dom';
 import { getOneActivity } from '../utils/apiCalls';
 import { Link } from 'react-router-dom';
 
+import ActivityEditForm from '../components/EditForms/ActivityEditForm';
+
 // navigate to this page to create a new activity
 const ActivityDetails = (params) => {
   
   const [CurrentActivity, SetCurrent] = useState([])
-
   const nav = useNavigate()
+  const [editMode, setEditMode] = useState(false);
 
   let parameters = useParams();
 
@@ -58,6 +60,10 @@ const ActivityDetails = (params) => {
 
   }
 
+  function HandleEdit(){
+    setEditMode(!editMode)
+  }
+
   return (
     <section class='activity-details'>
         
@@ -71,6 +77,12 @@ const ActivityDetails = (params) => {
               <Link to={'/task-detail/' + CurrentActivity.task_id}>
                 {CurrentActivity.task_id}
               </Link></span>
+
+              {editMode && <ActivityEditForm activity_id={parameters["id"]}/>}
+
+
+              <button onClick={HandleEdit}>EDIT</button>
+              
 
             <h2>Description</h2>
 

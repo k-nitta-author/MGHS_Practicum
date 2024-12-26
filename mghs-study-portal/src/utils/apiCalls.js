@@ -66,26 +66,19 @@ export async function getUsers() {
         
         }
 
-export async function getUserById(bearer) {
+export async function getUserById(public_id, bearer=null) {
 
-    let response = fetch(`${URL}/user/${localStorage.getItem("OPTIFLOW_PUBLIC_ID")}`, {
+  const URL =  "https://mghs-backend.onrender.com"
+
+    let response = await fetch(`${URL}/user/${public_id}`, {
       method: 'GET',
       credentials: "omit", 
       headers: {
-        'Authorization': bearer,
         'Content-Type': 'application/json'
       }
     })
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
-      }
-      return response.json();
-    })
-    .then((user) => {
-  
-      return user;
-    });
+
+    return response.json()
   
   }
 
@@ -147,6 +140,18 @@ export async function getOneActivity(activity_id) {
 export async function fetchTasks(){
 
   const URL = "https://mghs-backend.onrender.com/task"
+
+  let response = await fetch(URL, {method: "GET",credentials: "omit"})
+  const payload = response.json()
+
+  return payload
+
+}
+
+
+export async function getTaskById(task_id){
+
+  const URL = `https://mghs-backend.onrender.com/task/${task_id}`
 
   let response = await fetch(URL, {method: "GET",credentials: "omit"})
   const payload = response.json()
