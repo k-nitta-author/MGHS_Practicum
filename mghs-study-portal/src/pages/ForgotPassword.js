@@ -10,7 +10,7 @@ async function requestPasswordReset(){
 
     // send data and fetch as needed
     // check status code to see if password was successfully reset
-    fetch(
+    let response = await fetch(
         URL,
         {
             method: "POST",
@@ -20,13 +20,9 @@ async function requestPasswordReset(){
             },
             credentials: "omit"
         }
-    ).then(
-        (result) => {
-            console.log(result)
-        }
+
     )
 
-    return(true);
 }
 
 
@@ -40,6 +36,10 @@ const ForgotPassword = () => {
     return (
     <section>
     <h2>Forgot Password</h2>
+
+    <p>
+        Lorem
+    </p>
         <form onSubmit={requestPasswordReset} method="POST">
             <button type="submit">Reset Password</button>
         </form>

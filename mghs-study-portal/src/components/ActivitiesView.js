@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 // a component used to view various activities
 // talk to cait about making this a modal or smth
+
 // it should take as props:  task
 // expected form of this element:
 // <ActivitiesView task={task}></ActivitiesView>

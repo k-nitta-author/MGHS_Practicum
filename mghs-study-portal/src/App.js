@@ -55,7 +55,7 @@ function App() {
 
           {/*TASK PAGES*/}
           <Route path="/tasks" element={<TaskPage />} />
-          <Route path='/task-detail' element={<TaskDetails/>} />
+          <Route path='/task-detail/:id' element={<TaskDetails/>} />
 
           {/* Progress, Subscriptions, and Support Pages */}
           <Route path="/progress-tracking" element={<ProgressTrackingPage />} />
