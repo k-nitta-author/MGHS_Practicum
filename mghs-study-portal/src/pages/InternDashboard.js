@@ -3,96 +3,82 @@ import { Link } from 'react-router-dom';
 
 const InternDashboard = () => {
 
-  const progresss_data = {
+  const progress_data = {
 
     tasks_completed: 75,
     activities_done: 50,
     
-    subscribed_tasks: [{name: "test", description: "lorem"}, {name: "test", description: "lorem"}]
-
+    subscribed_tasks: [
+      { name: "Task 1", description: "Lorem ipsum description for task 1." },
+      { name: "Task 2", description: "Lorem ipsum description for task 2." },
+    ],
   }
 
 
   return (
-    <div class="intern-dash">
-      <header class="intern-dash-header">
-        
-        <section>
-          
-          <h1>Welcome Intern</h1>
-
-          <p>
-            Track your progres and stay updated
-          </p>
-
-        </section>
-
-        <img src=''/>
-
-      
-
+    <div className="page-container">
+      <header>
+      <h1>Welcome Intern</h1>
+      <p>
+        Track your progres and stay updated
+      </p>
+      <img src=''/>
       </header>
       
-      <h2>
-            Progress Tracking
-      </h2>
-      
-      <section class="intern-dash-tasks">
+      <section className="page-section">
+          <h2>Current Progress</h2>
+          <section className="progress-section">
+            <section className="block">
+              <h4>Tasks Completed</h4>
+              <b>
+                {progress_data.tasks_completed}
+              </b>
+            </section>
 
-
-
-        
-        <section>
-          <h4>Tasks Completed</h4>
-          <b>{progresss_data.tasks_completed}</b>
-        </section>
-
-
-
-        <section>
-          
-          <h4>Activites Done</h4>
-          <b>
-            {progresss_data.activities_done}
-          </b>
-
-        </section>
-
+            <section className="block">
+              <h4>Activities Done</h4>
+              <b>
+                {progress_data.activities_done}
+              </b>
+            </section>
+          </section>
       </section>
 
+
+    <section  className='page-section'>
       <h2>
-            Subscribed Tasks
-          </h2>
+        Subscribed Tasks
+      </h2>
+      <section className='block'>
+        {
+        progress_data.subscribed_tasks.map((task, index) => {
+            return(
+              <section key={index}>
+                <h4>{task.name}</h4>
 
-      <section>
+                <p>{task.description}</p>
+              </section>
+            )
+          }) 
 
-    {
-     
-     progresss_data.subscribed_tasks.map((task, index) => {
-        return(
-          <section key={index}>
-            <h4>{task.name}</h4>
-
-            <p>{task.description}</p>
-          </section>
-        )
-      }) 
-
-    }
+        }
+      </section>
+    
     </section>
 
-    <h2>Relevant Links</h2>
+      <section className='page-section'>
+      <h2>Relevant Links</h2>
 
-    <section class="intern-dash-links">
-    <ul>
-        <li><Link to="/tasks">View Tasks</Link></li>
-        <li><Link to="/progress-tracking">Progress Tracking</Link></li>
-        <li><Link to="/reflections">Submit Reflections</Link></li>
-        <li><Link to="/subscriptions">View Subscriptions</Link></li>
-        <li><Link to="/faq">FAQ</Link></li>
-      </ul>
+      <section className="task-section-links">
+      <ul>
+          <li><Link to="/tasks">View Tasks</Link></li>
+          <li><Link to="/progress-tracking">Progress Tracking</Link></li>
+          <li><Link to="/reflections">Submit Reflections</Link></li>
+          <li><Link to="/subscriptions">View Subscriptions</Link></li>
+          <li><Link to="/faq">FAQ</Link></li>
+        </ul>
+      </section>
     </section>
-
 
     </div>
   );

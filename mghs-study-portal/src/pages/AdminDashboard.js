@@ -29,55 +29,102 @@ const AdminDashboard = () => {
       ReflectionsSubmitted: 25,
       OverallProgress: 10
     }
+  };
 
-
-  }
-  
   return (
-
-    <section>
-      <header>
-        <h1>Admin Dashboard</h1>
-        <p>Manage intern tasks, track progress, and review reflections.</p>
-        {/* Add components for managing tasks, viewing intern progress, etc. */}
-      </header>
-
-    <main>
-
-      <UserTable></UserTable>
-
-      <h2>TEAMS</h2>
-
+    <div className="page-container">
       <section>
-        
-        <button onClick={HandleAddNewTeamClicked}>Add New Team</button>
+        <header>
+          <h1>Admin Dashboard</h1>
+          <p>Manage intern tasks, track progress, and review reflections.</p>
+          {/* Add components for managing tasks, viewing intern progress, etc. */}
+        </header>
 
-        <TeamView></TeamView>
+        <main>
+          <section className="page-section">
+            <h2>Interns</h2>
+            <UserTable />
+          </section>
 
+          <section className="page-section">
+            <h2>Teams</h2>
+            <TeamView></TeamView>
+          </section>
+
+          <section className="page-section">
+          <h2>Pending Tasks</h2>
+          
+          {/*for all the pending tasks*/}
+          <section class="pending_tasks_view">
+          </section>
+        </section>
+
+      <section className="page-section">
+          <h2>Intern Progress Metrics</h2>
+          
+          <section className="progress_metrics_view">
+            <p>Key Metrics for Intern Progress Tracking</p>
+              <section className="progress-section">
+                <section className="block">
+                  <h4>Tasks Completed</h4>
+                  <b>
+                    {/* number of overall tasks completed */}
+                    35
+                  </b>
+                  <p>
+                    +5
+                  </p>
+                </section>
+
+                <section className="block">
+                  <h4>Reflections Submitted</h4>
+                  <b>
+                    {/* number of reflection submitted */}
+                    20
+                  </b>
+                  <p>
+                    +2
+                  </p>
+                </section>
+
+                <section className="block">
+                  <h4>Overall Progress</h4>
+                  <b>
+                    {/* percentage of overall intern progress (tasks, reflections, etc.) */}
+                    75%
+                  </b>
+                  <p>
+                    +10%
+                  </p>
+                </section>
+              </section>
+          </section>
       </section>
 
-      <h2>Pending Tasks</h2>
-      
-      {/*for all the pending tasks*/}
-      <section class="pending_tasks_view"></section>
+          <section className="page-section">
+            <h2>Intern Reflections</h2>
+            <p>Feedback and Reflections Submitted by interns</p>
+            <section className="intern_reflection_view"></section>
+          </section>
 
-      <h2>Intern Progress Metrics</h2>
+      <section className="page-section">
+      <section class="intern_reflection_view"></section>
 
-      <p>Key Metrics for Intern Progress Tracking</p>
+      <h2>Create New Task</h2>
 
-      <section class="progress_metrics_view"></section>
+      <section class="task_creation_form">
+        <form>
 
-      <h2>Intern Reflections</h2>
+          <label>Task Name</label>
+          <input type='text'></input>
 
-      <p>Feedback and Reflections Submitted by interns</p>
-
-      <section class="intern_reflection_view">
-
+          <button>Add Task</button>
+        </form>
       </section>
-
+      </section>
     </main>
-
-    </section>
+</section>
+   </div>
   );
 };
 
