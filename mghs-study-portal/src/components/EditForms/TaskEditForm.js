@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
 
 import { getTaskById } from '../../utils/apiCalls';
+import TeamsSelect from '../TeamsSelect';
 
 
 // the task edit form for editing tasks
@@ -18,7 +19,7 @@ const TaskEditForm = ({task_id}) => {
 
             let task = await getTaskById(_task_id)
 
-            SetTaskData(await task.task)
+            SetTaskData(task.task)
 
             console.log()
         }
@@ -51,27 +52,13 @@ const TaskEditForm = ({task_id}) => {
     async function HandleChange(event){
         const {name, value} = event.target;
 
-
-        // code to handle the team select
-        if (name === "team") {
-            const selectedTeam = teams.find(team => team.name === value);
-
-            const teamId = selectedTeam ? selectedTeam.team_id : null;
-
-            SetTaskData(values => ({ ...values, team_id: teamId }));
-    } 
-    
-    else {
-
         SetTaskData(values => ({ ...values, [name]: value }));
-
-    }
     
     }
 
     return(
 
-        <form class name='edit-form' onSubmit={HandleSubmit}>
+        <form className="edit-form" onSubmit={HandleSubmit}>
 
             <label>
                 Name
@@ -91,19 +78,7 @@ const TaskEditForm = ({task_id}) => {
                 Team
             </label>
 
-            <select onChange={HandleChange} name = "team">
-                {teams.map((team, idx) => {
-
-
-                    return(
-                    <option key={idx}>
-
-                        {team.name}
-
-                    </option>
-                    )
-                })}
-            </select>
+            <TeamsSelect name="team_id" ChangeHander={HandleChange} SelectedTeam={TaskData.team_id}/>
 
             <input type='submit' className='button-filled'/>
 

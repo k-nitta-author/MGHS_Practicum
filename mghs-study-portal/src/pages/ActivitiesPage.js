@@ -56,7 +56,7 @@ const ActivityPage = () => {
                 <section key={idx} class='activity-page-item'>
                    <strong>Name: </strong> <Link to={'/activity/' + activity.activity_id} params={{"activity_id": activity.activity_id}}>{activity.name}</Link>
 
-                    <p><strong>Task: </strong><Link to={'task-detail/' + activity.task_id}>{activity.task_id}</Link></p>
+                    <p><strong>Task: </strong><Link to={'/task-detail/' + activity.task_id}>{activity.task_id}</Link></p>
 
                     <p>{activity.status}</p>
 

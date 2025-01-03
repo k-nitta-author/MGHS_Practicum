@@ -13,6 +13,8 @@ const ActivityDetails = (params) => {
   const nav = useNavigate()
   const [editMode, setEditMode] = useState(false);
 
+  const [subscriptions, setSubscriptions] = useState([{"name": "bob", "reflection": "edith"}, {"name": "bob", "reflection": "edith"}, {"name": "bob", "reflection": "edith"}])
+
   let parameters = useParams();
 
   useState(() => {
@@ -22,14 +24,37 @@ const ActivityDetails = (params) => {
 
       const NewActivity = await getOneActivity(id)
 
-      SetCurrent(NewActivity)
-
       
+
+      SetCurrent(NewActivity)
+      get_subscriptions()
       
     }
 
     FetchActivity()
   }, [])
+
+
+  // TODO: COMPLETE THIS ASAP
+  async function get_subscriptions() {
+
+    const URL = "" 
+
+    let resp = fetch(URL,
+      {
+        method: "GET",
+        headers:{
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+      }
+      }
+    )
+
+    let data = (await resp).json()
+    
+    setSubscriptions(data)
+    
+  }
 
   // this is called when admin user clicks the complete activity button
   async function HandleCompleteActivity(){
@@ -82,6 +107,27 @@ const ActivityDetails = (params) => {
 
 
               <button onClick={HandleEdit}>EDIT</button>
+
+
+            {/*section for the different subscriptions for the activity*/}
+            <section>
+              {
+                subscriptions.map((sub, idx) => {
+                  return(
+                    <section class="activity_subscription_detail">
+
+                      <h4>{sub.name}</h4>
+
+                      <p>
+                        {sub.reflection}
+                      </p>
+
+                    </section>
+                  )
+                })
+              }
+              
+            </section>
               
 
             <h2>Description</h2>

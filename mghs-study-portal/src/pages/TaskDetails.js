@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
 import { useState } from 'react';
-import { useLocation, useNavigate, useParams } from 'react-router-dom';
+import {useNavigate, useParams } from 'react-router-dom';
 import ActivitiesView from '../components/ActivitiesView';
 import { Link } from 'react-router-dom';
-
-import TeamEditForm from '../components/EditForms/TeamEditForm';
+import { getTaskById } from '../utils/apiCalls';
+import TaskEditForm from '../components/EditForms/TaskEditForm';
 
 // to show details of various tasks and links to 
 // related resources
@@ -12,26 +12,30 @@ const TaskDetails = () => {
 
     // stateful variables
     const nav = useNavigate()
-    const location = useLocation()
-    const currentTaskData = location.state.CurrentTask || {}
+    const [currentTask, setcurrentTask] = useState({})
     const [editMode, setEditMode] = useState(false);
     const params = useParams()
 
 
-    // the default data to hold place before anything is loaded
-    const task = useState(
-        {
-            "description": "",
-            "name": "",
-            "task.id": "",
-            "team_id": ""
+    useEffect(() => {
+
+        async function fetchTask() {
+
+            let task = await getTaskById(params["id"])
+
+            setcurrentTask(task.task)            
         }
-    )
+
+        fetchTask()
+
+    }, [params])
+
+
 
     // once the delete is completed
     async function HandleDelete(){
 
-        const URL = "https://mghs-backend.onrender.com/task/" + currentTaskData.id
+        const URL = "https://mghs-backend.onrender.com/task/" + (params["id"])
 
         // send the request from the api
         var response = fetch(
@@ -63,11 +67,11 @@ const TaskDetails = () => {
                 
                 <div className='task-row block'>
                     <div className='task-info'>
-                        <h4>Name: </h4>
-                        <b>{currentTaskData.name}</b>
+                        <h4>Name: <b>{currentTask.name}</b></h4>
+                        
 
                         <h4>Description: </h4>
-                        <p>{currentTaskData.description}</p>
+                        <p>{currentTask.description}</p>
                     </div>
                     <div className='task-actions'>
                         <button onClick={HandleEdit} className='button-outline'>
@@ -78,7 +82,7 @@ const TaskDetails = () => {
                
             </div>
 
-            {editMode && <TeamEditForm task_id={params["id"]}/>}
+            {editMode && <TaskEditForm task_id={params["id"]}/>}
         </section>
 
         <section className='page-section'>

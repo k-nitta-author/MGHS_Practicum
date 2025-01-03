@@ -52,6 +52,7 @@ return (
             <li><Link to="/reflections" onClick={handleLinkClick}>Reflections</Link></li>
             <li><Link to={"/profile/" + localStorage.getItem("OPTIFLOW_PUBLIC_ID")} onClick={handleLinkClick}>Profile</Link></li>
             {/* add logout logic */}
+            <li><Link to={"/activities"}>Activities</Link></li>
             <li><Link to="/" onClick={handleLogoutClick}>Logout</Link></li>
             <li>
                 <Link to="/" onClick={handleLinkClick}>

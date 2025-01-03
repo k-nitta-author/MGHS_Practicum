@@ -68,6 +68,15 @@ const ProfilePage = () => {
         
         <h1>Profile</h1>
 
+        <section class="data-list">
+          <p><strong>Name: </strong> {user.givenname} {user.surname}</p>
+          <p><strong>Batch:</strong> {user.batch}</p>
+          <p><strong>Email:</strong> <a href={`mailto:${user.email}`}>{user.email}</a></p>
+          <p><strong>Date of Birth:</strong> {user.dob}</p>
+          <p><strong>Phone:</strong> {user.phone_number}</p>
+          <p><strong>Team:</strong> <Link to={'/team-details/' + user.team_id}>{user.team_id}</Link></p>
+        </section>
+
         <button id='edit_button' onClick={ () => setEditMode(!editMode)}>Edit Profile</button>
         
         {editMode && <UserEditForm public_id={params.id}/>}
