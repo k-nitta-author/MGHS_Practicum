@@ -9,7 +9,7 @@ const TeamDataCard = () => {
 
     return (
 
-    <section class="team-data-card">
+    <section class="data-card">
         <h3>
             {team.name}        
         </h3>

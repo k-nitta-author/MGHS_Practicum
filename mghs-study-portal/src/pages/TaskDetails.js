@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useState } from 'react';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import ActivitiesView from '../components/ActivitiesView';
+import { Link } from 'react-router-dom';
 
 import TeamEditForm from '../components/EditForms/TeamEditForm';
 
@@ -47,30 +48,43 @@ const TaskDetails = () => {
       }
 
   return (
-    <section>
+    <div class="page-container">
 
         <header>
-
             <h1>
                 Task Details
             </h1>
-
-            {editMode && <TeamEditForm task_id={params["id"]}/>}
-
-
-            <button onClick={HandleEdit}>EDIT</button>
-
-
         </header>
 
         <main>
-            
-            <strong>Name: </strong><p>{currentTaskData.name}</p>
 
-            <strong>Description: </strong><p>{currentTaskData.description}</p>
+        <section className='page-section'>
+            <div className='block-section task-card'>
+                
+                <div className='task-row block'>
+                    <div className='task-info'>
+                        <h4>Name: </h4>
+                        <b>{currentTaskData.name}</b>
 
+                        <h4>Description: </h4>
+                        <p>{currentTaskData.description}</p>
+                    </div>
+                    <div className='task-actions'>
+                        <button onClick={HandleEdit} className='button-outline'>
+                            Edit
+                        </button>
+                    </div>
+                </div>
+               
+            </div>
+
+            {editMode && <TeamEditForm task_id={params["id"]}/>}
+        </section>
+
+        <section className='page-section'>
             <ActivitiesView></ActivitiesView>
-
+        </section>
+        
         </main>
 
         <footer class="danger-zone">
@@ -85,7 +99,7 @@ const TaskDetails = () => {
 
         </footer>
 
-    </section>
+    </div>
   );
 };
 

@@ -20,14 +20,14 @@ const InternDashboard = () => {
       <header>
       <h1>Welcome Intern</h1>
       <p>
-        Track your progres and stay updated
+        Track your progress and stay updated
       </p>
       <img src=''/>
       </header>
       
       <section className="page-section">
           <h2>Current Progress</h2>
-          <section className="progress-section">
+          <section className="block-section">
             <section className="block">
               <h4>Tasks Completed</h4>
               <b>

@@ -1,6 +1,7 @@
 import React from 'react';
 import TeamView from '../components/teamView';
 import UserTable from '../components/UserTable';
+import TaskEditForm from '../components/taskEditForm';
 import { useNavigate } from 'react-router-dom';
 
 const AdminDashboard = () => {
@@ -64,7 +65,7 @@ const AdminDashboard = () => {
           
           <section className="progress_metrics_view">
             <p>Key Metrics for Intern Progress Tracking</p>
-              <section className="progress-section">
+              <section className="block-section">
                 <section className="block">
                   <h4>Tasks Completed</h4>
                   <b>
@@ -108,18 +109,12 @@ const AdminDashboard = () => {
           </section>
 
       <section className="page-section">
-      <section class="intern_reflection_view"></section>
+      <section className="intern_reflection_view"></section>
 
       <h2>Create New Task</h2>
 
-      <section class="task_creation_form">
-        <form>
-
-          <label>Task Name</label>
-          <input type='text'></input>
-
-          <button>Add Task</button>
-        </form>
+      <section className="task_creation_form">
+        <TaskEditForm></TaskEditForm>
       </section>
       </section>
     </main>

@@ -71,19 +71,19 @@ const TaskEditForm = ({task_id}) => {
 
     return(
 
-        <form class='edit-form' onSubmit={HandleSubmit}>
+        <form class name='edit-form' onSubmit={HandleSubmit}>
 
             <label>
                 Name
             </label>
 
-            <input type='text' name='name' onChange={HandleChange} value={TaskData.name || ""}/>
+            <input type='text' name='name' onChange={HandleChange} value={TaskData.name || ""} className="form-input" />
 
             <label>
                 Description
             </label>
 
-            <textarea name='description' onChange={HandleChange} value={TaskData.description || ""}>
+            <textarea name='description' onChange={HandleChange} value={TaskData.description || ""} className="form-input">
 
             </textarea>
 
@@ -105,7 +105,7 @@ const TaskEditForm = ({task_id}) => {
                 })}
             </select>
 
-            <input type='submit'/>
+            <input type='submit' className='button-filled'/>
 
         </form>
 

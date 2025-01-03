@@ -58,55 +58,54 @@ const TaskPage = () => {
   }
 
   return (
-    <main>
-      <section>
+    <div class="page-container">
 
-        <h1>
-          ALL TASKS
-        </h1>
-
-      </section>
-
-      <TaskEditForm></TaskEditForm>
+      <header>
+        <h1>Task Management</h1>
+        <p>
+          View and manage all tasks.
+        </p>
+      </header>
 
       <aside>
 
-
-        {
-          tasks.map((task, index) => {
-
-            return(
-            <section class="task-card" key={index}>
-
-              <header>
-                <h3>
-                  Name: {task.name}
-                </h3>
-                <h4>
-                  <strong>Team:</strong> <Link to={`/team-details/` + task.team_id}>{task.team_name}</Link>
-                </h4>
-              </header>
-
-              <main>
-                <strong><h3>Description</h3></strong>
-                <p>
-                  {task.description}
-                </p>
-              </main>
-
-              <aside>
-                <button onClick={() => {HandleEditTask(task)}}>
-                  Edit Task
-                </button>
-              </aside>
-
-            </section>)
-
-          })
-        }
+      <section className="page-section">
+        <h2>All Tasks</h2>
+        {tasks.map((task, index) => {
+          return (
+            <section className="block-section task-card" key={index}>
+              <div className="task-row block">
+                <div className="task-info">
+                  <h4>
+                    <b>Name: </b>{task.name}</h4>
+                  <h4>
+                    <b>Team: </b><Link to={`/team-details/` + task.team_id}>{task.team_name}</Link>
+                  </h4>
+                
+                  <h4>
+                    <b>Description:</b>
+                  </h4>
+                  <p>{task.description}</p>
+                </div>
+                <div className="task-actions">
+                  <button className="button-outline" onClick={() => HandleEditTask(task)}>
+                    Edit
+                  </button>
+                </div>
+              </div>
+            </section>
+          );
+        })}
+      </section>
 
       </aside>
-    </main>
+
+      <section className="page-section">
+        <h2>Task Submission Form</h2>
+        <TaskEditForm></TaskEditForm>
+      </section>
+
+    </div>
   );
 };
 

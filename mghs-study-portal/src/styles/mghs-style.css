@@ -36,7 +36,10 @@ button {
 .button-outline {
     color: #418043;
     background-color: transparent;
+    margin: 10px 0;
+    padding: 10px 20px;
     border: 2px solid #418043;
+    border-radius: 10px;
     transition: background-color 0.3s, color 0.3s;
 }
 
@@ -48,7 +51,10 @@ button {
 .button-filled {
     color: white;
     background-color: #418043;
+    margin: 10px 0;
+    padding: 10px 20px;
     border: 2px solid #418043;
+    border-radius: 10px;
     transition: background-color 0.3s, color 0.3s;
 }  
 
@@ -61,6 +67,7 @@ button {
     color: grey;
     background-color: #E3ECE5;
     border: 2px solid #E3ECE5;
+    border-radius: 10px;
     transition: background-color 0.3s, color 0.3s;
 }
 
@@ -72,7 +79,7 @@ button {
 
 /* Form Styles */
 .form-container {
-    display: flex;
+    display: contents;
     flex-direction: column;
     align-items: left;
     justify-content: center;
@@ -313,30 +320,53 @@ button {
 
 
 
-  .task-card{
+.task-card{
 
     @apply
+    
     bg-gray-200
     m-3
     p-3
     rounded-md
+    space-y-4
     ;
     
-  }
+}
   
-  .task-edit-form{
+  .edit-form{
     @apply
 
     flex
     flex-col
-
     bg-gray-200
     m-3
-    p-3
+    py-5
+    px-10
     rounded-md
 
     ;
   }
+
+.task-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    @apply
+    space-y-4;
+    
+  }
+  
+  .task-info {
+    flex: 1;
+    margin-right: 10px;
+  }
+  .task-actions {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  
 
   .registration-form{
 
@@ -402,7 +432,7 @@ table {
 
 }
 
-.team-data-card{
+.data-card{
 
     @apply
     border
@@ -440,31 +470,6 @@ table {
     flex
     flex-col
     ;
-
-    
-
-    & > table{
-
-        background-color: #d1dbd4;
-
-        & > thead{
-
-            background-color: #d1dbd4;
-
-        }
-
-        & > tbody{
-
-            background-color: #d1dbd4;
-
-        }
-
-        & > tfoot{
-
-            background-color: #d1dbd4;
-
-        }
-    }
 }
 
 TaskDetailPage{
@@ -486,7 +491,7 @@ TaskDetailPage{
 .page-container{
     background-color: white;
 
-    & > .progress-section{
+    & > .block-section{
         @apply
         flex
         flex-row
@@ -566,11 +571,11 @@ LinkDirectoryPage{
 .danger-zone{
 
     @apply
-    
+    my-10
     border-dashed
     border-2
     border-red-500
-
+    text-right
     p-4
     ;
 
@@ -583,7 +588,6 @@ LinkDirectoryPage{
 
     & > .danger-zone-desc{
         @apply
-
         bg-red-50
         
         ;
@@ -655,21 +659,6 @@ LinkDirectoryPage{
     ;
 }
 
-.edit-form{
-
-    @apply
-
-    border 
-    border-solid 
-    border-green-400 
-    flex 
-    flex-col 
-    bg-gray-500 
-    p-2 
-    rounded-lg 
-    shadow-lg 
-
-}
 header {
     @apply
     bg-green-800
@@ -721,7 +710,7 @@ p {
     grid-column: 1 / 2;
 }
 
-.progress-section {
+.block-section  {
     @apply 
     flex 
     flex-row 
@@ -730,32 +719,7 @@ p {
     ;
   }
   
-.block {
-    p {
-        @apply
-        text-gray-500
-        italic
-        ;
-    }
-    b {
-        @apply
-        text-xl
-        ;
-    }
-    h4 {
-        @apply
-        text-lg
-        font-semibold
-        ;
-    }
-    @apply
-    w-auto
-    flex-auto
-    p-3 
-    border
-    border-gray-300
-    ;
-}
+
   
 header {
     @apply
@@ -808,38 +772,33 @@ p {
     grid-column: 1 / 2;
 }
 
-.progress-section {
-    @apply 
-    flex 
-    flex-row 
-    flex-wrap
-    gap-8
-    ;
-  }
+
   
 .block {
     p {
         @apply
-        text-gray-500
+        text-gray-600
         italic
         ;
     }
     b {
         @apply
-        text-xl
+        text-lg
+        font-semibold
         ;
     }
     h4 {
         @apply
         text-lg
-        font-semibold
         ;
     }
     @apply
     w-auto
     flex-auto
-    p-3 
+    p-3
+    my-3 
     border
-    border-gray-300
+    border-gray-200
+    space-y-10
     ;
 }

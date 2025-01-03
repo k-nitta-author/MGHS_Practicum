@@ -26,7 +26,7 @@ const UserTable = () => {
 
     return(
 
-        <table class="user-table">
+        <table>
             <thead>
 
                 <tr>

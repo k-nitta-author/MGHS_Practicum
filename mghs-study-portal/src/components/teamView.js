@@ -33,7 +33,7 @@ const TeamView = () => {
 
                 return(
 
-                <section class="team-data-card">
+                <section class="data-card">
                     <h3>
                         <Link to={'/team-details/' + team.team_id}>
                         {team.name}

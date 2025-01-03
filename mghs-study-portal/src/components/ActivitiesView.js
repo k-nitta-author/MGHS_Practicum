@@ -49,9 +49,9 @@ const ActivitiesView = (props) => {
 
     return (
 
-    <section class="activities-view">
+    <section class="activities-view block">
 
-        <h3>Activities</h3>
+        <h4>Activities</h4>
 
         <table>
             <thead>
@@ -91,8 +91,8 @@ const ActivitiesView = (props) => {
                             <td><Link to={'/task-detail/' + activity.task_id}>{activity.task_id}</Link></td>
 
                             <td>
-                                <button>Edit</button>
-                                <button>Delete</button>
+                                <button className='text-right'>Edit</button>
+                                <button className='text-right'>Delete</button>
                             </td>
                         </tr>
                     )

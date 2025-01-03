@@ -76,45 +76,32 @@ const TaskEditForm = () => {
     }
 
     return (
-
-        <form class="task-edit-form" onSubmit={HandleSubmit} >
-
+        <form className="edit-form" onSubmit={HandleSubmit}>
             <label>
                 Name
             </label>
-
-            <input type='text' name='name' onChange={HandleChange} value={currentTask.name || ""}/>
+            <input type="text" name="name" onChange={HandleChange} value={currentTask.name || ""} className="form-input" />
 
             <label>
                 Description
             </label>
-
-            <textarea name='description' onChange={HandleChange} value={currentTask.description || ""}>
-
+            <textarea name="description" onChange={HandleChange} value={currentTask.description || ""} className="form-input">
             </textarea>
 
             <label>
                 Team
             </label>
-
-            <select onChange={HandleChange} name = "team">
-                {teams.map((team, idx) => {
-
-
-                    return(
+            <select onChange={HandleChange} name="team" className="form-input">
+                <option value="">Select Team</option>
+                {teams.map((team, idx) => (
                     <option key={idx}>
-
                         {team.name}
-
                     </option>
-                    )
-                })}
+                ))}
             </select>
             
-            <input type="submit" />
-
+            <input type="submit" className="button-filled" />
         </form>
-
     );
 };
 
