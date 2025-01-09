@@ -51,7 +51,7 @@ const ActivitiesView = (props) => {
 
     <section class="activities-view block">
 
-        <h4>Activities</h4>
+        <h2>Activities</h2>
 
         <Link to="/activity/register">Create New Activity</Link>
 
@@ -69,8 +69,6 @@ const ActivitiesView = (props) => {
                     <td>Status</td>
 
                     <td>Task</td>
-
-                    <td>Actions</td>
 
                 </tr>
 
@@ -92,10 +90,6 @@ const ActivitiesView = (props) => {
 
                             <td><Link to={'/task-detail/' + activity.task_id}>{activity.task_id}</Link></td>
 
-                            <td>
-                                <button className='text-right'>Edit</button>
-                                <button className='text-right'>Delete</button>
-                            </td>
                         </tr>
                     )
                 })}

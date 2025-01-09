@@ -13,12 +13,18 @@ const AddTeamPage = () => {
         description: ""
     })
 
-    // call the api and submit the team data
-    // TODO: validate the data if possible
-    async function HandleSubmit(e){
+    // set up the error state variable
+    const [error, setError] = useState("")
 
+    // call the api and submit the team data
+    async function HandleSubmit(e){
         e.preventDefault()
 
+        // validate the data
+        if (!newTeam.name || !newTeam.description) {
+            setError("All fields are required.")
+            return
+        }
 
         console.log(newTeam)
 
@@ -27,20 +33,15 @@ const AddTeamPage = () => {
 
         // if successful, navigate back to admin_page
         if (response.ok){
-
             nav('/admin-dashboard')
-
         }
-        
-
     }
 
-    // update the newTeams objet with each input being changed
-    // consider validating the data before being sent over
+    // update the newTeams object with each input being changed
     function HandleChange(event){
         const {name, value} = event.target;
-      
         setNewTeam(values => ({...values, [name]: value}))
+        setError("") // clear error message when user starts typing
     }
 
   return (
@@ -53,10 +54,12 @@ const AddTeamPage = () => {
             <label>Team Name</label>
             <input name='name' type="text" onChange={HandleChange} value={newTeam.name || ""} className="form-input"/>
 
-            <label>description</label>
+            <label>Description</label>
             <textarea name='description' onChange={HandleChange} value={newTeam.description || ""} className="form-input">
 
             </textarea>
+
+            {error && <p style={{color: 'red'}}>{error}</p>}
 
             <input type='submit' className="button-filled"/>
 

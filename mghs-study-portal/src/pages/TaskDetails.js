@@ -73,6 +73,13 @@ const TaskDetails = () => {
                         <h4>Description: </h4>
                         <p>{currentTask.description}</p>
                     </div>
+
+                    <button onClick={() => {
+                        nav('/activity/register')
+                    }}>
+                        Create an Activity
+                    </button>
+
                     <div className='task-actions'>
                         <button onClick={HandleEdit} className='button-outline'>
                             Edit

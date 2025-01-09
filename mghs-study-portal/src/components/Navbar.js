@@ -54,11 +54,6 @@ return (
             {/* add logout logic */}
             <li><Link to={"/activities"}>Activities</Link></li>
             <li><Link to="/" onClick={handleLogoutClick}>Logout</Link></li>
-            <li>
-                <Link to="/" onClick={handleLinkClick}>
-                    <img src=".\src\assets\icons\notification-bell.svg" alt="Notifications" />
-                </Link>
-            </li>
         </ul>
         )
 

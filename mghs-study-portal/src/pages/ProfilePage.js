@@ -64,12 +64,13 @@ const ProfilePage = () => {
   return (
     <div class="details">
       
+      <header>
+        <h1>Profile - {user.givenname} {user.surname}</h1>
+      </header>
+
       <main class="profile-section">
-        
-        <h1>Profile</h1>
 
         <section class="data-list">
-          <p><strong>Name: </strong> {user.givenname} {user.surname}</p>
           <p><strong>Batch:</strong> {user.batch}</p>
           <p><strong>Email:</strong> <a href={`mailto:${user.email}`}>{user.email}</a></p>
           <p><strong>Date of Birth:</strong> {user.dob}</p>

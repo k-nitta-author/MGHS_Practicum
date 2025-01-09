@@ -55,7 +55,7 @@ const UserTable = () => {
                         <tr key={idx}>
                             <td><Link to={'/profile/' + user.public_id}>{user.givenname + " " + user.surname}</Link></td>
                             <td>{formatDate(user.dob)}</td>
-                            <td>{user.is_admin ?  "admin" : "intern"}</td>
+                            <td>{user.is_admin ? "👑 admin" : "👨‍🎓 intern"}</td>
                             <td>{user.username}</td>
                             <td>{user.batch}</td>
                             <td><Link to={'/team-details/' + user.team_id} params={{ team_id: user.team_id }}>{user.team_id}</Link></td>

@@ -1,161 +1,83 @@
 import { json } from "react-router-dom";
 
-export async function getTeams(){
+// Base URL for the API
+const BASE_URL = "https://mghs-backend.onrender.com";
 
-    const URL =  "https://mghs-backend.onrender.com/team"
-
-    try{
-    const response = await fetch(URL,{
-        method: "get",
-        credentials: "omit",
-        headers:{
-            'Accept': 'application/json',
-            'Content-Type': 'application/json',
+// Helper function to fetch data from the API
+async function fetchData(url, options = {}) {
+    try {
+        const response = await fetch(url, options);
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
         }
-    }
-    )
-    
-
-    const data = await response.json()
-    return data.team
-
+        return await response.json();
     } catch (error) {
-    console.error("Error fetching teams:", error);
-    return []; // Return an empty array if there's an error
+        console.error(`Error fetching data from ${url}:`, error);
+        return null;
     }
+}
 
-    }
+// Fetch all teams
+export async function getTeams() {
+    const url = `${BASE_URL}/team`;
+    const data = await fetchData(url);
+    return data ? data.team : [];
+}
 
+// Fetch a team by ID
+export async function getTeamById(team_id) {
+    const url = `${BASE_URL}/team/${team_id}`;
+    const data = await fetchData(url);
+    return data ? data.team : [];
+}
 
-    export async function getTeamById(team_id){
-
-        const URL =  "https://mghs-backend.onrender.com/team/" + team_id
-    
-        try{
-        const response = await fetch(URL,{
-            method: "get",
-            credentials: "omit",
-            headers:{
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
-            }}
-        )
-        const data = await response.json()
-        return data.team
-    
-        } catch (error) {
-        console.error("Error fetching teams:", error);
-        return []; // Return an empty array if there's an error
-        }
-        }
-
+// Fetch all users
 export async function getUsers() {
+    const url = `${BASE_URL}/user`;
+    const data = await fetchData(url);
+    return data ? data.user : [];
+}
 
-  const URL = "https://mghs-backend.onrender.com/user"
+// Fetch a user by ID
+export async function getUserById(public_id) {
+    const url = `${BASE_URL}/user/${public_id}`;
+    return await fetchData(url);
+}
 
-          let response = await fetch(URL, {
-            method: 'GET',
-            credentials: "omit", 
-            headers: {
-              'Content-Type': 'application/json'
-            }
-          })
+// Post a new team
+export async function PostNewTeam(team) {
+    const url = `${BASE_URL}/team`;
+    const options = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(team)
+    };
+    return await fetchData(url, options);
+}
 
-          const data = await response.json()
-          return data.user
-        
-        }
+// Fetch all activities
+export async function getActivities() {
+    const url = `${BASE_URL}/activity`;
+    const data = await fetchData(url);
+    return data ? data.activity : [];
+}
 
-export async function getUserById(public_id, bearer=null) {
-
-  const URL =  "https://mghs-backend.onrender.com"
-
-    let response = await fetch(`${URL}/user/${public_id}`, {
-      method: 'GET',
-      credentials: "omit", 
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    })
-
-    return response.json()
-  
-  }
-
-
-  export async function PostNewTeam(team) {
-
-
-    const URL = "https://mghs-backend.onrender.com/team"
-
-    let response = fetch(URL, {
-      method: 'POST',
-      credentials: "omit", 
-      headers: {
-        'Content-Type': 'application/json'
-      }
-      ,
-      body: JSON.stringify(team)
-    })
-    
-    return (await response).json()
-
-  
-  }
-
-  export async function getActivities() {
-
-    const URL = "https://mghs-backend.onrender.com/activity"
-  
-            let response = await fetch(URL, {
-              method: 'GET',
-              credentials: "omit", 
-              headers: {
-                'Content-Type': 'application/json'
-              }
-            })
-  
-            const data = await response.json()
-            return data.activity
-          
-          }
-
+// Fetch an activity by ID
 export async function getOneActivity(activity_id) {
-
-  const URL = "https://mghs-backend.onrender.com/activity/" + activity_id
-
-          let response = await fetch(URL, {
-            method: 'GET',
-            credentials: "omit", 
-            headers: {
-              'Content-Type': 'application/json'
-            }
-          })
-
-          const data = await response.json()
-          return data
-        
+    const url = `${BASE_URL}/activity/${activity_id}`;
+    return await fetchData(url);
 }
 
-export async function fetchTasks(){
-
-  const URL = "https://mghs-backend.onrender.com/task"
-
-  let response = await fetch(URL, {method: "GET",credentials: "omit"})
-  const payload = response.json()
-
-  return payload
-
+// Fetch all tasks
+export async function fetchTasks() {
+    const url = `${BASE_URL}/task`;
+    return await fetchData(url);
 }
 
-
-export async function getTaskById(task_id){
-
-  const URL = `https://mghs-backend.onrender.com/task/${task_id}`
-
-  let response = await fetch(URL, {method: "GET",credentials: "omit"})
-  const payload = response.json()
-
-  return payload
-
+// Fetch a task by ID
+export async function getTaskById(task_id) {
+    const url = `${BASE_URL}/task/${task_id}`;
+    return await fetchData(url);
 }

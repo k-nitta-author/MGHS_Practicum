@@ -1,6 +1,9 @@
 @import 'tailwindcss/base';
+
 @import 'tailwindcss/components';
+
 @import 'tailwindcss/utilities';
+
 
 /* Text Styles */
 label {
@@ -46,7 +49,7 @@ button {
 }
 
 .button-filled {
-    color: #418043;
+    color: white;
     background-color: #418043;
     margin: 10px 0;
     padding: 10px 20px;
@@ -73,20 +76,6 @@ button {
     color: darkgrey;
 }
 
-.edit-button {
-    color: white;
-    background-color: #418043;
-    margin: 10px 0;
-    padding: 10px 20px;
-    border: 2px solid #418043;
-    border-radius: 10px;
-    transition: background-color 0.3s, color 0.3s;
-}
-
-.edit-button:hover {
-    background-color: #ffffff;
-    color: #418043;
-}
 
 /* Form Styles */
 .form-container {
@@ -221,327 +210,614 @@ button {
     padding: 1em;
     background-color: #356a36;
     box-shadow: 0px -2px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    bottom: 0;
     width: 100%;
 }
   
-.footer-column {
+  .footer-column {
     display: flex;
     flex-direction: column;
     gap: 0.5em;
     color: #ffffff;
-}
+  }
   
-.footer-column h4 {
+  .footer-column h4 {
     margin: 0;
-    color: #ffffff;
-}
+    color: #ffffff;;
+  }
   
-.footer-column ul {
+  .footer-column ul {
     list-style-type: none;
     padding: 0;
-}
+  }
   
-.footer-column ul li {
+  .footer-column ul li {
     color: #ffffff;
     margin: 0.5em 0;
-}
+  }
   
-.footer-column a {
+  .footer-column a {
     color: #ffffff;
     text-decoration: none;
     font-weight: lighter;
-}
+  }
   
-.footer-column a:hover {
+  .footer-column a:hover {
     text-decoration: underline;
-}
+  }
+  
 
-/* Tailwind CSS Customizations */
-@layer base {
+
+  
+  @layer base {
     :root {
-        --background: 0 0% 100%;
-        --foreground: 222.2 47.4% 11.2%;
-        --muted: 210 40% 96.1%;
-        --muted-foreground: 215.4 16.3% 46.9%;
-        --popover: 0 0% 100%;
-        --popover-foreground: 222.2 47.4% 11.2%;
-        --border: 214.3 31.8% 91.4%;
-        --input: 214.3 31.8% 91.4%;
-        --card: 0 0% 100%;
-        --card-foreground: 222.2 47.4% 11.2%;
-        --primary: 222.2 47.4% 11.2%;
-        --primary-foreground: 210 40% 98%;
-        --secondary: 210 40% 96.1%;
-        --secondary-foreground: 222.2 47.4% 11.2%;
-        --accent: 210 40% 96.1%;
-        --accent-foreground: 222.2 47.4% 11.2%;
-        --destructive: 0 100% 50%;
-        --destructive-foreground: 210 40% 98%;
-        --ring: 215 20.2% 65.1%;
-        --radius: 0.5rem;
+      --background: 0 0% 100%;
+      --foreground: 222.2 47.4% 11.2%;
+  
+      --muted: 210 40% 96.1%;
+      --muted-foreground: 215.4 16.3% 46.9%;
+  
+      --popover: 0 0% 100%;
+      --popover-foreground: 222.2 47.4% 11.2%;
+  
+      --border: 214.3 31.8% 91.4%;
+      --input: 214.3 31.8% 91.4%;
+  
+      --card: 0 0% 100%;
+      --card-foreground: 222.2 47.4% 11.2%;
+  
+      --primary: 222.2 47.4% 11.2%;
+      --primary-foreground: 210 40% 98%;
+  
+      --secondary: 210 40% 96.1%;
+      --secondary-foreground: 222.2 47.4% 11.2%;
+  
+      --accent: 210 40% 96.1%;
+      --accent-foreground: 222.2 47.4% 11.2%;
+  
+      --destructive: 0 100% 50%;
+      --destructive-foreground: 210 40% 98%;
+  
+      --ring: 215 20.2% 65.1%;
+  
+      --radius: 0.5rem;
     }
   
     .dark {
-        --background: 224 71% 4%;
-        --foreground: 213 31% 91%;
-        --muted: 223 47% 11%;
-        --muted-foreground: 215.4 16.3% 56.9%;
-        --accent: 216 34% 17%;
-        --accent-foreground: 210 40% 98%;
-        --popover: 224 71% 4%;
-        --popover-foreground: 215 20.2% 65.1%;
-        --border: 216 34% 17%;
-        --input: 216 34% 17%;
-        --card: 224 71% 4%;
-        --card-foreground: 213 31% 91%;
-        --primary: 210 40% 98%;
-        --primary-foreground: 222.2 47.4% 1.2%;
-        --secondary: 222.2 47.4% 11.2%;
-        --secondary-foreground: 210 40% 98%;
-        --destructive: 0 63% 31%;
-        --destructive-foreground: 210 40% 98%;
-        --ring: 216 34% 17%;
-        --radius: 0.5rem;
+      --background: 224 71% 4%;
+      --foreground: 213 31% 91%;
+  
+      --muted: 223 47% 11%;
+      --muted-foreground: 215.4 16.3% 56.9%;
+  
+      --accent: 216 34% 17%;
+      --accent-foreground: 210 40% 98%;
+  
+      --popover: 224 71% 4%;
+      --popover-foreground: 215 20.2% 65.1%;
+  
+      --border: 216 34% 17%;
+      --input: 216 34% 17%;
+  
+      --card: 224 71% 4%;
+      --card-foreground: 213 31% 91%;
+  
+      --primary: 210 40% 98%;
+      --primary-foreground: 222.2 47.4% 1.2%;
+  
+      --secondary: 222.2 47.4% 11.2%;
+      --secondary-foreground: 210 40% 98%;
+  
+      --destructive: 0 63% 31%;
+      --destructive-foreground: 210 40% 98%;
+  
+      --ring: 216 34% 17%;
+  
+      --radius: 0.5rem;
     }
-}
+  }
 
-/* Task Card Styles */
-.task-card {
-    @apply bg-gray-200 m-3 p-3 rounded-md space-y-4;
-}
 
-/* Edit Form Styles */
-.edit-form {
-    @apply flex flex-col bg-gray-200 m-3 py-5 px-10 rounded-md;
-}
 
-/* Task Row Styles */
+.task-card{
+
+    @apply
+    
+    bg-gray-200
+    m-3
+    p-3
+    rounded-md
+    space-y-4
+    ;
+    
+}
+  
+  .edit-form{
+    @apply
+
+    flex
+    flex-col
+    bg-gray-200
+    m-3
+    py-5
+    px-10
+    rounded-md
+
+    ;
+  }
+
 .task-row {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    @apply space-y-4;
-}
-
-/* Task Info Styles */
-.task-info {
+    
+    @apply
+    space-y-4;
+    
+  }
+  
+  .task-info {
     flex: 1;
     margin-right: 10px;
-}
-
-/* Task Actions Styles */
-.task-actions {
+  }
+  .task-actions {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-}
+  }
+  
 
-/* Registration Form Styles */
-.registration-form {
+  .registration-form{
+
     display: flex;
     flex-direction: column;
-}
 
-.registration-form label {
-    @apply font-sans;
-}
+    & > label{
+        @apply
+            font-sans;
+    }
 
-.registration-form select {
-    @apply font-sans;
-}
+    & > select{
+        @apply
+            font-sans;
+    }
+    
+  }
+  .registration-form input{
+    @apply
 
-.registration-form input {
-    @apply w-full bg-slate-300 rounded-md;
-}
+    w-full
+    bg-slate-300
+    rounded-md;
+  }
 
-/* Table Styles */
 table {
-    @apply w-full border-2 border-gray-300 text-center;
+    @apply
+    w-full
+    border-2
+    border-gray-300
+    text-center
+    ;
+
+    & > thead {
+        @apply
+        bg-green-700
+        text-white
+        font-bold
+        ;
+    }
+
+    & > td {
+        @apply
+        border-solid
+        border-2
+        border-black
+        ;
+    }
 }
 
-table thead {
-    @apply bg-green-700 text-white font-bold;
+
+.team-view{
+    @apply
+
+    flex-col
+    flex
+    flex-wrap
+    justify-center
+    ;
+
+
 }
 
-table td {
-    @apply border-solid border-2 border-black;
+.team-view-section{
+    @apply
+
+    flex-row
+    flex
+    flex-wrap
+    justify-center
+    gap-8
+    ;
+
+
 }
 
-/* Team View Styles */
-.team-view {
-    @apply flex-col flex flex-wrap justify-center;
+.data-card{
+
+    @apply
+    border
+    border-gray-300
+    shadow-md
+    w-96
+    py-4
+    px-8
+    ;
+
+    & > h3{
+        @apply
+
+        text-2xl
+        font-bold
+
+        ;
+    }
 }
 
-.team-view-section {
-    @apply flex-row flex flex-wrap justify-center gap-8;
+.team-form{
+    @apply
+
+    flex
+    flex-col
 }
 
-/* Data Card Styles */
-.data-card {
-    @apply border border-gray-300 shadow-md w-96 py-4 px-8;
+
+.activities-view{
+
+    
+
+    @apply
+
+    flex
+    flex-col
+    ;
 }
 
-.data-card h3 {
-    @apply text-2xl font-bold;
-}
-
-/* Team Form Styles */
-.team-form {
-    @apply flex flex-col;
-}
-
-/* Activities View Styles */
-.activities-view {
-    @apply flex flex-col;
-}
-
-/* Task Detail Page Styles */
-TaskDetailPage {
+TaskDetailPage{
     background-color: #62412A;
 }
 
-/* Profile Section Styles */
-.profile-section {
+.profile-section{
+
     background-color: white;
+
+    & > data-list{
+
+        background-color: white;
+
+    }
 }
 
-.profile-section data-list {
+
+.page-container{
     background-color: white;
-}
 
-/* Page Container Styles */
-.page-container {
+    & > .block-section{
+        @apply
+        flex
+        flex-row
+        flex-wrap
+        justify-center
+        gap-8
+        ;
+    }
+        background-color: white;
+    }
+
+    & > .task-section-links{
+        background-color: white;
+    }
+
+AdminDashboard{
     background-color: white;
+
+    & > .pending_tasks_view{
+        background-color: white;
+    }
+
+    & > .progress_metrics_view{
+        background-color: white;
+    }
+
+    & > .intern_reflection_view{
+        background-color: white;
+    }
+
+    & > .task_creation_form{
+        background-color: white;
+    }
 }
 
-.page-container .block-section {
-    @apply flex flex-row flex-wrap justify-center gap-8;
+LinkDirectoryPage{
+
+    & > ul{
+
+        background-color: white;
+    }
+
+    & > li{
+
+        background-color: white;
+    }
+
+
 }
 
-/* Admin Dashboard Styles */
-AdminDashboard {
+.team-form-container{
+
     background-color: white;
+
+    & > .team-form{
+        background-color: white;
+
+        & > label{
+            background-color: white;
+        }
+
+        & > textarea{
+            background-color: white;
+        }
+
+        & > input{
+            background-color: white;
+        }
+    }
+
+
+
+
+
 }
 
-.AdminDashboard .pending_tasks_view,
-.AdminDashboard .progress_metrics_view,
-.AdminDashboard .intern_reflection_view,
-.AdminDashboard .task_creation_form {
-    background-color: white;
+.danger-zone{
+
+    @apply
+    my-10
+    border-dashed
+    border-2
+    border-red-500
+    text-right
+    p-4
+    ;
+
+    & > section > button{
+        @apply
+        bg-red-700
+        w-auto
+        ;
+    }
+
+    & > .danger-zone-desc{
+        @apply
+        bg-red-50
+        
+        ;
+    }
+
 }
 
-/* Link Directory Page Styles */
-LinkDirectoryPage ul,
-LinkDirectoryPage li {
-    background-color: white;
+
+.danger-zone-entry{
+
+    @apply
+    flex
+    flex-row
+    ;
+
+    & > section{
+
+        @apply flex-grow;
+
+    }
 }
 
-/* Team Form Container Styles */
-.team-form-container {
-    background-color: white;
-}
 
-.team-form-container .team-form {
-    background-color: white;
-}
+/*TODO: COMPLETE*/
+.modal-hidden{
+    /*    
+    @apply
 
-.team-form-container .team-form label,
-.team-form-container .team-form textarea,
-.team-form-container .team-form input {
-    background-color: white;
-}
+    hidden
+    
+    w-screen
+    h-screen
 
-/* Danger Zone Styles */
-.danger-zone {
-    @apply my-10 border-dashed border-2 border-red-500 text-right p-4;
-}
+    z-10
 
-.danger-zone section button {
-    @apply bg-red-700 w-auto;
-}
+    left-0
+    top-0
 
-.danger-zone .danger-zone-desc {
-    @apply bg-red-50;
-}
+    fixed
 
-/* Danger Zone Entry Styles */
-.danger-zone-entry {
-    @apply flex flex-row;
-}
+    overflow-auto
+    bg-black
+    bg-opacity-80
 
-.danger-zone-entry section {
-    @apply flex-grow;
-}
-
-/* Modal Hidden Styles */
-.modal-hidden {
-    /*
-    @apply hidden w-screen h-screen z-10 left-0 top-0 fixed overflow-auto bg-black bg-opacity-80;
+    ;
     */
+
 }
 
-/* Details Styles */
-.details {
-    @apply p-4 flex flex-col gap-2;
+.details{
+    @apply
+    
+    p-4
+    flex
+    flex-col
+    gap-2
+    
+    ;
 }
 
-/* Activity Details Styles */
-.activity-details {
-    @apply flex flex-col p-3;
+.activity-details{
+    @apply
+
+    flex
+    flex-col
+
+    p-3
+
+    ;
 }
 
-/* Header Styles */
 header {
-    @apply bg-green-800 text-white p-8 mb-5 shadow-md text-center;
+    @apply
+    bg-green-800
+    text-white
+    p-8
+    mb-5
+    shadow-md
+    text-center
+    ;
 }
-
-/* H1 Styles */
 h1 {
-    @apply text-4xl font-bold my-4;
+    @apply
+    text-4xl
+    font-bold
+    my-4
+    ;
 }
 
-/* H2 Styles */
 h2 {
-    @apply text-2xl font-bold my-4;
+    @apply
+    text-2xl
+    font-bold
+    my-4
 }
 
-/* Paragraph Styles */
 p {
-    @apply text-base my-2;
+    @apply
+    text-base
+    my-2
+    ;
 }
 
-/* Page Section Styles */
 .page-section {
-    @apply px-24 my-10 content-center;
+    @apply
+    px-24
+    my-10
+    content-center
+    ;
 }
 
-/* Grid Layout Styles */
 .grid-layout {
     display: grid;
     grid-template-columns: 1fr 2fr;
     gap: 1rem;
     align-items: start;
-}
-
+  }
+  
 .grid-layout h2 {
     grid-column: 1 / 2;
 }
 
-/* Block Section Styles */
-.block-section {
-    @apply flex flex-row flex-wrap gap-8;
+.block-section  {
+    @apply 
+    flex 
+    flex-row 
+    flex-wrap
+    gap-8
+    ;
+  }
+  
+
+  
+header {
+    @apply
+    bg-green-800
+    text-white
+    p-8
+    mb-5
+    shadow-md
+    text-center
+    ;
+}
+h1 {
+    @apply
+    text-4xl
+    font-bold
+    my-4
+    ;
 }
 
-/* Block Styles */
+h2 {
+    @apply
+    text-2xl
+    font-bold
+    my-4
+}
+
+p {
+    @apply
+    text-base
+    my-2
+    ;
+}
+
+.page-section {
+    @apply
+    px-24
+    my-10
+    content-center
+    ;
+}
+
+.grid-layout {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 1rem;
+    align-items: start;
+  }
+  
+.grid-layout h2 {
+    grid-column: 1 / 2;
+}
+
+
+  
 .block {
     p {
-        @apply text-gray-600 italic;
+        @apply
+        text-gray-600
+        italic
+        ;
     }
     b {
-        @apply text-lg font-semibold;
+        @apply
+        text-lg
+        font-semibold
+        ;
     }
     h4 {
-        @apply text-lg;
+        @apply
+        text-lg
+        ;
     }
-    @apply w-auto flex-auto p-3 my-3 border border-gray-200 space-y-10;
+    @apply
+    w-auto
+    flex-auto
+    p-3
+    my-3 
+    border
+    border-gray-200
+    space-y-10
+    ;
+}
+
+.activities-subscribe {
+    @apply border border-gray-300 p-4 rounded-md flex flex-row items-center;
+}
+
+.activities-subscribe button {
+    @apply border border-gray-300 p-2 m-2 rounded-md;
 }

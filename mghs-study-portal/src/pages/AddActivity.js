@@ -86,19 +86,23 @@ const AddActivityPage = () => {
 
   return (
     <section>
+      <header>
+        <h1>Create New Activity</h1>
+        <p>Fill out the form below to create a new activity.</p>
+      </header>
 
       <form class="edit-form" onSubmit={HandleSubmit}>
 
-
         <label>Name</label>
-        <input type='text' name="name" onChange={HandleChange}/>
+        <input type='text' name="name" className={'form-input'} onChange={HandleChange}/>
 
         <label>Description</label>
-        <textarea name='description' onChange={HandleChange}>
+        <textarea name='description' className={'form-input'} onChange={HandleChange}>
         </textarea>
 
+        <label>Task</label>
         <select name='task_id' onChange={HandleChange}>
-
+          <option disabled={true} value={null}>Select Task</option>
           {tasks.map((task, idx) => {
             return(
               <option key={idx}>
@@ -106,10 +110,9 @@ const AddActivityPage = () => {
               </option>
             )
           })}
-
         </select>
 
-        <input type='submit'/>
+        <input type='submit' className="button-filled"/>
 
       </form>
 

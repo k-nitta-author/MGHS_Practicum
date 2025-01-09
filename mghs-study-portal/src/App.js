@@ -55,8 +55,7 @@ function App() {
           <Route path='/activities' element={<ActivityPage/>}/>
           <Route path='/activity/register' element={<AddActivityPage/>}/>
           <Route path='/activity/:id' element={<ActivityDetails/>}/>
-          <Route path='/activity/subscribe' element={<ActivitySubscribe />} />
-
+          
           {/*TASK PAGES*/}
           <Route path="/tasks" element={<TaskPage />} />
           <Route path="/task/register" element={<AddTaskPage/>}/>

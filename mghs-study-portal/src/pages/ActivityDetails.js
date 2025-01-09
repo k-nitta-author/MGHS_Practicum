@@ -3,6 +3,7 @@ import { PostNewTeam } from '../utils/apiCalls';
 import { Navigate, useNavigate, useParams } from 'react-router-dom';
 import { getOneActivity } from '../utils/apiCalls';
 import { Link } from 'react-router-dom';
+import ActivitiesSubscribe from '../components/ActivitySubscribe';
 
 import ActivityEditForm from '../components/EditForms/ActivityEditForm';
 
@@ -12,9 +13,9 @@ const ActivityDetails = (params) => {
   const [CurrentActivity, SetCurrent] = useState([])
   const nav = useNavigate()
   const [editMode, setEditMode] = useState(false);
+  const [subscriptions, setSubscriptions] = useState([{}])
 
-  const [subscriptions, setSubscriptions] = useState([{"name": "bob", "reflection": "edith"}])
-
+  let [CurrentUserSubscription, SetCurrentUserSubscription] = useState({}) 
   let parameters = useParams();
 
   useState(() => {
@@ -29,6 +30,22 @@ const ActivityDetails = (params) => {
       SetCurrent(data)
       get_subscriptions()
       
+    }
+
+    async function fetchSubscriptionofUser() {
+
+      const URL = `https://mghs-backend.onrender.com/activity/${parameters["id"]}/sub`  
+
+      let resp = fetch(URL,
+        {
+          method: "GET",
+          headers:{
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+        }
+        }
+      )
+
     }
 
     FetchActivity()
@@ -91,24 +108,26 @@ const ActivityDetails = (params) => {
 
   return (
     <section class='activity-details'>
+
+        <h1>Activity Details</h1>
         
         <section>
 
-            <h2>Data</h2>
+            <h2>{CurrentActivity.name}</h2>
 
-            <strong>Name:</strong><span>{CurrentActivity.name}</span>
+            <p><strong>Status:</strong><span>{CurrentActivity.status}</span></p>
 
-            <strong>Status:</strong><span>{CurrentActivity.status}</span>
-
-            <strong>Task:</strong><span>
+            <p><strong>Task:</strong><span>
               <Link to={'/task-detail/' + CurrentActivity.task_id}>
                 {CurrentActivity.task_id}
-              </Link></span>
+              </Link></span></p>
+
+              <ActivitiesSubscribe activity_id={parameters["id"]}/>
 
               {editMode && <ActivityEditForm activity_id={parameters["id"]}/>}
 
 
-              <button onClick={HandleEdit}>EDIT</button>
+              <button className='edit-button' onClick={HandleEdit}>EDIT</button>
 
 
             {/*section for the different subscriptions for the activity*/}
@@ -139,7 +158,7 @@ const ActivityDetails = (params) => {
                           {sub.intern_id}
                         </Link>
                       </td>
-                      <td>{sub.is_complete ? 'Yes' : 'No'}</td>
+                      <td>{sub.is_complete ? 'Yes ✅' : 'No 🚫'}</td>
                       <td>{sub.reflection || 'No Reflection'}</td>
                     </tr>
                   )))  : (
@@ -165,6 +184,16 @@ const ActivityDetails = (params) => {
               COMPLETE ACTIVITY
             </button>
         
+        </section>
+
+        <section>
+          <h2>Reflection</h2>
+
+          <p>
+            REFLECTION
+          </p>
+
+
         </section>
 
         <section class="danger-zone">
