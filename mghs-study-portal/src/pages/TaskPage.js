@@ -71,6 +71,9 @@ const TaskPage = () => {
 
       <section className="page-section">
         <h2>All Tasks</h2>
+
+        <Link to={"/task/register"}>Add Task</Link>
+
         {tasks.map((task, index) => {
           return (
             <section className="block-section task-card" key={index}>
@@ -99,11 +102,6 @@ const TaskPage = () => {
       </section>
 
       </aside>
-
-      <section className="page-section">
-        <h2>Task Submission Form</h2>
-        <TaskEditForm></TaskEditForm>
-      </section>
 
     </div>
   );

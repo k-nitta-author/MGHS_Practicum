@@ -63,9 +63,9 @@ const TeamDetailsPage = () => {
   return (
     <main class="team-details details">
 
-      <h3>
+      <h2>
         {team.name}
-      </h3>
+      </h2>
 
       <p>
         {team.description}
@@ -110,7 +110,7 @@ const TeamDetailsPage = () => {
 
       <h2>Danger Zone</h2>
 
-      <footer class="danger-zone">
+      <footer className="danger-zone">
 
 
           <section class="danger-zone-entry">
@@ -126,7 +126,23 @@ const TeamDetailsPage = () => {
               </p>
             </section>
 
-            <button>
+            <button onClick={async () => {
+              const URL = "https://mghs-backend.onrender.com/team/" + params["id"]
+
+              let response = await fetch(URL, {
+                method: 'DELETE',
+                credentials: "omit",
+                headers: {
+                  'Content-Type': 'application/json'
+                }
+              })
+
+              if(response.status === 200){
+                alert("Team Deleted")
+              } else {
+                alert("Team Deletion Failed")
+              }
+            }}>
               Delete Team
             </button>
           </section>

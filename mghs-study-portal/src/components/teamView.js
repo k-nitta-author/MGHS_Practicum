@@ -29,6 +29,10 @@ const TeamView = () => {
         <section class="team-view">
 
 
+            <Link to={'/register-team'}>Add New Team</Link>
+
+            <section class="team-view-section">
+
             {teams.map((team, idx) => {
 
                 return(
@@ -55,6 +59,8 @@ const TeamView = () => {
                 )
             }
             )}
+
+            </section>
 
         </section>
     )

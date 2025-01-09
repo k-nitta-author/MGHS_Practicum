@@ -47,7 +47,7 @@ const InternDashboard = () => {
 
     <section  className='page-section'>
       <h2>
-        Subscribed Tasks
+        Subscribed Activities
       </h2>
       <section className='block'>
         {

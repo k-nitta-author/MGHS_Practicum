@@ -87,7 +87,7 @@ const AddActivityPage = () => {
   return (
     <section>
 
-      <form onSubmit={HandleSubmit}>
+      <form class="edit-form" onSubmit={HandleSubmit}>
 
 
         <label>Name</label>

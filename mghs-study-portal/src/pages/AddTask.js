@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
 import { PostNewTeam } from '../utils/apiCalls';
 import { Navigate, useNavigate } from 'react-router-dom';
-
+import TeamsSelect from '../components/TeamsSelect';
 
 // navigate to this page to create a new task
-// takes in the parameter 'Teams' which should be array of Team objects
-const AddTaskPage = (params) => {
-  
-    const teams = params.teams
+const AddTaskPage = () => {
+
 
     // set up the task state variable
     const [newTask, setNewTask] = useState({
@@ -20,11 +18,9 @@ const AddTaskPage = (params) => {
     // TODO: validate the data if possible
     async function HandleSubmit(e){
 
-        const nav = useNavigate()
-
         e.preventDefault()
 
-        const URL = ""
+        const URL = "https://mghs-backend.onrender.com/task"
 
         // TODO: send to the api
         // still not finished
@@ -36,14 +32,6 @@ const AddTaskPage = (params) => {
                 body: JSON.stringify(newTask)
             }
         )
-
-        // if successful, navigate back to admin_page
-
-        if (response.ok === true){
-
-            nav('/admin-dashboard')
-            
-        }
         
 
     }
@@ -53,38 +41,35 @@ const AddTaskPage = (params) => {
     function HandleChange(event){
         const {name, value} = event.target;
       
-        setNewTeam(values => ({...values, [name]: value}))
+        setNewTask(values => ({...values, [name]: value}))
     }
 
   return (
 
-    <section class="task-form-container">
+    <section>
 
-        <form class="task-form" onSubmit={HandleSubmit}>
+        <form class="task-form edit-form" onSubmit={HandleSubmit}>
 
-            <input name="name"/>
+            <label>
+                Name
+            </label>
+
+            <input name="name" onChange={HandleChange}/>
             
-            <textarea name="description">
+            <label>
+                Description
+            </label>
+
+
+            <textarea name="description" onChange={HandleChange}>
 
             </textarea>
 
 
-            <label>Choose Team</label>
-            {/*WHEN FINISHED; CONSIDER MAKING THIS INTO SEPRATE COMPONENT, TEAM_SELECTION*/}
-            <select>
-                <option>None</option>
-                {
-                teams.map((team, idx) => {
-                    return(
-                        <option key={idx}>
-                            {team.name}
-                        </option>
-                    )
-                })
-                }
-                
-            </select>
+            <label>Choose Team</label>            
+            <TeamsSelect name={"team"} ChangeHander={HandleChange}/>
 
+            <input type='submit'/>
 
         </form>
 

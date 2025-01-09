@@ -13,7 +13,7 @@ const ActivityDetails = (params) => {
   const nav = useNavigate()
   const [editMode, setEditMode] = useState(false);
 
-  const [subscriptions, setSubscriptions] = useState([{"name": "bob", "reflection": "edith"}, {"name": "bob", "reflection": "edith"}, {"name": "bob", "reflection": "edith"}])
+  const [subscriptions, setSubscriptions] = useState([{"name": "bob", "reflection": "edith"}])
 
   let parameters = useParams();
 
@@ -24,9 +24,9 @@ const ActivityDetails = (params) => {
 
       const NewActivity = await getOneActivity(id)
 
-      
+      let data = NewActivity.activity
 
-      SetCurrent(NewActivity)
+      SetCurrent(data)
       get_subscriptions()
       
     }
@@ -38,7 +38,7 @@ const ActivityDetails = (params) => {
   // TODO: COMPLETE THIS ASAP
   async function get_subscriptions() {
 
-    const URL = "" 
+    const URL = `https://mghs-backend.onrender.com/activity/${parameters["id"]}/sub`  
 
     let resp = fetch(URL,
       {
@@ -51,8 +51,8 @@ const ActivityDetails = (params) => {
     )
 
     let data = (await resp).json()
-    
-    setSubscriptions(data)
+
+    setSubscriptions((await data).output)
     
   }
 
@@ -94,6 +94,8 @@ const ActivityDetails = (params) => {
         
         <section>
 
+            <h2>Data</h2>
+
             <strong>Name:</strong><span>{CurrentActivity.name}</span>
 
             <strong>Status:</strong><span>{CurrentActivity.status}</span>
@@ -111,22 +113,45 @@ const ActivityDetails = (params) => {
 
             {/*section for the different subscriptions for the activity*/}
             <section>
-              {
-                subscriptions.map((sub, idx) => {
-                  return(
-                    <section class="activity_subscription_detail">
 
-                      <h4>{sub.name}</h4>
+              <h2>Subscription Details</h2>
 
-                      <p>
-                        {sub.reflection}
-                      </p>
 
-                    </section>
-                  )
-                })
-              }
-              
+                <table>
+                <thead>
+                  <tr>
+                    <th>Activity ID</th>
+                    <th>Begin Date</th>
+                    <th>End Date</th>
+                    <th>Intern ID</th>
+                    <th>Is Complete</th>
+                    <th>Reflection</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {subscriptions.length > 0 ? (subscriptions.map((sub, idx) => (
+                    <tr key={idx}>
+                      <td>{sub.activity_id}</td>
+                      <td>{sub.begin_date}</td>
+                      <td>{sub.end_date || 'ONGOING'}</td>
+                      <td>
+                        <Link to={`/profile/${sub.intern_id}`}>
+                          {sub.intern_id}
+                        </Link>
+                      </td>
+                      <td>{sub.is_complete ? 'Yes' : 'No'}</td>
+                      <td>{sub.reflection || 'No Reflection'}</td>
+                    </tr>
+                  )))  : (
+                    <tr>
+                      <td colSpan="6" style={{ textAlign: 'center' }}>
+                        No subscriptions available.
+                      </td>
+                    </tr>
+                    )}
+                </tbody>
+              </table>
+
             </section>
               
 

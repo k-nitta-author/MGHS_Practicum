@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { PostNewTeam } from '../utils/apiCalls';
 import { Navigate, useNavigate } from 'react-router-dom';
 
-
 // navigate to this page to create a new team
 const AddTeamPage = () => {
   
@@ -52,14 +51,14 @@ const AddTeamPage = () => {
 
 
             <label>Team Name</label>
-            <input name='name' type="text" onChange={HandleChange} value={newTeam.name || ""}/>
+            <input name='name' type="text" onChange={HandleChange} value={newTeam.name || ""} className="form-input"/>
 
             <label>description</label>
-            <textarea name='description' onChange={HandleChange} value={newTeam.description || ""}>
+            <textarea name='description' onChange={HandleChange} value={newTeam.description || ""} className="form-input">
 
             </textarea>
 
-            <input type='submit'/>
+            <input type='submit' className="button-filled"/>
 
         </form>
 

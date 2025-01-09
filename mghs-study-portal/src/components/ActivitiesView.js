@@ -53,6 +53,8 @@ const ActivitiesView = (props) => {
 
         <h4>Activities</h4>
 
+        <Link to="/activity/register">Create New Activity</Link>
+
         <table>
             <thead>
 

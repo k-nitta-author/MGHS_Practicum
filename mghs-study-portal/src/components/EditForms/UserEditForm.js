@@ -7,7 +7,6 @@ const UserEditForm = ({public_id}) => {
 
     const [UserData, SetUserData] = useState({
         username: "",
-        password: "",
         givenname: "",
         surname: "",
         dob: "",
@@ -37,13 +36,15 @@ const UserEditForm = ({public_id}) => {
     }, [])
 
     // submit the changes to the api 
-    async function HandleSubmit(){ 
+    async function HandleSubmit(event){
+        
+        event.preventDefault()
 
         // the url to access teh user from the api
         let URL = "https://mghs-backend.onrender.com/user"
 
         // send a fetch request to try to edit the resource
-        let response = await fetch(URL,
+        let response = await fetch(URL + "/" + publicid,
             
         {
          

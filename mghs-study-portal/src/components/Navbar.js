@@ -45,7 +45,7 @@ return (
         <ul className={`nav-list ${isOpen ? 'open' : 'closed'}`}>
             <li><Link to={
 
-                isAdmin? "/admin-dashboard": "intern-dashboard"                  
+                '/dashboard'             
 
             } onClick={handleLinkClick}>Dashboard</Link></li> 
             <li><Link to="/tasks" onClick={handleLinkClick}>Tasks</Link></li>

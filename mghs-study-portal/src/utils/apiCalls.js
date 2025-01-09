@@ -133,7 +133,7 @@ export async function getOneActivity(activity_id) {
           })
 
           const data = await response.json()
-          return data.activity
+          return data
         
 }
 

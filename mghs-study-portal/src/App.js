@@ -18,15 +18,18 @@ import Footer from './components/Footer';
 import ForgotPassword from './pages/ForgotPassword';
 import TaskDetails from './pages/TaskDetails';
 import TeamDetailsPage from './pages/TeamDetails';
+import DashboardPage from './pages/DashboardPage';
 
 import ActivityPage from './pages/ActivitiesPage';
 import ActivityDetails from './pages/ActivityDetails';
 import AddActivityPage from './pages/AddActivity';
+import ActivitySubscribe from './components/ActivitySubscribe';
 
 import AddTeamPage from './pages/AddTeam';
 
 import './styles/mghs-style.css';
 import RegisterPage from './pages/UserRegisterPage';
+import AddTaskPage from './pages/AddTask';
 
 function App() {
   return (
@@ -38,6 +41,7 @@ function App() {
           <Route path="/" element={<LoginPage />} />
           <Route path="/intern-dashboard" element={<InternDashboard />} />
           <Route path="/admin-dashboard" element={<AdminDashboard />} />
+          <Route path='/dashboard' element={<DashboardPage/>}/>
 
           <Route path="/reflections" element={<ReflectionPage />} />
           <Route path='/register-user' element={<RegisterPage/>} />
@@ -47,14 +51,15 @@ function App() {
           <Route path='/register-team' element={<AddTeamPage/>}/>
           <Route path='/team-details/:id' element={<TeamDetailsPage/>}/>
 
-
           {/*ACTIVITY PAGES*/}
           <Route path='/activities' element={<ActivityPage/>}/>
           <Route path='/activity/register' element={<AddActivityPage/>}/>
           <Route path='/activity/:id' element={<ActivityDetails/>}/>
+          <Route path='/activity/subscribe' element={<ActivitySubscribe />} />
 
           {/*TASK PAGES*/}
           <Route path="/tasks" element={<TaskPage />} />
+          <Route path="/task/register" element={<AddTaskPage/>}/>
           <Route path='/task-detail/:id' element={<TaskDetails/>} />
 
           {/* Progress, Subscriptions, and Support Pages */}
