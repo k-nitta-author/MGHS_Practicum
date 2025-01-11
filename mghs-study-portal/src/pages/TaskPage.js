@@ -76,9 +76,9 @@ const TaskPage = () => {
 
         {tasks.map((task, index) => {
           return (
-            <section className="block-section task-card" key={index}>
-              <div className="task-row block">
-                <div className="task-info">
+            <section className="block-section infocard" key={index}>
+              <div className="infocard-row block">
+                <div className="infocard-details">
                   <h4>
                     <b>Name: </b>{task.name}</h4>
                   <h4>
@@ -90,7 +90,7 @@ const TaskPage = () => {
                   </h4>
                   <p>{task.description}</p>
                 </div>
-                <div className="task-actions">
+                <div className="infocard-actions">
                   <button className="button-outline" onClick={() => HandleEditTask(task)}>
                     Edit
                   </button>

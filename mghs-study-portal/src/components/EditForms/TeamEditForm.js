@@ -59,18 +59,18 @@ const TeamEditForm = ({team_id}) => {
 
     return(
 
-        <form class={'edit-form'} onSubmit={HandleSubmit}>
+        <form className="edit-form" onSubmit={HandleSubmit}>
 
 
             <label>Team Name</label>
-            <input name='name' type="text" onChange={HandleChange} value={TeamData.name || ""}/>
+            <input name='name' type="text" onChange={HandleChange} value={TeamData.name || ""} className="form-input" />
 
             <label>description</label>
-            <textarea name='description' onChange={HandleChange} value={TeamData.description || ""}>
+            <textarea name='description' onChange={HandleChange} value={TeamData.description || ""} className="form-input">
 
             </textarea>
 
-            <input type='submit'/>
+            <input type='submit' className='button-filled'/>
 
         </form>
 

@@ -33,6 +33,10 @@ button {
     cursor: pointer;
 }
 
+button:hover {
+    text-decoration: underline;
+}
+
 .button-outline {
     color: #418043;
     background-color: transparent;
@@ -59,8 +63,9 @@ button {
 }  
 
 .button-filled:hover {
-    background-color: #356a36;
-    color: black;
+    background-color: transparent;
+    border: 2px solid #418043;
+    color: #418043;
 }
 
 .button-faded {
@@ -320,7 +325,7 @@ button {
 
 
 
-.task-card{
+.infocard{
 
     @apply
     
@@ -347,7 +352,7 @@ button {
     ;
   }
 
-.task-row {
+.infocard-row {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -357,11 +362,11 @@ button {
     
   }
   
-  .task-info {
+  .infocard-details {
     flex: 1;
     margin-right: 10px;
   }
-  .task-actions {
+  .infocard-actions {
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -586,21 +591,71 @@ LinkDirectoryPage{
     border-dashed
     border-2
     border-red-500
-    text-right
+    bg-red-50
     p-4
+    flex
+    flex-col
+    text-center
+    items-center
     ;
 
-    & > section > button{
-        @apply
-        bg-red-700
+    & > .delete-button {
+        @apply 
+        font-bold
+        border-red-700
+        text-red-700
+        border-2
         w-auto
+        ;
+    }
+
+    & > .delete-button:hover {
+        @apply
+        bg-transparent
+        bg-red-700
+        text-white
+        ;
+    }
+
+    & > .cancel-button {
+        @apply 
+        font-bold
+        text-gray-700
+        w-auto
+        ;
+    }
+
+    & > .cancel-button:hover {
+        @apply
+        bg-transparent
+        bg-gray-700
+        text-white
         ;
     }
 
     & > .danger-zone-desc{
         @apply
-        bg-red-50
-        
+        mb-5
+        ;
+    }
+
+    & > .danger-zone-desc > p{
+        @apply
+        italic
+        ;
+    }
+
+    & > .danger-zone-desc > h2{
+        @apply
+        text-red-800
+        text-2xl
+        font-bold
+        ;
+    }
+
+    & > .danger-zone-desc > h3{
+        @apply
+        text-lg
         ;
     }
 
@@ -828,5 +883,5 @@ p {
 }
 
 .modal-content {
-    @apply bg-white p-6 rounded-md shadow-md;
+    @apply p-6 rounded-md shadow-md;
 }

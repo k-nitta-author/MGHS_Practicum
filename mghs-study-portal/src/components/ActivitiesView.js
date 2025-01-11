@@ -49,7 +49,7 @@ const ActivitiesView = (props) => {
 
     return (
 
-    <section class="activities-view block">
+    <section className="activities-view">
 
         <h2>Activities</h2>
 
