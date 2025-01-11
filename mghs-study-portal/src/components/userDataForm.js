@@ -1,11 +1,13 @@
 import React, {useEffect, useState} from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { getTeams } from '../utils/apiCalls';
 
 
 const UserDataForm = () => {
     const [inputs, setInputs] = useState({is_admin: false, is_intern: true})
     const [teams, setTeams] = useState([])
+
+    const nav = useNavigate
 
     useEffect(() => {
       async function fetchTeams() {
@@ -22,9 +24,7 @@ const UserDataForm = () => {
 
     e.preventDefault()
 
-    const URL = "https://mghs-backend.onrender.com/user"
-
-    console.log(inputs)
+    const URL = "https://mghs-backend.onrender.com/user"    
 
     const response = await fetch(URL,{
         method: "POST",
@@ -44,6 +44,11 @@ const UserDataForm = () => {
   
   // Displaying results to console
   .then();
+
+  // redirect to the home page if the response is ok
+  if(response.ok){
+    nav('/')
+  }
 
 }
   
