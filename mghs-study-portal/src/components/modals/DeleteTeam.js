@@ -32,7 +32,7 @@ const DeleteTeam = ({ team_id, onClose }) => {
       <section className="modal-content danger-zone">
         <div className="danger-zone-desc">
           <h2>Delete Team</h2>
-          <h3>Are You Sure?</h3>
+          <h3>Are You Sure you want to delete this team?</h3>
           <p>You are about to delete this team, which purges current team from the database. It is advisable not to do so. <strong>This action cannot be undone.</strong></p>
           <p></p>
         </div>
