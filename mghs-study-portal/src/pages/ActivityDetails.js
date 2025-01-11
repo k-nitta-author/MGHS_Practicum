@@ -109,8 +109,9 @@ const ActivityDetails = (params) => {
   return (
     <section class='activity-details'>
 
-        <h1>Activity Details</h1>
-        
+        <header>
+          <h1>Activity Details</h1>
+        </header>
         <section>
 
             <h2>{CurrentActivity.name}</h2>

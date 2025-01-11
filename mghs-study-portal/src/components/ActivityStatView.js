@@ -57,6 +57,18 @@ const ActivityStatView = () => {
                 </section>
 
                 <section className="block">
+                    <h4>Least Complete Activity</h4>
+                    <p>Activity with the least completions.</p>
+                    <strong>{ActivityStats.least_complete_activity} completions</strong>
+                </section>
+
+                <section className="block">
+                    <h4>Most Complete Activity</h4>
+                    <p>Activity with the most completions.</p>
+                    <strong>{ActivityStats.most_complete_activity} completions</strong>
+                </section>
+
+                <section className="block">
                     <h4>No. Of Subscriptions</h4>
                     <p>Total number of subscriptions.</p>
                     <strong>{ActivityStats.subscriptions_count} subscriptions</strong>
