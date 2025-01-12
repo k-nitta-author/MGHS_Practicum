@@ -58,10 +58,10 @@ const TaskDetails = () => {
                     <div className="block-section infocard">
                         <div className="infocard-row block">
                             <div className="infocard-details">
-                                <h4>
-                                    Name: <b>{currentTask.name}</b>
-                                </h4>
-                                <h4>Description:</h4>
+                                <h2>
+                                    Name: <strong>{currentTask.name}</strong>
+                                </h2>
+                                <h2>Description:</h2>
                                 <p>{currentTask.description}</p>
                             </div>
                             <div className="infocard-actions">

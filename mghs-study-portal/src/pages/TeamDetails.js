@@ -59,10 +59,10 @@ const TeamDetailsPage = () => {
           <div className="block-section infocard">
             <div className="infocard-row block">
               <div className="infocard-details">
-                <h4>
-                  Team Name: <b>{team.name}</b>
-                </h4>
-                <h4>Description:</h4>
+                <h2>
+                  Team Name: <strong>{team.name}</strong>
+                </h2>
+                <h2>Description:</h2>
                 <p>{team.description}</p>
               </div>
               <div className="infocard-actions">

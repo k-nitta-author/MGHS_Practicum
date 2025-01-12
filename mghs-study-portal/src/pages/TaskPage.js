@@ -62,9 +62,7 @@ const TaskPage = () => {
 
       <header>
         <h1>Task Management</h1>
-        <p>
-          View and manage all tasks.
-        </p>
+        <p>View and manage all tasks.</p>
       </header>
 
       <aside>
@@ -79,15 +77,15 @@ const TaskPage = () => {
             <section className="block-section infocard" key={index}>
               <div className="infocard-row block">
                 <div className="infocard-details">
-                  <h4>
-                    <b>Name: </b>{task.name}</h4>
-                  <h4>
-                    <b>Team: </b><Link to={`/team-details/` + task.team_id}>{task.team_name}</Link>
-                  </h4>
+                  <h2>
+                    <strong>Name: </strong>{task.name}</h2>
+                  <h2>
+                    <strong>Team: </strong><Link to={`/team-details/` + task.team_id}>{task.team_name}</Link>
+                  </h2>
                 
-                  <h4>
-                    <b>Description:</b>
-                  </h4>
+                  <h2>
+                    <strong>Description:</strong>
+                  </h2>
                   <p>{task.description}</p>
                 </div>
                 <div className="infocard-actions">

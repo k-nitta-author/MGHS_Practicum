@@ -29,17 +29,17 @@ const InternDashboard = () => {
           <h2>Current Progress</h2>
           <section className="block-section">
             <section className="block">
-              <h4>Tasks Completed</h4>
-              <b>
+              <h2>Tasks Completed</h2>
+              <strong>
                 {progress_data.tasks_completed}
-              </b>
+              </strong>
             </section>
 
             <section className="block">
-              <h4>Activities Done</h4>
-              <b>
+              <h2>Activities Done</h2>
+              <strong>
                 {progress_data.activities_done}
-              </b>
+              </strong>
             </section>
           </section>
       </section>
@@ -54,7 +54,7 @@ const InternDashboard = () => {
         progress_data.subscribed_tasks.map((task, index) => {
             return(
               <section key={index}>
-                <h4>{task.name}</h4>
+                <h2>{task.name}</h2>
 
                 <p>{task.description}</p>
               </section>

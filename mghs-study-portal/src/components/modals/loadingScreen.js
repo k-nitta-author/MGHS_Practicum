@@ -6,9 +6,9 @@ const LoadingScreen = () => {
 return (
     <section class="modal-loading">
 
-        <b>
+        <strong>
             LOADING
-        </b>
+        </strong>
 
     </section>
 );
