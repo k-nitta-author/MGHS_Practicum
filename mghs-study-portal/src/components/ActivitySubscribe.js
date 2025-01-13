@@ -12,6 +12,31 @@ const ActivitiesSubscribe = ({ activity_id }) => {
     if (!act_id) {
       console.error('Activity ID is undefined');
     }
+
+    async function FetchActivitySubscription() {
+      const URL = `https://mghs-backend.onrender.com/activity/${act_id}/sub/${localStorage.getItem('OPTIFLOW_PUBLIC_ID')}`;
+
+      try {
+        let resp = await fetch(URL, {
+          method: 'GET',
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+          },
+        });
+
+        if (resp.ok) {
+
+          console.log(await resp.json());
+
+          setSubscribed(true);
+        }
+      } catch (error) {
+        console.error('There was a problem with the fetch request:', error);
+      }
+    }
+
+    FetchActivitySubscription();
   }, [act_id]);
 
   // subscribe to the activity

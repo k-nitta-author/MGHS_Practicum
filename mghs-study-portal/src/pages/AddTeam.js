@@ -48,6 +48,13 @@ const AddTeamPage = () => {
 
     <section class="team-form-container">
 
+        <header>
+            <h1>Create a New Team</h1>
+
+            <p>Use this form to create a new team.</p>
+
+        </header>
+
         <form class="team-form" onSubmit={HandleSubmit}>
 
 
