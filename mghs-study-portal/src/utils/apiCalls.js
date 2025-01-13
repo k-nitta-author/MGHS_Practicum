@@ -81,3 +81,10 @@ export async function getTaskById(task_id) {
     const url = `${BASE_URL}/task/${task_id}`;
     return await fetchData(url);
 }
+
+export async function getSubscriptionsByUser(public_id) {
+
+    const URL = `https://mghs-backend.onrender.com/activity/sub/${public_id}`  
+
+    return (await fetchData(URL));
+}

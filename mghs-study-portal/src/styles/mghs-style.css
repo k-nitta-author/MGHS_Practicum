@@ -469,6 +469,11 @@ table {
     }
 }
 
+/* Data Card Link Styles */
+.data-card-link {
+    @apply no-underline text-black;
+}
+
 .team-form{
     @apply
 
@@ -884,4 +889,46 @@ p {
 
 .modal-content {
     @apply p-6 rounded-md shadow-md;
+}
+
+
+.subscriptions-view{
+    @apply
+
+    p-8
+
+    flex
+    flex-row
+    flex-wrap
+    justify-center
+    gap-4
+    ;
+
+    > .data-card{
+        @apply
+        w-96
+        transition
+        ease-linear
+        ;
+    }
+
+    > .data-card:hover{
+        @apply
+        shadow-md
+        shadow-black
+        ;
+
+        > h3{
+            @apply
+            text-green-400
+            ;
+        }
+    }
+
+    > Link{
+        @apply
+        no-underline
+        text-black
+        ;
+    }
 }
