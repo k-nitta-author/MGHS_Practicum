@@ -65,7 +65,11 @@ const LoginPage = () => {
   return (
     <div>
       <div className="form-container">
-        <h2>Welcome to MGHS Study Portal</h2>
+        <header>
+          <h2>Welcome to <strong>Optiflow</strong>, the MGHS Study Portal</h2>
+          <p>Sign in to access the study portal</p>
+        </header>
+
         <form>
           <label htmlFor="username">Email/Username</label>
           <br />

@@ -42,6 +42,10 @@ const ActivityPage = () => {
 
         <header>
             <h1>Activities</h1>
+
+            <p>
+                This page will display all activities
+            </p>
         </header>
 
         <section>
@@ -58,7 +62,9 @@ const ActivityPage = () => {
 
                     <p><strong>Task: </strong><Link to={'/task-detail/' + activity.task_id}>{activity.task_id}</Link></p>
 
-                    <p>{activity.status}</p>
+                    <p><strong>Status:</strong>{activity.status}</p>
+
+                    <p><strong>Description</strong></p>
 
                     <p>
                         {activity.description}

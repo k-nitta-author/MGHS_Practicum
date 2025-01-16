@@ -3,8 +3,8 @@ import React from 'react';
 const LinkDirectoryPage = () => {
   const links = [
     { name: 'MGHS Home', url: 'https://www.mghsservices.com', section: 'General' },
-    { name: 'Intern Handbook', url: '/intern-handbook', section: 'Intern' },
-    { name: 'Study Resources', url: '/study-resources', section: 'General' },
+    //{ name: 'Intern Handbook', url: '/intern-handbook', section: 'Intern' },
+    //{ name: 'Study Resources', url: '/study-resources', section: 'General' },
     { name: 'Login Page', url: '/', section: 'General' },
     { name: 'Intern Dashboard', url: '/intern-dashboard', section: 'Intern' },
     { name: 'Admin Dashboard', url: '/admin-dashboard', section: 'Admin' },
@@ -46,6 +46,9 @@ const LinkDirectoryPage = () => {
     <section>
       <header>
         <h1>Link Directory</h1>
+        <p>
+          This page contains a list of all the links in the study portal
+        </p>
       </header>
       {sections.map((section) => (
         <div key={section}>

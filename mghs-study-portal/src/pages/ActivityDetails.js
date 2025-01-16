@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { PostNewTeam } from '../utils/apiCalls';
 import { Navigate, useNavigate, useParams } from 'react-router-dom';
 import { getOneActivity } from '../utils/apiCalls';
 import { Link } from 'react-router-dom';
 import ActivitiesSubscribe from '../components/ActivitySubscribe';
 
+import CompleteActivityModal from '../components/CompleteActivityModal';
 import ActivityEditForm from '../components/EditForms/ActivityEditForm';
 
 // navigate to this page to create a new activity
@@ -14,11 +15,13 @@ const ActivityDetails = (params) => {
   const nav = useNavigate()
   const [editMode, setEditMode] = useState(false);
   const [subscriptions, setSubscriptions] = useState([{}])
+  const [modalVisible, setModalVisible] = useState(false);
+  const [isComplete, setIsComplete] = useState(false);
 
   let [CurrentUserSubscription, SetCurrentUserSubscription] = useState({}) 
   let parameters = useParams();
 
-  useState(() => {
+  useEffect(() => {
     async function FetchActivity() {
 
       const id = parameters["id"]
@@ -29,30 +32,49 @@ const ActivityDetails = (params) => {
 
       SetCurrent(data)
       get_subscriptions()
+
+      let sub = await FetchActivitySubscription(SetCurrentUserSubscription)
+
+      setIsComplete(sub.message.is_complete)
+
       
     }
 
-    async function fetchSubscriptionofUser() {
 
-      const URL = `https://mghs-backend.onrender.com/activity/${parameters["id"]}/sub`  
-
-      let resp = fetch(URL,
-        {
-          method: "GET",
-          headers:{
-            'Accept': 'application/json',
-            'Content-Type': 'application/json',
-        }
-        }
-      )
-
-    }
-
+    
     FetchActivity()
   }, [])
 
 
-  // TODO: COMPLETE THIS ASAP
+  async function FetchActivitySubscription(subscribedSetter) {
+    const URL = `https://mghs-backend.onrender.com/activity/${parameters["id"]}/sub/${localStorage.getItem('OPTIFLOW_PUBLIC_ID')}`;
+
+    try {
+      let resp = await fetch(URL, {
+        method: 'GET',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+      });
+
+      if (resp.ok) {
+
+        subscribedSetter(true);
+
+        return await resp.json();
+
+
+      }
+    } catch (error) {
+      console.error('There was a problem with the fetch request:', error);
+    }
+
+    return null;
+
+    
+  }
+
   async function get_subscriptions() {
 
     const URL = `https://mghs-backend.onrender.com/activity/${parameters["id"]}/sub`  
@@ -74,8 +96,8 @@ const ActivityDetails = (params) => {
   }
 
   // this is called when admin user clicks the complete activity button
-  async function HandleCompleteActivity(){
-
+  function HandleCompleteActivity(){
+    setModalVisible(true);
   }
 
   // if the user decides to delete the activity
@@ -106,6 +128,13 @@ const ActivityDetails = (params) => {
     setEditMode(!editMode)
   }
 
+
+  // To be implemented
+  // handle the reflection form submission
+  function HandleReflectionSubmit(e){
+    e.preventDefault()
+  }
+
   return (
     <section class='activity-details'>
 
@@ -123,57 +152,46 @@ const ActivityDetails = (params) => {
                 {CurrentActivity.task_id}
               </Link></span></p>
 
-              <ActivitiesSubscribe activity_id={parameters["id"]}/>
+              <ActivitiesSubscribe activity_id={parameters["id"]} fetchSubscriptionFunction={FetchActivitySubscription}/>
 
               {editMode && <ActivityEditForm activity_id={parameters["id"]}/>}
 
-
               <button className='edit-button' onClick={HandleEdit}>EDIT</button>
 
-
             {/*section for the different subscriptions for the activity*/}
-            <section>
-
-              <h2>Subscription Details</h2>
-
-
+            {subscriptions.length > 0 && (
+              <section>
+                <h2>Subscription Details</h2>
                 <table>
-                <thead>
-                  <tr>
-                    <th>Activity ID</th>
-                    <th>Begin Date</th>
-                    <th>End Date</th>
-                    <th>Intern ID</th>
-                    <th>Is Complete</th>
-                    <th>Reflection</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {subscriptions.length > 0 ? (subscriptions.map((sub, idx) => (
-                    <tr key={idx}>
-                      <td>{sub.activity_id}</td>
-                      <td>{sub.begin_date}</td>
-                      <td>{sub.end_date || 'ONGOING'}</td>
-                      <td>
-                        <Link to={`/profile/${sub.intern_id}`}>
-                          {sub.intern_id}
-                        </Link>
-                      </td>
-                      <td>{sub.is_complete ? 'Yes ✅' : 'No 🚫'}</td>
-                      <td>{sub.reflection || 'No Reflection'}</td>
-                    </tr>
-                  )))  : (
+                  <thead>
                     <tr>
-                      <td colSpan="6" style={{ textAlign: 'center' }}>
-                        No subscriptions available.
-                      </td>
+                      <th>Activity ID</th>
+                      <th>Begin Date</th>
+                      <th>End Date</th>
+                      <th>Intern ID</th>
+                      <th>Is Complete</th>
+                      <th>Reflection</th>
                     </tr>
-                    )}
-                </tbody>
-              </table>
-
-            </section>
-              
+                  </thead>
+                  <tbody>
+                    {subscriptions.map((sub, idx) => (
+                      <tr key={idx}>
+                        <td>{sub.activity_id}</td>
+                        <td>{sub.begin_date}</td>
+                        <td>{sub.end_date || 'ONGOING'}</td>
+                        <td>
+                          <Link to={`/profile/${sub.intern_id}`}>
+                            {sub.intern_id}
+                          </Link>
+                        </td>
+                        <td>{sub.is_complete ? 'Yes ✅' : 'No 🚫'}</td>
+                        <td>{sub.reflection || 'No Reflection'}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </section>
+            )}
 
             <h2>Description</h2>
 
@@ -181,37 +199,24 @@ const ActivityDetails = (params) => {
               {CurrentActivity.description}
             </p>
 
-            <button onClick={HandleCompleteActivity}>
-              COMPLETE ACTIVITY
-            </button>
+            {CurrentUserSubscription && !isComplete && (
+              <button onClick={HandleCompleteActivity}>
+                COMPLETE ACTIVITY
+              </button>
+            )}
+
+        </section>
         
-        </section>
-
-        <section>
-          <h2>Reflection</h2>
-
-          <p>
-            REFLECTION
-          </p>
-
-
-        </section>
+        <CompleteActivityModal isVisible={modalVisible} setIsVisible={setModalVisible} activity_id={parameters["id"]} />
 
         <section class="danger-zone">
-
           <section>
-          <p>a a a a</p>
-
-
-          <button onClick={HandleDelete}>
-            Delete Activity
-          </button>
-
+            <p>a a a a</p>
+            <button onClick={HandleDelete}>
+              Delete Activity
+            </button>
           </section>
-
         </section>
-
-
 
     </section>
   );

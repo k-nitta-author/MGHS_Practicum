@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 // include this in places where you need to be able to subscribe to an activity
-const ActivitiesSubscribe = ({ activity_id }) => {
+const ActivitiesSubscribe = ({ activity_id, fetchSubscriptionFunction }) => {
   // initialize stateful data
   const [activity, setActivity] = useState({});
   const [modalVisible, setModalVisible] = useState(false);
@@ -13,31 +13,9 @@ const ActivitiesSubscribe = ({ activity_id }) => {
       console.error('Activity ID is undefined');
     }
 
-    async function FetchActivitySubscription() {
-      const URL = `https://mghs-backend.onrender.com/activity/${act_id}/sub/${localStorage.getItem('OPTIFLOW_PUBLIC_ID')}`;
-
-      try {
-        let resp = await fetch(URL, {
-          method: 'GET',
-          headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json',
-          },
-        });
-
-        if (resp.ok) {
-
-          console.log(await resp.json());
-
-          setSubscribed(true);
-        }
-      } catch (error) {
-        console.error('There was a problem with the fetch request:', error);
-      }
-    }
-
-    FetchActivitySubscription();
-  }, [act_id]);
+    // fetch the activity data
+    fetchSubscriptionFunction(setSubscribed);
+  }, [act_id, fetchSubscriptionFunction]);
 
   // subscribe to the activity
   async function Subscribe() {
@@ -59,7 +37,6 @@ const ActivitiesSubscribe = ({ activity_id }) => {
         throw new Error('Network response was not ok');
       }
 
-      console.log(await response.json());
       setSubscribed(true); // Set subscribed state to true
       setModalVisible(false); // Hide the modal on successful subscription
     } catch (error) {

@@ -21,12 +21,22 @@ a:hover {
     text-decoration: underline;
 }
 
+textarea {
+    font-size: 16px;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+    border: 1px solid #418043;
+    background-color: whitesmoke;
+}
+
 /* Button Styles */
 button {
     display: block;
     width: auto;
     margin: 10px 0;
     box-sizing: border-box;
+    border: #418043 2px solid;
     border-radius: 10px;
     padding: 10px 20px;
     font-size: 16px;
@@ -252,6 +262,7 @@ button:hover {
     text-decoration: underline;
   }
   
+
 
 
   
@@ -844,6 +855,78 @@ p {
 }
 
 
+.reflection-form {
+    @apply
+    flex
+    flex-col
+    items-center
+        p-4
+    rounded-md
+    ;
+
+
+
+    > textarea {
+        @apply
+        w-1/2
+        
+        ;
+    }
+}
+
+.reflection-form-radio-section {
+    @apply
+    flex
+    flex-row
+    items-center
+    gap-4
+    ;
+}
+
+.reflection-form-radio-wrapper {
+    @apply
+    bg-white
+    border-solid
+    border-2
+    border-[#418043]
+    rounded-full
+    p-2
+    flex
+    items-center
+    justify-start
+
+    w-[15.5rem]
+
+    transition
+    duration-300
+    ease-in-out
+    ;
+}
+
+.reflection-form-radio-wrapper:hover {
+    @apply
+    bg-[#418043]
+    text-white
+    ;
+}
+
+.activity-reflection-radio {
+    @apply
+    m-2
+    appearance-none
+    w-4
+    h-4
+    border-2
+    border-gray-300
+    rounded-full
+    checked:bg-lime-400
+    checked:border-white
+    transition
+    duration-300
+    ease-in-out
+    ;
+}
+
   
 .block {
     p {
@@ -888,7 +971,7 @@ p {
 }
 
 .modal-content {
-    @apply p-6 rounded-md shadow-md;
+    @apply p-6 rounded-md shadow-md bg-white;
 }
 
 
@@ -932,3 +1015,13 @@ p {
         ;
     }
 }
+
+.complete-activity-section{
+    @apply
+
+    modal
+    flex
+    flex-col
+    ;
+}
+
