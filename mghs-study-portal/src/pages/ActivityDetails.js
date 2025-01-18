@@ -156,7 +156,7 @@ const ActivityDetails = (params) => {
 
               {editMode && <ActivityEditForm activity_id={parameters["id"]}/>}
 
-              <button className='edit-button' onClick={HandleEdit}>EDIT</button>
+              {localStorage.getItem("OPTIFLOW_IS_ADMIN") === "true" &&  (<button className='edit-button' onClick={HandleEdit}>EDIT</button>)}
 
             {/*section for the different subscriptions for the activity*/}
             {subscriptions.length > 0 && (
@@ -209,14 +209,14 @@ const ActivityDetails = (params) => {
         
         <CompleteActivityModal isVisible={modalVisible} setIsVisible={setModalVisible} activity_id={parameters["id"]} />
 
-        <section class="danger-zone">
+        {localStorage.getItem("OPTIFLOW_IS_ADMIN") === "true" && (<section class="danger-zone">
           <section>
             <p>a a a a</p>
             <button onClick={HandleDelete}>
               Delete Activity
             </button>
           </section>
-        </section>
+        </section>)}
 
     </section>
   );

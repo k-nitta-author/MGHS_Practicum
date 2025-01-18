@@ -78,7 +78,7 @@ const TaskPage = () => {
               <div className="infocard-row block">
                 <div className="infocard-details">
                   <h2>
-                    <strong>Name: </strong>{task.name}</h2>
+                    <strong>Name: </strong><Link to={'/task-detail/' + task.id}>{task.name}</Link></h2>
                   <h2>
                     <strong>Team: </strong><Link to={`/team-details/` + task.team_id}>{task.team_name}</Link>
                   </h2>

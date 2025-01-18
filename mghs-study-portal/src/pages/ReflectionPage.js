@@ -45,7 +45,7 @@ const ReflectionPage = () => {
       let data = await userActivitySubscriptions.json();
 
       setActivitySubscriptions(data.message);
-      setReflection(data.message[0].reflection);
+      setReflection(data.message[0].subscription_reflection);
 
       console.log(data.message);
     }
@@ -97,13 +97,14 @@ const ReflectionPage = () => {
 
           <section className='reflection-form-radio-section'>
 
-
-
           {ActivitySubscriptions.map((activity) => (
             <div
               key={activity.activity_id}
               className='reflection-form-radio-wrapper'
-              onClick={() => setSelectedActivity(activity.activity_id)}
+              onClick={() => {
+                setSelectedActivity(activity.activity_id);
+                setReflection(activity.subscription_reflection);
+              }}
             >
               <input
                 type="radio"
@@ -111,7 +112,10 @@ const ReflectionPage = () => {
                 name="activity"
                 value={activity.activity_id}
                 checked={selectedActivity === activity.activity_id}
-                onChange={(e) => setSelectedActivity(e.target.value)}
+                onChange={(e) => {
+                  setSelectedActivity(e.target.value);
+                  setReflection(activity.subscription_reflection);
+                }}
                 className='activity-reflection-radio'
               />
               <label htmlFor={activity.activity_id}>{activity.activity_name}</label>

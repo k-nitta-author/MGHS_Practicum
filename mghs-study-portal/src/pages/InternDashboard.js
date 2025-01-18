@@ -1,18 +1,39 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 
+// InternDashboard component
 const InternDashboard = () => {
 
-  const progress_data = {
+  // Progress data for the intern
+  const [activitySubscriptions, setActivitySubscriptions] = useState([]);
+  const [activityMetadata, setActivityMetadata] = useState([]);
 
-    tasks_completed: 75,
-    activities_done: 50,
-    
-    subscribed_tasks: [
-      { name: "Task 1", description: "Lorem ipsum description for task 1." },
-      { name: "Task 2", description: "Lorem ipsum description for task 2." },
-    ],
-  }
+  // Fetch activity subscriptions on component mount
+  useEffect(() => {
+    async function FetchActivitySubscriptions() {
+      const URL = `https://mghs-backend.onrender.com/activity/sub/${localStorage.getItem('OPTIFLOW_PUBLIC_ID')}`;
+
+      const userActivitySubscriptions = await fetch(
+        URL,
+        {
+          method: "GET",
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+          }
+        }
+      );
+
+      let data = await userActivitySubscriptions.json();
+
+      setActivitySubscriptions(data.message);
+      setActivityMetadata(data.summary);
+
+      console.log(data.summary);
+    }
+    FetchActivitySubscriptions();
+  }, []);
 
 
   return (
@@ -26,19 +47,20 @@ const InternDashboard = () => {
       </header>
       
       <section className="page-section">
+
           <h2>Current Progress</h2>
           <section className="block-section">
             <section className="block">
-              <h2>Tasks Completed</h2>
+              <h2>Activities Completed</h2>
               <strong>
-                {progress_data.tasks_completed}
+                {activityMetadata.no_complete_activities}
               </strong>
             </section>
 
             <section className="block">
               <h2>Activities Done</h2>
               <strong>
-                {progress_data.activities_done}
+              {activityMetadata.no_of_subscriptions}
               </strong>
             </section>
           </section>
@@ -50,18 +72,26 @@ const InternDashboard = () => {
         Subscribed Activities
       </h2>
       <section className='block'>
-        {
-        progress_data.subscribed_tasks.map((task, index) => {
-            return(
-              <section key={index}>
-                <h2>{task.name}</h2>
 
-                <p>{task.description}</p>
-              </section>
-            )
-          }) 
 
-        }
+      {activitySubscriptions.map((activity, index) => {
+
+        return(
+
+          <section key={index}>
+          <h2>{activity.activity_name}</h2>
+
+          <p><strong>Status: </strong>{activity.subscription_is_complete ? "Complete" : "Incomplete"}</p>
+
+          <p><strong>Deadline: </strong>{activity.subscription_end_date}</p>
+
+          <p>{activity.activity_description}</p>
+        </section>
+
+        )
+          
+        })}
+
       </section>
     
     </section>

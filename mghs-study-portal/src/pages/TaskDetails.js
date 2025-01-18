@@ -64,12 +64,12 @@ const TaskDetails = () => {
                                 <h2>Description:</h2>
                                 <p>{currentTask.description}</p>
                             </div>
-                            <div className="infocard-actions">
+                            {localStorage.getItem("OPTIFLOW_IS_ADMIN") === "true" && (<div className="infocard-actions">
                                 <button onClick={handleEdit} className="button-outline">
                                     Edit
                                 </button>
                                 <button onClick={handleDeleteClick}>Delete Task</button>
-                            </div>
+                            </div>)}
                         </div>
                     </div>
                     {editMode && <TaskEditForm task_id={params.id} />}

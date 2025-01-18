@@ -65,26 +65,27 @@ const TeamDetailsPage = () => {
                 <h2>Description:</h2>
                 <p>{team.description}</p>
               </div>
-              <div className="infocard-actions">
-                <button onClick={handleEdit} className="button-outline">
-                  Edit
-                </button>
-                <button onClick={handleDeleteClick}>
-                  Delete Team
-                </button>
-              </div>
+
+              {localStorage.getItem("OPTIFLOW_IS_ADMIN") === 'true' && (
+                <div className="infocard-actions">
+                  <button onClick={handleEdit} className="button-outline">
+                    Edit
+                  </button>
+                  <button onClick={handleDeleteClick}>
+                    Delete Team
+                  </button>
+                </div>
+              )}
             </div>
           </div>
           {editMode && <TeamEditForm team_id={params.id} />}
           
-          
-
-        {showDeleteModal && (
-          <DeleteTeam
-            team_id={params.id}
-            onClose={handleCloseModal} // Pass a callback to close the modal
-          />
-        )}
+          {showDeleteModal && (
+            <DeleteTeam
+              team_id={params.id}
+              onClose={handleCloseModal} // Pass a callback to close the modal
+            />
+          )}
         </section>
 
         <section className="page-section">

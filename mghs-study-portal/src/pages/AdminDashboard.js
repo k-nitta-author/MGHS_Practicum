@@ -50,17 +50,22 @@ const AdminDashboard = () => {
             <ActivityStatView/>
           </section>
 
+
+          {/*
+          Add more sections for managing tasks, viewing intern progress, etc.
           <section className="page-section">
             <h2>Intern Reflections</h2>
             <p>Feedback and reflections submitted by interns.</p>
-            {/* Section for displaying intern reflections */}
+             Section for displaying intern reflections *
             <section className="intern_reflection_view"></section>
           </section>
+          */}
 
           <section className="page-section">
             <h2>Create New Task</h2>
             <p>Create and assign new tasks to interns.</p>
             {/* TaskEditForm component for creating new tasks */}
+          
             <section className="task_creation_form">
               <TaskEditForm></TaskEditForm>
             </section>
