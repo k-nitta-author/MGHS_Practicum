@@ -41,6 +41,8 @@ button {
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
+    font-weight: bold;
+    color:#418043e6;
 }
 
 button:hover {
@@ -237,7 +239,7 @@ button:hover {
     color: #ffffff;
   }
   
-  .footer-column h4 {
+  .footer-column h2 {
     margin: 0;
     color: #ffffff;;
   }
@@ -935,15 +937,19 @@ p {
         italic
         ;
     }
-    b {
+    /* Titles */
+    h2 {
         @apply
         text-lg
-        font-semibold
         ;
     }
-    h4 {
+
+    /* Status */
+    h3 {
         @apply
-        text-lg
+        text-sm
+        uppercase
+        mt-5
         ;
     }
     @apply
@@ -958,7 +964,7 @@ p {
 }
 
 .activities-subscribe {
-    @apply border border-gray-300 p-4 rounded-md flex flex-row items-center;
+    @apply flex flex-row items-center;
 }
 
 .activities-subscribe button {

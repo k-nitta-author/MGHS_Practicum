@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { PostNewTeam } from '../utils/apiCalls';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { getActivities } from '../utils/apiCalls';
 import { Link } from 'react-router-dom';
 
@@ -38,43 +37,51 @@ const ActivityPage = () => {
   }
 
   return (
-    <section>
-
+    <div className='page-container'>
         <header>
             <h1>Activities</h1>
-
-            <p>
-                This page will display all activities
-            </p>
+            <p>View, subscribe to, and manage all activities.</p>
         </header>
+            
+        <section className='page-section'>
+            <section>
+                <h2>All Activities</h2>
+                <button onClick={HandleCreateActivity}>
+                    Create New Activity
+                </button>
+            </section>
 
-        <section>
-            <button onClick={HandleCreateActivity}>
-                CREATE ACTIVITY
-            </button>
+            <main>
+            {Activities.map((activity, idx)=> {
+                return(
+                    <section className="block-section infocard" key={idx}>
+                    
+                    <div className='infocard-row block'>
+                        <div className='infocard-details'>
+                            <h2>Name: <Link to={'/activity/' + activity.activity_id} params={{"activity_id": activity.activity_id}}>{activity.name}</Link></h2>
+                            <h2>
+                                Task: <Link to={'/task-detail/' + activity.task_id}>{activity.task_id}</Link>
+                            </h2>
+                            <p>{activity.description}</p>
+                            <h3>Status: {activity.status}</h3>
+                        </div>
+                        <div className="infocard-actions">
+                            <Link to={`/activity/${activity.activity_id}`}
+                                        params={{ activity_id: activity.activity_id }}>
+                            <button className="button-outline" >
+                                View
+                            </button>
+                            </Link>
+                        </div>
+                    </div>
+                        
+                    </section>
+                )
+            })}
+
+            </main>
         </section>
-
-        <main>
-        {Activities.map((activity, idx)=> {
-            return(
-                <section key={idx} class='activity-page-item'>
-                   <strong>Name: </strong> <Link to={'/activity/' + activity.activity_id} params={{"activity_id": activity.activity_id}}>{activity.name}</Link>
-
-                    <p><strong>Task: </strong><Link to={'/task-detail/' + activity.task_id}>{activity.task_id}</Link></p>
-
-                    <p><strong>Status:</strong>{activity.status}</p>
-
-                    <p><strong>Description</strong></p>
-
-                    <p>
-                        {activity.description}
-                    </p>
-                </section>
-            )
-        })}
-
-        </main>
-    </section>
+    </div>
   );
 };
 

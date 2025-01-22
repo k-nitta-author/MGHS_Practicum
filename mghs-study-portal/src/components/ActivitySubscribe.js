@@ -83,13 +83,6 @@ const ActivitiesSubscribe = ({ activity_id, fetchSubscriptionFunction }) => {
 
   return (
     <section className="activities-subscribe">
-      {/* Header Section */}
-      <header>
-        <h2>Subscription</h2>
-      </header>
-
-      {/* Main Section */}
-      <main>
         {/* Subscribe/Unsubscribe Button */}
         <button onClick={ShowModal}>
           {subscribed ? 'Unsubscribe' : 'Subscribe'}
@@ -106,7 +99,6 @@ const ActivitiesSubscribe = ({ activity_id, fetchSubscriptionFunction }) => {
             </div>
           </div>
         )}
-      </main>
     </section>
   );
 };
