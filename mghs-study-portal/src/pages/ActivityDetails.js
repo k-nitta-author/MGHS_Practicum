@@ -139,28 +139,32 @@ const ActivityDetails = (params) => {
   }
 
   return (
-    <section class='activity-details'>
+    <div className='page-container'>
+      <header>
+        <h1>Activity Details</h1>
+      </header>
 
-        <header>
-          <h1>Activity Details</h1>
-        </header>
+      <main>
+        <section className='page-section activity-details'>
 
-        <nav>
-          <BackButton/>
-        </nav>
+          <section className='block-section infocard'>
+          <div className='infocard-row block'>
+              <div className='infocard-details'>
+              <h2>{CurrentActivity.name}</h2>
 
-        <section>
+              <p><strong>Status:</strong><span>{CurrentActivity.status}</span></p>
 
-            <h2>{CurrentActivity.name}</h2>
-
-            <p><strong>Status:</strong><span>{CurrentActivity.status}</span></p>
-
-            <p><strong>Task:</strong><span>
-              <Link to={'/task-detail/' + CurrentActivity.task_id}>
-                {CurrentActivity.task_id}
-              </Link></span></p>
-
-              <ActivitiesSubscribe activity_id={parameters["id"]} fetchSubscriptionFunction={FetchActivitySubscription}/>
+              <p><strong>Task:</strong><span>
+                <Link to={'/task-detail/' + CurrentActivity.task_id}>
+                  {CurrentActivity.task_id}
+                </Link></span></p>
+              </div>
+              <div className='infocard-actions'>
+                <ActivitiesSubscribe activity_id={parameters["id"]} fetchSubscriptionFunction={FetchActivitySubscription}/>
+              </div>
+          </div>
+          </section>
+        
 
               {editMode && <ActivityEditForm activity_id={parameters["id"]}/>}
 
@@ -208,7 +212,7 @@ const ActivityDetails = (params) => {
             </p>
 
             {CurrentUserSubscription && !isComplete && (
-              <button onClick={HandleCompleteActivity}>
+              <button className='button-outline' onClick={HandleCompleteActivity}>
                 COMPLETE ACTIVITY
               </button>
             )}
@@ -225,8 +229,9 @@ const ActivityDetails = (params) => {
             </button>
           </section>
         </section>)}
-
-    </section>
+      </main>
+    </div>
+  
   );
 };
 
