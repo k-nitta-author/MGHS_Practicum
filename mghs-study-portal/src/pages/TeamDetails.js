@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useState } from 'react';
 import { getTeamById } from '../utils/apiCalls';
 import { useParams, Link } from 'react-router-dom';
+import BackButton from '../components/BackButton';
 
 import DeleteTeam from '../components/modals/DeleteTeam';
 import TeamEditForm from '../components/EditForms/TeamEditForm';
@@ -54,6 +55,9 @@ const TeamDetailsPage = () => {
       <header>
         <h1>Team Details</h1>
       </header>
+        <nav>
+          <BackButton/>
+        </nav>
       <main className="team-details details">
         <section className="page-section">
           <div className="block-section infocard">

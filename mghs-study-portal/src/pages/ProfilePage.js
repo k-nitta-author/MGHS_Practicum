@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { json, useParams } from 'react-router-dom';
 import UserDataForm from '../components/userDataForm';
 import { Link } from 'react-router-dom';
+import BackButton from '../components/BackButton';
 
 import DeleteUser from '../components/modals/DeleteUser';
 import UserEditForm from '../components/EditForms/UserEditForm';
@@ -66,7 +67,12 @@ const ProfilePage = () => {
       
       <header>
         <h1>Profile - {user.givenname} {user.surname}</h1>
+      
       </header>
+
+      <nav>
+        <BackButton/>
+      </nav>
 
       <main class="profile-section">
 

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import ActivitiesView from '../components/ActivitiesView';
 import { Link } from 'react-router-dom';
+import BackButton from '../components/BackButton';
 import { getTaskById } from '../utils/apiCalls';
 import TaskEditForm from '../components/EditForms/TaskEditForm';
 
@@ -53,6 +54,9 @@ const TaskDetails = () => {
             <header>
                 <h1>Task Details</h1>
             </header>
+        <nav>
+          <BackButton/>
+        </nav>
             <main>
                 <section className="page-section">
                     <div className="block-section infocard">

@@ -3,7 +3,7 @@ import { PostNewTeam } from '../utils/apiCalls';
 import { Navigate, useNavigate } from 'react-router-dom';
 import { getActivities } from '../utils/apiCalls';
 import { Link } from 'react-router-dom';
-
+import BackButton from '../components/BackButton';
 
 // navigate to this page to create a new activity
 const ActivityPage = () => {
@@ -47,6 +47,9 @@ const ActivityPage = () => {
                 This page will display all activities
             </p>
         </header>
+        <nav>
+          <BackButton/>
+        </nav>
 
         <section>
             <button onClick={HandleCreateActivity}>

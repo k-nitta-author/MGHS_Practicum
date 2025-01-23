@@ -1025,3 +1025,11 @@ p {
     ;
 }
 
+.back-button{
+    @apply
+    bg-white
+    p-2
+    rounded-md
+    text-black
+    ;
+}

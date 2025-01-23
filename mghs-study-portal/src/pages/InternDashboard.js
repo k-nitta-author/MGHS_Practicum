@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import BackButton from '../components/BackButton';
 
 // InternDashboard component
 const InternDashboard = () => {
@@ -45,6 +46,10 @@ const InternDashboard = () => {
       </p>
       <img src=''/>
       </header>
+
+        <nav>
+          <BackButton/>
+        </nav>
       
       <section className="page-section">
 

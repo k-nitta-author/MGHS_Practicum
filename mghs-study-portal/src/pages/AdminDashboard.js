@@ -5,6 +5,8 @@ import TaskEditForm from '../components/taskEditForm';
 import ActivityStatView from '../components/ActivityStatView';
 import { useNavigate } from 'react-router-dom';
 
+import BackButton from '../components/BackButton';
+
 
 const AdminDashboard = () => {
   
@@ -27,6 +29,8 @@ const AdminDashboard = () => {
           <p>Manage intern tasks, track progress, and review reflections.</p>
           {/* Add components for managing tasks, viewing intern progress, etc. */}
         </header>
+
+        <BackButton/>
 
         <main>
           <section className="page-section">

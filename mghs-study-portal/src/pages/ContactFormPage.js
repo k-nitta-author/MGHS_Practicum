@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import BackButton from '../components/BackButton';
 
 
 const ContactFormPage = () => {
@@ -18,7 +19,16 @@ const ContactFormPage = () => {
 
   return (
     <section>
-      <h1>Contact Us</h1>
+      
+      <header>
+        <h1>Contact Us</h1>
+        <p>Fill out the form below to send us a message.</p>
+      </header>
+        <nav>
+          <BackButton/>
+        </nav>
+
+
       <form onSubmit={handleSubmit}>
 
         

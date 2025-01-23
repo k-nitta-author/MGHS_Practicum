@@ -29,7 +29,7 @@ const TeamView = () => {
         <section class="team-view">
 
 
-            <Link to={'/register-team'}>Add New Team</Link>
+            <Link to={'/register-team'}><button>Add New Team</button></Link>
 
             <section class="team-view-section">
 

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import BackButton from '../components/BackButton';
 
 // get all reflections from the api in the db
 async function get_reflections() {
@@ -25,6 +26,8 @@ const ReflectionPage = () => {
   const [ActivitySubscriptions, setActivitySubscriptions] = useState([]);
   const [reflection, setReflection] = useState('');
   const [selectedActivity, setSelectedActivity] = useState('');
+  const [errors, setErrors] = useState({});
+  const is_admin = localStorage.getItem('OPTIFLOW_IS_ADMIN') === "true";
 
   // Fetch activity subscriptions on component mount
   useEffect(() => {
@@ -44,17 +47,28 @@ const ReflectionPage = () => {
 
       let data = await userActivitySubscriptions.json();
 
-      setActivitySubscriptions(data.message);
-      setReflection(data.message[0].subscription_reflection);
+      setActivitySubscriptions(data.message || []);
+      setReflection(data.message[0]?.subscription_reflection || '');
 
       console.log(data.message);
     }
     FetchActivitySubscriptions();
   }, []);
 
+  // validate form inputs
+  const validate = () => {
+    let tempErrors = {};
+    if (!selectedActivity) tempErrors.selectedActivity = "Activity selection is required.";
+    if (!reflection) tempErrors.reflection = "Reflection is required.";
+    setErrors(tempErrors);
+    return Object.keys(tempErrors).length === 0;
+  };
+
   // Handle reflection form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (!validate()) return;
 
     const URL = `https://mghs-backend.onrender.com/activity/${selectedActivity}/sub/reflection`;
 
@@ -79,6 +93,23 @@ const ReflectionPage = () => {
     }
   };
 
+  if (is_admin) {
+    return (
+      <section className="reflection-section">
+        <header>
+          <h1>Reflections</h1>
+          <p>View and manage intern reflections.</p>
+        </header>
+
+        <nav>
+          <BackButton/>
+        </nav>
+        <p>Reflections are written by interns.</p>
+        {/* TODO: Implement admin view for reflections */}
+      </section>
+    );
+  }
+
   return (
     <section className="reflection-section">
       <header>
@@ -87,6 +118,10 @@ const ReflectionPage = () => {
           Reflect on your experiences and share your thoughts with us.
         </p>
       </header>
+
+        <nav>
+          <BackButton/>
+        </nav>
 
       <section>
         <h2>Reflections</h2>
@@ -122,14 +157,17 @@ const ReflectionPage = () => {
             </div>
           ))}
           </section>
+          {errors.selectedActivity && <p style={{ color: 'red' }}>{errors.selectedActivity}</p>}
 
           <label>Reflection</label>
 
           <textarea
             placeholder="Write your reflection"
             value={reflection}
+            maxLength={600}
             onChange={(e) => setReflection(e.target.value)}
           />
+          {errors.reflection && <p style={{ color: 'red' }}>{errors.reflection}</p>}
           <button type="submit">Submit</button>
         </form>
       </section>

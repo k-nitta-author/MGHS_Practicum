@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { PostNewTeam } from '../utils/apiCalls';
 import { Navigate, useNavigate } from 'react-router-dom';
+import BackButton from '../components/BackButton';
+
 
 // navigate to this page to create a new team
 const AddTeamPage = () => {
@@ -54,6 +56,10 @@ const AddTeamPage = () => {
             <p>Use this form to create a new team.</p>
 
         </header>
+
+        <nav>
+          <BackButton/>
+        </nav>
 
         <form class="team-form" onSubmit={HandleSubmit}>
 

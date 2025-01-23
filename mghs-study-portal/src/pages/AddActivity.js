@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { PostNewTeam } from '../utils/apiCalls';
 import { Navigate, useNavigate } from 'react-router-dom';
+import BackButton from '../components/BackButton';
+
 
 import { fetchTasks } from '../utils/apiCalls';
+import TeamsSelect from '../components/TeamsSelect';
 
 // navigate to this page to create a new activity
 const AddActivityPage = () => {
@@ -10,6 +13,7 @@ const AddActivityPage = () => {
   // set up stateful variables
   const [tasks, SetTasks] = useState([{"name": ""}])
   const [NewActivity, SetNewActivity] = useState({})
+  const [errors, setErrors] = useState({});
 
   const nav = useNavigate()
 
@@ -31,11 +35,22 @@ const AddActivityPage = () => {
     GetFormData()
   }, [])
 
+  // validate form inputs
+  const validate = () => {
+    let tempErrors = {};
+    if (!NewActivity.name) tempErrors.name = "Name is required.";
+    if (!NewActivity.description) tempErrors.description = "Description is required.";
+    if (!NewActivity.task_id) tempErrors.task_id = "Task is required.";
+    setErrors(tempErrors);
+    return Object.keys(tempErrors).length === 0;
+  };
 
   // attempt to create an activity
   async function HandleSubmit(e){
     
     e.preventDefault()
+
+    if (!validate()) return;
     
     const URL = "https://mghs-backend.onrender.com/activity" 
 
@@ -91,26 +106,37 @@ const AddActivityPage = () => {
         <p>Fill out the form below to create a new activity.</p>
       </header>
 
+        <nav>
+          <BackButton/>
+        </nav>
+
       <form class="edit-form" onSubmit={HandleSubmit}>
 
         <label>Name</label>
-        <input type='text' name="name" className={'form-input'} onChange={HandleChange}/>
+        <input
+        type='text'
+        name="name"
+        className={'form-input'}
+        onChange={HandleChange}/>
+        
+        {errors.name && <p style={{ color: 'red' }}>{errors.name}</p>}
 
         <label>Description</label>
-        <textarea name='description' className={'form-input'} onChange={HandleChange}>
+        
+        <textarea
+        name='description'
+        className={'form-input'}
+        maxLength={600}
+        onChange={HandleChange}>
         </textarea>
+        
+        {errors.description && <p style={{ color: 'red' }}>{errors.description}</p>}
 
         <label>Task</label>
-        <select name='task_id' onChange={HandleChange}>
-          <option disabled={true} value={null}>Select Task</option>
-          {tasks.map((task, idx) => {
-            return(
-              <option key={idx}>
-                {task.name}
-              </option>
-            )
-          })}
-        </select>
+
+        <TeamsSelect name='task_id' onChange={HandleChange}/>
+
+        {errors.task_id && <p style={{ color: 'red' }}>{errors.task_id}</p>}
 
         <input type='submit' className="button-filled"/>
 

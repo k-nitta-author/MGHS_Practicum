@@ -3,7 +3,10 @@ import { PostNewTeam } from '../utils/apiCalls';
 import { Navigate, useNavigate, useParams } from 'react-router-dom';
 import { getOneActivity } from '../utils/apiCalls';
 import { Link } from 'react-router-dom';
+import BackButton from '../components/BackButton';
+
 import ActivitiesSubscribe from '../components/ActivitySubscribe';
+
 
 import CompleteActivityModal from '../components/CompleteActivityModal';
 import ActivityEditForm from '../components/EditForms/ActivityEditForm';
@@ -141,6 +144,11 @@ const ActivityDetails = (params) => {
         <header>
           <h1>Activity Details</h1>
         </header>
+
+        <nav>
+          <BackButton/>
+        </nav>
+
         <section>
 
             <h2>{CurrentActivity.name}</h2>

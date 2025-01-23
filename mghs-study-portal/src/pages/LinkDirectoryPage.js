@@ -1,4 +1,6 @@
 import React from 'react';
+import BackButton from '../components/BackButton';
+
 
 const LinkDirectoryPage = () => {
   const links = [
@@ -50,6 +52,11 @@ const LinkDirectoryPage = () => {
           This page contains a list of all the links in the study portal
         </p>
       </header>
+
+        <nav>
+          <BackButton/>
+        </nav>
+      
       {sections.map((section) => (
         <div key={section}>
           <h2>{section}</h2>

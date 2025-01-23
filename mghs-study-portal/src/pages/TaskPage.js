@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useState } from 'react';
 import LoadingScreen from '../components/modals/loadingScreen';
 import TaskEditForm from '../components/taskEditForm';
+import BackButton from '../components/BackButton';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
@@ -64,6 +65,10 @@ const TaskPage = () => {
         <h1>Task Management</h1>
         <p>View and manage all tasks.</p>
       </header>
+
+        <nav>
+          <BackButton/>
+        </nav>
 
       <aside>
 

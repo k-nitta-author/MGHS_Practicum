@@ -7,6 +7,7 @@ import { Buffer } from 'buffer';
 const LoginPage = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
   const navigate = useNavigate();
 
 
@@ -18,8 +19,18 @@ const LoginPage = () => {
   // reads HTTP headers to find password and username
   let item = (username, password);
 
+  // validate form inputs
+  const validate = () => {
+    let tempErrors = {};
+    if (!username) tempErrors.username = "Username is required.";
+    if (!password) tempErrors.password = "Password is required.";
+    setError(tempErrors);
+    return Object.keys(tempErrors).length === 0;
+  };
+
   // TODO: CONSIDER ADDING A LOGIN SCREEN AS SOMETIMES IT TAKES TIME TO LOAD
   async function handleLogin(){
+    if (!validate()) return;
 
     // construct headers to add to request
     let H = new Headers();
@@ -27,34 +38,45 @@ const LoginPage = () => {
     // add basic authentication to headers using password and username
     H.append('Authorization', 'Basic ' + btoa(`${username}:${password}`));
 
-    // fetch from backend URL
-    let result = await fetch(URL, {
-      method: "GET",
-      headers: H}
-    )
-    
-    // throw an error in event that resutlt is anything less than ok
-    if (!result.ok) {
-      throw new Error(`HTTP error! Status: ${result.status}`);
-    }
+    try {
+      // fetch from backend URL
+      let result = await fetch(URL, {
+        method: "GET",
+        headers: H}
+      )
+      
+      // check if the status code is 401
+      if (result.status === 401) {
+        setError('Invalid username or password.');
+        return;
+      }
 
-    // usable data to parse if acceptable
-    const data = await result.json()
+      // throw an error in event that result is anything less than ok
+      if (!result.ok) {
+        throw new Error(`HTTP error! Status: ${result.status}`);
+      }
 
-    // set local storage if acceptale
-    localStorage.setItem("OPTIFLOW_TOKEN", data.login_token);
-    localStorage.setItem("OPTIFLOW_IS_ADMIN", data.is_admin);
-    localStorage.setItem("OPTIFLOW_PUBLIC_ID", data.public_id);
+      // usable data to parse if acceptable
+      const data = await result.json()
 
-    // if localSession is_admin returns true, then send to admin-dashboard
-    // otherwise, send to intern-dashboard
-    if (data.is_admin === true) {
+      // set local storage if acceptable
+      localStorage.setItem("OPTIFLOW_TOKEN", data.login_token);
+      localStorage.setItem("OPTIFLOW_IS_ADMIN", data.is_admin);
+      localStorage.setItem("OPTIFLOW_PUBLIC_ID", data.public_id);
 
-      navigate('/admin-dashboard');
-    } else {
+      // if localSession is_admin returns true, then send to admin-dashboard
+      // otherwise, send to intern-dashboard
+      if (data.is_admin === true) {
 
-      navigate('/intern-dashboard');
+        navigate('/admin-dashboard');
+      } else {
 
+        navigate('/intern-dashboard');
+
+      }
+    } catch (error) {
+      console.error('Error during login:', error);
+      setError('An error occurred during login. Please try again.');
     }
   };
 
@@ -82,6 +104,7 @@ const LoginPage = () => {
             required={true}
             onChange={(e) => setUsername(e.target.value)}
           />
+          {error.username && <p style={{ color: 'red' }}>{error.username}</p>}
           <br />
           <label htmlFor="password">Password</label>
           <br />
@@ -89,14 +112,16 @@ const LoginPage = () => {
             id="password"
             className='form-input'
             type="password"
-            placeholder="Enter you password"
+            placeholder="Enter your password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
+          {error.password && <p style={{ color: 'red' }}>{error.password}</p>}
 
           {/* add a modal to handle password reset */}
           <a href="/forgot-password">Forgot Password?</a>
           <br />
+          {typeof error === 'string' && <p style={{ color: 'red' }}>{error}</p>}
           <button type="button" onClick={handleSignup} className='button-outline'>Sign Up</button>
           <button type="button" onClick={handleLogin} className ='button-filled'>Login</button>
           <br />
