@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import BackButton from '../components/BackButton';
 
 
 async function requestPasswordReset(){
@@ -35,7 +35,17 @@ const ForgotPassword = () => {
     // nothign fancy for now, just need to prove it works
     return (
     <section>
-    <h2>Forgot Password</h2>
+
+        <header>
+            <h2>Forgot Password</h2>
+            <p>
+                Enter your email to reset your password
+            </p>
+        </header>
+
+
+
+    
 
     <p>
         Lorem

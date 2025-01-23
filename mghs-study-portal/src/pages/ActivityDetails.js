@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { PostNewTeam } from '../utils/apiCalls';
-import { Navigate, useNavigate, useParams } from 'react-router-dom';
+// import { PostNewTeam } from '../utils/apiCalls';
+import { useNavigate, useParams } from 'react-router-dom';
 import { getOneActivity } from '../utils/apiCalls';
 import { Link } from 'react-router-dom';
-import BackButton from '../components/BackButton';
+// import BackButton from '../components/BackButton';
+import ReflectionForm from '../components/ReflectionForm';
 
 import ActivitiesSubscribe from '../components/ActivitySubscribe';
 
@@ -12,7 +13,7 @@ import CompleteActivityModal from '../components/CompleteActivityModal';
 import ActivityEditForm from '../components/EditForms/ActivityEditForm';
 
 // navigate to this page to create a new activity
-const ActivityDetails = (params) => {
+const ActivityDetails = () => {
   
   const [CurrentActivity, SetCurrent] = useState([])
   const nav = useNavigate()
@@ -38,7 +39,9 @@ const ActivityDetails = (params) => {
 
       let sub = await FetchActivitySubscription(SetCurrentUserSubscription)
 
-      setIsComplete(sub.message.is_complete)
+      console.log(data)
+
+      setIsComplete(sub?.message?.is_complete || false)
 
       
     }
@@ -62,12 +65,9 @@ const ActivityDetails = (params) => {
       });
 
       if (resp.ok) {
-
-        subscribedSetter(true);
-
-        return await resp.json();
-
-
+        const jsonResponse = await resp.json();
+        subscribedSetter(jsonResponse);
+        return jsonResponse;
       }
     } catch (error) {
       console.error('There was a problem with the fetch request:', error);
@@ -119,7 +119,7 @@ const ActivityDetails = (params) => {
 
     // TODO: do something if it returns OK
     // try to display some feedback
-    if (await response.ok){
+    if (response.ok){
 
       nav('/activities')
       
@@ -129,13 +129,6 @@ const ActivityDetails = (params) => {
 
   function HandleEdit(){
     setEditMode(!editMode)
-  }
-
-
-  // To be implemented
-  // handle the reflection form submission
-  function HandleReflectionSubmit(e){
-    e.preventDefault()
   }
 
   return (
@@ -165,6 +158,16 @@ const ActivityDetails = (params) => {
           </div>
           </section>
         
+          <section>
+            <h2>Reflection</h2>
+
+              <ReflectionForm
+                reflection = {CurrentUserSubscription?.message?.reflection || ''}
+                activityId = {parameters["id"]}
+              />
+
+          </section>
+
 
               {editMode && <ActivityEditForm activity_id={parameters["id"]}/>}
 

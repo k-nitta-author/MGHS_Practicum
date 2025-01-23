@@ -80,6 +80,7 @@ const TaskDetails = () => {
                 </section>
 
                 <section className="page-section">
+
                     <ActivitiesView />
                 </section>
             </main>

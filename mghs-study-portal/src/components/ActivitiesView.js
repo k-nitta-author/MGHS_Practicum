@@ -51,7 +51,14 @@ const ActivitiesView = (props) => {
 
     <section className="activities-view">
 
-        <h2>Activities</h2>
+
+        <header>
+            <h2>Activities</h2>
+
+            <button><Link to={'/activities'}>All Activities</Link></button>
+
+        </header>
+
 
         <Link to="/activity/register">Create New Activity</Link>
 
