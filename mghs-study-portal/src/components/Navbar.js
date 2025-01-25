@@ -43,6 +43,10 @@ return (
 
         
         <ul className={`nav-list ${isOpen ? 'open' : 'closed'}`}>
+
+            <li><button className="nav-toggle" onClick={toggleSidebar}>
+                ☰ {/* Hamburger icon */}
+            </button></li>
             <li><Link to={
 
                 '/dashboard'             
