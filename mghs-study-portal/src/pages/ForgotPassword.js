@@ -43,10 +43,6 @@ const ForgotPassword = () => {
             </p>
         </header>
 
-
-
-    
-
     <p>
         Lorem
     </p>

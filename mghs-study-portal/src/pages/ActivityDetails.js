@@ -131,6 +131,8 @@ const ActivityDetails = () => {
     setEditMode(!editMode)
   }
 
+  console.log(isComplete)
+
   return (
     <div className='page-container'>
       <header>
@@ -158,15 +160,17 @@ const ActivityDetails = () => {
           </div>
           </section>
         
-          <section>
+          {localStorage.getItem("OPTIFLOW_IS_ADMIN") === "false" &&
+            (<section>
             <h2>Reflection</h2>
 
               <ReflectionForm
                 reflection = {CurrentUserSubscription?.message?.reflection || ''}
                 activityId = {parameters["id"]}
+                isComplete={isComplete}
               />
 
-          </section>
+          </section>)}
 
 
               {editMode && <ActivityEditForm activity_id={parameters["id"]}/>}
@@ -174,7 +178,9 @@ const ActivityDetails = () => {
               {localStorage.getItem("OPTIFLOW_IS_ADMIN") === "true" &&  (<button className='edit-button' onClick={HandleEdit}>EDIT</button>)}
 
             {/*section for the different subscriptions for the activity*/}
-            {subscriptions.length > 0 && (
+            
+            
+            {subscriptions.length > 0 &&  localStorage.getItem("OPTIFLOW_IS_ADMIN") === "true" && (
               <section>
                 <h2>Subscription Details</h2>
                 <table>

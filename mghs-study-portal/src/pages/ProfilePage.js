@@ -53,14 +53,10 @@ const ProfilePage = () => {
     
   }
 
-
-
   // Add a check to render only when `user` is not null
   if (!user) {
     return <p>Loading...</p>; // Show a loading message while data is being fetched
   }
-
-
 
   return (
     <div class="details">
@@ -84,17 +80,19 @@ const ProfilePage = () => {
           <p><strong>Team:</strong> <Link to={'/team-details/' + user.team_id}>{user.team_id}</Link></p>
         </section>
 
-        <button id='edit_button' onClick={ () => setEditMode(!editMode)}>Edit Profile</button>
+        {localStorage.getItem("OPTIFLOW_PUBLIC_ID") === params.id && (<button id='edit_button' onClick={ () => setEditMode(!editMode)}>Edit Profile</button>)}
         
-        {editMode && <UserEditForm public_id={params.id}/>}
+        {editMode &&  <UserEditForm public_id={params.id}/>}
 
       </main>
       
-      <footer>
+
+
+      {localStorage.getItem("OPTIFLOW_IS_ADMIN") === true && (<footer>
         <section class="danger-zone">
           <DeleteUser public_id={params.id}></DeleteUser>
         </section>
-      </footer>
+      </footer>)}
 
     </div>
   );
